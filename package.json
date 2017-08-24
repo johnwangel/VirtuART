@@ -1,0 +1,27 @@
+{
+  "name": "virtuart",
+  "version": "0.0.1",
+  "description": "Virtual art canvas for community art piece.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Atkins Oksana Harris Kristin Treder Keith Johnson",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.17.2",
+    "browser-sync": "^2.18.13",
+    "connect-redis": "^3.3.0",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "method-override": "^2.3.9",
+    "mongo-db": "^1.0.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "redis": "^2.8.0"
+  }
+}
