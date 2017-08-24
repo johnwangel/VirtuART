@@ -1,14 +1,7 @@
 
 <div class="main_body">
-  <div class="header">
-    <div class="header_title">USER: {{userData.name}}</div>
-    <div class="header_subtitle"><span class="runin">member since:</span> {{userData.createdAt | date:'longDate'}}</div>
-  </div>
-
-  <div class="container">
-      <div class="section" ng-repeat="message in userData.messages">
-        <div class="latest_topic"><span class="runin">topic:</span> <a class="latest_link" ng-href="/topic/{{message.topic.id}}">{{message.topic.name}}</a></div>
-        <div class="latest_message"><span class="runin">message:</span> {{message.body}}</div>
-      </div>
-  </div>
+    <div class='body_content'>
+      <video id="video" width="640" height="480" autoplay></video>
+      <canvas id="drawingCanvas" style="border:.5px solid #000000;"></canvas>
+    </div>
 </div>
