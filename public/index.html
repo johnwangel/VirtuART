@@ -4,12 +4,18 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./css/styles.css">
   <title>VirtuART</title>
+  <base href="/">
 </head>
-<body>
-  <video id="video" width="640" height="480" autoplay></video>
-  <canvas id="drawingCanvas" width="640" height="480" style="border:1px solid #000000;"></canvas>
-  <script type="text/javascript" src="../index.js"></script>
+<body ng-app="myApp">
+  <div class='banner'><span class='banner_title'>VirtuART</span></div>
+    <div class='body_content'>
+      <video id="video" width="640" height="480" autoplay></video>
+      <canvas id="drawingCanvas" style="border:.5px solid #000000;"></canvas>
+    </div>
+  </div>
+  <div ng-view></div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+  <script type="text/javascript" src="../index.js"></script>
 </body>
 </html>

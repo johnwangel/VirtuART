@@ -11,6 +11,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
+
 var c = document.getElementById("drawingCanvas");
 var ctx = c.getContext("2d");
 ctx.moveTo(0,0);
