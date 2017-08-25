@@ -1,6 +1,12 @@
 angular.module('myApp')
 .service('UsersService', ['$http', function($http) {
 
+  function goHome(){
+      return $http.get('/api/home')
+      .then( allImages => {
+        return allImages;
+      })
+  }
 
   // function getAllUsers(){
   //   return $http.get('/api/users')
@@ -28,9 +34,7 @@ angular.module('myApp')
   // }
 
 
-  // return {
-  //   getAllUsers: getAllUsers,
-  //   getUserAndMessages: getUserAndMessages,
-  //   createNewUser: createNewUser
-  // };
+  return {
+    goHome: goHome
+  };
 }]);
