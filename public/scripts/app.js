@@ -9,7 +9,8 @@ myApp
     function($routeProvider, $locationProvider) {
       $routeProvider
         .when('/userHome', {
-          templateUrl: 'Home.html',
+          templateUrl: 'home.html',
+          //MODIFY THIS WITH NEW HOME CONTROLLER???
           controller: 'MainHomeController'
         })
         .otherwise({ redirectTo: '/' });
