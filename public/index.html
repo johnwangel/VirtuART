@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <title>VirtuART</title>
   <base href="/">
 </head>
@@ -16,7 +16,18 @@
     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=117273505601571";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script> -->
-  <div class='banner'><span class='banner_title'>VirtuART</span></div>
+  <div class='banner'>
+  <span class='banner_title'>VirtuART</span>
+    <div id="menu">
+    <h1>MENU</h1>
+      <button ng-click="someOtherFunction()">cancel</button>
+      <button ng-click="someFunction()">Register</button>
+      <button ng-click="anotherFunction()">Login</button>
+      <button ng-click="yetAnotherFunction()">Log Out</button>
+      <button ng-click="differentFunction()">About The Art</button>
+      <button ng-click="anotherTotallyDiffFunction()">About Us</button>
+    </div>
+  </div>
   <div ng-view></div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
