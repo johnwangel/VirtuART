@@ -8,11 +8,16 @@ const router = express.Router();
 
 
 //load requested canvas
-router.get('/', loadCanvas);
+router.get('/', getImages);
 
-function loadCanvas(req, res) {
-  res.json({image: "add.png"});
+function getImages(req, res) {
+  console.log('hitting this');
+
+  res.json({
+    imageName: 'art.jpg',
+    creator: 'Snoopy',
+    updatedAt: "8 am"
+  });
 }
-
 
 module.exports = router;

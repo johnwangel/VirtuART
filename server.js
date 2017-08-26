@@ -8,9 +8,10 @@ const app = express();
 const RedisStore = require('connect-redis')(session);
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const PORT = process.env.PORT || 9000;
-const router = express.Router();
-const doodleRouter = require('./routes/image_routes');
+const PORT = process.env.PORT || 3000;
+const api = require('./api');
+
+app.use('/api', api);
 
 app.use(express.static('public'));
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.serializeUser(function(user, done){
   done(null, user.id);
 });
@@ -30,8 +32,6 @@ passport.deserializeUser(function(id, done){
 passport.use(new LocalStrategy((username, password, done)=>{
   //we will use facebook strategy here
   }));
-
-app.use('/doodles', doodleRouter);
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);

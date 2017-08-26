@@ -3,17 +3,13 @@ var myApp = angular.module('myApp');
 
 myApp.controller('MainHomeController', [
   '$scope',
-  '$filter',
   'UsersService',
-  function($scope, $filter, UsersService) {
-    $scope.userData = [];
+  function($scope, UsersService) {
+    $scope.currentPhotos = [];
 
-    return UsersService.getUserHome(
-      window.localStorage.getItem('authorID')
-    ).then(userData => {
-      $filter('orderBy')(userData.messages, 'createdAt');
-      console.log(userData);
-      $scope.userData = userData;
+    return UsersService.goHome()
+    .then(photoData => {
+      $scope.currentPhotos = photoData;
     });
   }
 ]);
