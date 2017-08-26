@@ -8,7 +8,7 @@ const app = express();
 const RedisStore = require('connect-redis')(session);
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
 const api = require('./api');
 
 app.use('/api', api);

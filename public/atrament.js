@@ -8,3 +8,11 @@ var sketcher = atrament('#mySketcher');
   canvas.addEventListener('dirty', function(e) {
     clearButton.style.display = atrament.dirty ? 'inline-block' : 'none';
   });
+
+
+
+
+var saveButton= document.getElementById('save');
+saveButton.addEventListener('click', function(e){
+  return 'hi';
+});
