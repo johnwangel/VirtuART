@@ -12,3 +12,6 @@
 
 .drawingCanvas {
   background-image: url(../img/add.png); }
+
+#mySketcher {
+  border: solid black 2px; }
