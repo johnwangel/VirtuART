@@ -1,3 +1,18 @@
+body {
+  max-width: 310px;
+  max-height: 352px; }
+
+.canvasContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-template-rows: 50% 30% 20%;
+  z-index: -1; }
+
+#cameraCanvas {
+  position: relative;
+  width: 300px; }
+
 #body_content {
   position: relative;
   margin-left: 100px;
@@ -6,18 +21,16 @@
   z-index: -1; }
 
 #sketcher {
-  position: fixed;
+  position: relative;
   border: solid black 2px;
-  margin-left: 200px;
   width: 640px;
   height: 480px;
   z-index: 1; }
 
 form {
+  position: relative;
   z-index: 3;
-  position: fixed;
-  top: 300;
-  left: 100;
+  width: 640px;
   background: rgba(0, 0, 0, 0.7);
   padding: 1em;
   color: white; }

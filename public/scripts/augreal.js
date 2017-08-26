@@ -15,7 +15,7 @@ window.augreal = function() {
   renderer.setClearColor(new THREE.Color('lightgrey'), 0)
   // renderer.setPixelRatio( 1/2 );
   // renderer.setSize( 400, 400);
-  // let domContainer = document.getElementById('cameraCanvas');
+  // let domContainer = document.getElementById('body_content');
   // domContainer.appendChild(renderer.domElement);
 
   // renderer.domElement.style.position = 'absolute'
@@ -134,8 +134,6 @@ window.augreal = function() {
 
   var imageArray = ["../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png","../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg"];
 
-
-
 renderGrid(2, 4, 4);
 
 function renderGrid(squareWidth, rows, columns){
@@ -233,12 +231,12 @@ function renderSquare(parent, squareWidth, image, positionZ, positionX){
   //////////////////////////////////////////////////////////////////////////////////
   //    render the whole thing on the page
   //////////////////////////////////////////////////////////////////////////////////
-  var stats = new Stats();
-  document.body.appendChild( stats.dom );
+  // var stats = new Stats();
+  // document.body.appendChild( stats.dom );
   // render the scene
   onRenderFcts.push(function(){
     renderer.render( scene, camera );
-    stats.update();
+    // stats.update();
   })
 
   // run the rendering loop
