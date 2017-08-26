@@ -14,6 +14,7 @@ const api = require('./api');
 app.use('/api', api);
 
 app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(methodOverride('_method'));
 app.use(passport.initialize());
@@ -31,6 +32,7 @@ passport.deserializeUser(function(id, done){
 passport.use(new LocalStrategy((username, password, done)=>{
   //we will use facebook strategy here
   }));
+
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
