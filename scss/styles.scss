@@ -21,3 +21,38 @@
 #mySketcher {
   border: solid black 2px;
 }
+
+// FROM ATRAMENT HTML:
+
+canvas {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+}
+
+form {
+  z-index: 3;
+  position: fixed;
+  top: 300;
+  left: 100;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  color:white;
+}
+
+form * {
+  margin-bottom: 1em;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+  form * {
+    font-size: 1.5em;
+  }
+}
+
+#clear {
+  display: none;
+}
