@@ -1,37 +1,30 @@
-.body_content {
+#body_content {
   position: relative;
+  margin-left: 100px;
+  width: 400px;
+  height: 400px;
+  z-index: -1;
+}
+
+#sketcher {
+  position: fixed;
+  border: solid black 2px;
+  margin-left: 200px;
   width: 640px;
   height: 480px;
-}
-
-
-#video, #drawingCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.drawingCanvas {
-    // background-color: rgba(0,0,0,0);
-    background-image: url(../img/add.png);
-}
-
-#mySketcher {
-  border: solid black 2px;
+  z-index: 1;
 }
 
 // FROM ATRAMENT HTML:
 
-canvas {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 2;
-}
+// canvas {
+//   width: 100vw;
+//   height: 100vh;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 2;
+// }
 
 form {
   z-index: 3;

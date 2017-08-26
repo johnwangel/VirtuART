@@ -8,8 +8,8 @@ myApp.controller('ToolkitController', [
     $scope.image = '';
 
     return ToolkitService.getCanvas().then(thisCanvas => {
-        console.log(thisCanvas);
         $scope.image = thisCanvas;
+        window.atra();
       });
   }
 ]);
