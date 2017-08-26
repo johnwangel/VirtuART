@@ -1,10 +1,17 @@
 <div class="main_body">
-
-      <!-- <video id="video" width="640" height="480" autoplay></video> -->
-      <!-- <canvas id="drawingCanvas" style="border:.5px solid #000000 ;"></canvas> -->
+      <div class="section" ng-repeat="photo in currentPhotos">
+            <div class="message_creator">{{photo.imageName}}: </div>
+            <div class="message_date">{{photo.creator}}</div>
+            <div class="message">{{photo.updatedAt}}</div>
+          </div>
+      </div>
+    </div>
 
      <button id="createDrawing" ng-click="openCanvas()">Add Your Own</button>
 </div>
+
+
+
 
 
 <!-- THIS GOT COPIED OVER TO INDEX.HTML -->
@@ -19,3 +26,4 @@
 <!-- <body style='margin : 0px; overflow: hidden; font-family: Monospace;'> -->
 <!--   <div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
   </div> -->
+
