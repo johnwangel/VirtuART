@@ -10,7 +10,6 @@ myApp
       $routeProvider
         .when('/', {
           templateUrl: '../pages/home/home.html',
-          //MODIFY THIS WITH NEW HOME CONTROLLER???
           controller: 'MainHomeController'
         })
         .when('/toolkit', {

@@ -1,4 +1,3 @@
-
 var sketcher = atrament('#mySketcher');
 
 
@@ -7,3 +6,4 @@ var sketcher = atrament('#mySketcher');
 
 //var sketcher = atrament('#mySketcher', 400, 400, 'orange');
 //  sketcher.clear();
+

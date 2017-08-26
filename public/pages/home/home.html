@@ -1,6 +1,24 @@
 <div class="main_body">
+      <div class="section" ng-repeat="photo in currentPhotos">
+            <div class="message_creator">{{photo.imageName}}: </div>
+            <div class="message_date">{{photo.creator}}</div>
+            <div class="message">{{photo.updatedAt}}</div>
+          </div>
+      </div>
     </div>
      <button id="createDrawing" ng-click="openCanvas()">Add Your Own</button>
 </div>
 
+<!-- THIS GOT COPIED OVER TO INDEX.HTML -->
+<!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
+<!-- <script src='./build/three.min.js'></script>
+<script src="./examplesjslibs/stats.min.js"></script> -->
+<!-- ar.js -->
+<!-- <script src="ar.js"></script>
+<script>THREEx.ArToolkitContext.baseURL = 'https://jeromeetienne.github.io/AR.js/three.js/'</script> -->
+<!-- END OF COPIED TEXT TO INDEX.HTML -->
+
+<!-- <body style='margin : 0px; overflow: hidden; font-family: Monospace;'> -->
+<!--   <div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
+  </div> -->
 

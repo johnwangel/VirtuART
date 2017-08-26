@@ -8,12 +8,17 @@ const app = express();
 const RedisStore = require('connect-redis')(session);
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 3000;
+const api = require('./api');
+
+app.use('/api', api);
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.serializeUser(function(user, done){
   done(null, user.id);
 });
