@@ -1,11 +1,17 @@
+console.log("running augreal");
+
 window.augreal = function(photoData) {
   //////////////////////////////////////////////////////////////////////////////////
   //    Init
   //////////////////////////////////////////////////////////////////////////////////
   // init renderer
 
-
+  console.log("inside function - running augreal");
   var canvas = document.getElementById("cameraCanvas");
+  var canvasContainer = document.getElementById("canvasContainer");
+
+  console.log('canvas element grabbed', canvasContainer);
+
   let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
 
     // var renderer  = new THREE.WebGLRenderer({
@@ -15,10 +21,19 @@ window.augreal = function(photoData) {
     renderer.setClearColor(new THREE.Color('lightgrey'), 0)
     // renderer.setPixelRatio( 1/2 );
     renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.domElement.style.position = 'absolute'
-    renderer.domElement.style.top = '0px'
-    renderer.domElement.style.left = '0px'
-    document.body.appendChild( renderer.domElement );
+
+    console.log('our renderer size is ', window.innerWidth, window.innerHeight);
+
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.top = '0px';
+    renderer.domElement.style.left = '0px';
+
+    console.log('renderer dom element position, top, left ', renderer.domElement.style.position,
+    renderer.domElement.style.top, renderer.domElement.style.left);
+
+    canvasContainer.appendChild( renderer.domElement );
+
+
 
   // array of functions for the rendering loop
   var onRenderFcts= [];
@@ -136,7 +151,7 @@ window.augreal = function(photoData) {
   console.log('this is IMAGE ARRAY', imageArray);
 
 
-renderGrid(2, 4, 4);
+renderGrid(1, 4, 4);
 
 function renderGrid(squareWidth, rows, columns){
   var gridWidth = squareWidth * columns;
@@ -257,3 +272,6 @@ function renderSquare(parent, squareWidth, image, positionZ, positionX){
   })
 
 }
+
+
+// https://threejs.org/examples/webgl_materials_texture_filters.html

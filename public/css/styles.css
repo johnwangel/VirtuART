@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  max-width: 310px;
-  max-height: 352px; }
+  /*max-width: 310px;*/
+  /*max-height: 352px;*/ }
 
 video {
-  position: fixed;
-  top: 100px;
-  width: 500px !important;
-  height: 500px !important; }
+  /*  position: fixed;
+  top: 100px;*/
+  /*width: 500px !important;*/
+  /*height: 500px !important;*/ }
 
 #canvas {
   position: relative;
@@ -23,8 +23,51 @@ video {
 
 .banner {
   height: 50px;
-  background-color: black;
-  color: white; }
+  background-color: #f4f7fc;
+  color: #4b4c4f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px; }
+
+.banner_title {
+  display: inline;
+  line-height: 50px;
+  font-size: 32px;
+  font-family: Helvetica;
+  vertical-align: center; }
+
+.menuIcon {
+  height: 38px;
+  display: inline; }
+
+.addContainer {
+  background-color: #f4f7fc;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: fixed;
+  right: -100px;
+  bottom: -100px;
+  cursor: pointer;
+  /*opacity: .7;*/ }
+
+.add_you_own_button {
+  display: block;
+  /*background-color: purple;*/
+  text-decoration: none;
+  font-family: Helvetica;
+  color: #4b4c4f;
+  opacity: 1;
+  position: relative;
+  top: 30px;
+  left: 20px;
+  width: 75px;
+  padding: 10px 10px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer; }
 
 .canvasContainer {
   position: relative;
@@ -34,8 +77,9 @@ video {
   z-index: -1; }
 
 #cameraCanvas {
-  position: relative;
-  width: 300px; }
+  /*position: relative;*/
+  /*width: 300px;*/
+  /*z-index: -1;*/ }
 
 #body_content {
   position: relative;
