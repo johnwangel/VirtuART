@@ -8,20 +8,17 @@ window.augreal = function(photoData) {
   var canvas = document.getElementById("cameraCanvas");
   let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
 
-  // var renderer  = new THREE.WebGLRenderer({
-  //   // antialias  : true,
-  //   alpha: true
-  // });
-  renderer.setClearColor(new THREE.Color('lightgrey'), 0)
-  // renderer.setPixelRatio( 1/2 );
-  // renderer.setSize( 400, 400);
-  // let domContainer = document.getElementById('cameraCanvas');
-  // domContainer.appendChild(renderer.domElement);
-
-  // renderer.domElement.style.position = 'absolute'
-  // renderer.domElement.style.top = '0px'
-  // renderer.domElement.style.left = '0px'
-  // document.body.appendChild( renderer.domElement );
+    // var renderer  = new THREE.WebGLRenderer({
+    //   // antialias  : true,
+    //   alpha: true
+    // });
+    renderer.setClearColor(new THREE.Color('lightgrey'), 0)
+    // renderer.setPixelRatio( 1/2 );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.domElement.style.position = 'absolute'
+    renderer.domElement.style.top = '0px'
+    renderer.domElement.style.left = '0px'
+    document.body.appendChild( renderer.domElement );
 
   // array of functions for the rendering loop
   var onRenderFcts= [];
@@ -134,6 +131,7 @@ window.augreal = function(photoData) {
 
   // var imageArray = ["../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png","../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg"];
 
+
   var imageArray = photoData[8].images;
   console.log('this is IMAGE ARRAY', imageArray);
 
@@ -235,12 +233,12 @@ function renderSquare(parent, squareWidth, image, positionZ, positionX){
   //////////////////////////////////////////////////////////////////////////////////
   //    render the whole thing on the page
   //////////////////////////////////////////////////////////////////////////////////
-  var stats = new Stats();
-  document.body.appendChild( stats.dom );
+  // var stats = new Stats();
+  // document.body.appendChild( stats.dom );
   // render the scene
   onRenderFcts.push(function(){
     renderer.render( scene, camera );
-    stats.update();
+    // stats.update();
   })
 
   // run the rendering loop
