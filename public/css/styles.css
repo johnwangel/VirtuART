@@ -1,6 +1,18 @@
 body {
+  margin: 0;
   max-width: 310px;
   max-height: 352px; }
+
+video {
+  position: fixed;
+  top: 100px;
+  width: 500px !important;
+  height: 500px !important; }
+
+.banner {
+  height: 50px;
+  background-color: black;
+  color: white; }
 
 .canvasContainer {
   position: relative;

@@ -8,20 +8,17 @@ window.augreal = function() {
   var canvas = document.getElementById("cameraCanvas");
   let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
 
-  // var renderer  = new THREE.WebGLRenderer({
-  //   // antialias  : true,
-  //   alpha: true
-  // });
-  renderer.setClearColor(new THREE.Color('lightgrey'), 0)
-  // renderer.setPixelRatio( 1/2 );
-  // renderer.setSize( 400, 400);
-  // let domContainer = document.getElementById('body_content');
-  // domContainer.appendChild(renderer.domElement);
-
-  // renderer.domElement.style.position = 'absolute'
-  // renderer.domElement.style.top = '0px'
-  // renderer.domElement.style.left = '0px'
-  // document.body.appendChild( renderer.domElement );
+    // var renderer  = new THREE.WebGLRenderer({
+    //   // antialias  : true,
+    //   alpha: true
+    // });
+    renderer.setClearColor(new THREE.Color('lightgrey'), 0)
+    // renderer.setPixelRatio( 1/2 );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.domElement.style.position = 'absolute'
+    renderer.domElement.style.top = '0px'
+    renderer.domElement.style.left = '0px'
+    document.body.appendChild( renderer.domElement );
 
   // array of functions for the rendering loop
   var onRenderFcts= [];
