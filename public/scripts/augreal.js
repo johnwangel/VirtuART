@@ -1,4 +1,4 @@
-window.augreal = function() {
+window.augreal = function(photoData) {
   //////////////////////////////////////////////////////////////////////////////////
   //    Init
   //////////////////////////////////////////////////////////////////////////////////
@@ -132,8 +132,10 @@ window.augreal = function() {
   var gridSquaresX = 4;
   var gridSquaresY = 1;
 
-  var imageArray = ["../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png","../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg"];
+  // var imageArray = ["../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png","../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg"];
 
+  var imageArray = photoData[8].images;
+  console.log('this is IMAGE ARRAY', imageArray);
 
 
 renderGrid(2, 4, 4);
