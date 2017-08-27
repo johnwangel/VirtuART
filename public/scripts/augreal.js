@@ -1,18 +1,22 @@
-
+window.augreal = function() {
   //////////////////////////////////////////////////////////////////////////////////
   //    Init
   //////////////////////////////////////////////////////////////////////////////////
-
   // init renderer
-  var renderer  = new THREE.WebGLRenderer({
-    // antialias  : true,
-    alpha: true
-  });
+
+
+  var canvas = document.getElementById("cameraCanvas");
+  let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+
+  // var renderer  = new THREE.WebGLRenderer({
+  //   // antialias  : true,
+  //   alpha: true
+  // });
   renderer.setClearColor(new THREE.Color('lightgrey'), 0)
   // renderer.setPixelRatio( 1/2 );
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  let domContainer = document.getElementById('body_content');
-  domContainer.appendChild(renderer.domElement);
+  // renderer.setSize( 400, 400);
+  // let domContainer = document.getElementById('cameraCanvas');
+  // domContainer.appendChild(renderer.domElement);
 
   // renderer.domElement.style.position = 'absolute'
   // renderer.domElement.style.top = '0px'
@@ -38,16 +42,7 @@
   ////////////////////////////////////////////////////////////////////////////////
 
   var arToolkitSource = new THREEx.ArToolkitSource({
-    // to read from the webcam
-    sourceType : 'webcam',
-
-    // to read from an image
-    // sourceType : 'image',
-    // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/images/img.jpg',
-
-    // to read from a video
-    // sourceType : 'video',
-    // sourceUrl : THREEx.ArToolkitContext.baseURL + '../data/videos/headtracking.mp4',
+    sourceType : 'webcam'
   })
 
   arToolkitSource.init(function onReady(){
@@ -100,7 +95,7 @@
   scene.add(markerRoot)
   var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
     type : 'pattern',
-    patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
+    patternUrl : 'https://jeromeetienne.github.io/AR.js/data/data/patt.hiro'
     // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji'
   })
 
@@ -261,3 +256,4 @@ function renderSquare(parent, squareWidth, image, positionZ, positionX){
     })
   })
 
+}

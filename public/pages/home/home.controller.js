@@ -10,6 +10,7 @@ myApp.controller('MainHomeController', [
     return UsersService.goHome()
     .then(photoData => {
       $scope.currentPhotos = photoData;
+      window.augreal();
     });
   }
 ]);

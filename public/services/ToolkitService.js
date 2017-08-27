@@ -1,16 +1,17 @@
 angular.module('myApp')
 .service('ToolkitService', ['$http', function($http) {
 
-    function openCanvas() {
-      console.log('getting to get canvas')
-      return $http({ method: 'GET', url: '/api/toolkit/' }).then(canvas => {
-        console.log(canvas);
+    function getCanvas() {
+      return $http.get('/api/toolkit')
+      .then( canvas => {
         return canvas.data;
       });
     }
 
     return {
-      getCanvas: getCanvas
+      getCanvas: getCanvas,
+
+
     };
   }
 ]);
