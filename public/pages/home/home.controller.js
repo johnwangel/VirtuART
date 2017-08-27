@@ -9,7 +9,8 @@ myApp.controller('MainHomeController', [
 
     return UsersService.goHome()
     .then(photoData => {
-      window.augreal();
+      // console.log('from our controller - photo data', photoData);
+      window.augreal(photoData);
     });
   }
 ]);
