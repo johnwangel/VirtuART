@@ -8,8 +8,17 @@ angular.module('myApp')
       })
     }
 
+    function toImage() {
+      let image = document.getElementById('sketcher').toDataURL();
+      //save image to some location
+      //user POST to save image location to database
+      //return user to main page
+      //event listener to re-render image for users???
+    }
+
     return {
-      getCanvas: getCanvas
+      getCanvas: getCanvas,
+      toImage: toImage
     };
   }
 ]);
