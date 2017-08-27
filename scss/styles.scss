@@ -13,6 +13,20 @@ video {
   /*height: 500px !important;*/
 }
 
+#canvas{
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  background-color: #FFF;
+  box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
+  z-index: 4;
+}
+
+.start_drawing {
+  position: fixed;
+  top: 600px;
+  z-index: 3;
+}
+
 .banner {
   height: 50px;
   background-color: #f4f7fc;
@@ -90,7 +104,8 @@ video {
 }
 
 #sketcher {
-  position: relative;
+  position: fixed;
+  left: 500px;
   border: solid black 2px;
   width: 640px;
   height: 480px;
