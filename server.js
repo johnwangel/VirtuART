@@ -9,9 +9,24 @@ const RedisStore = require('connect-redis')(session);
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const PORT = process.env.PORT || 9000;
-const api = require('./api');
+const apiRoute = require('./api');
+const AWS = require('aws-sdk');
+const AWS_ACCESS_KEY = require('./config/aws.json').AwsAccessKeyId;
+const AWS_SECRET = require('./config/aws.json').AwsSecretAccessKey;
+const db= require('./collections/index.js');
 
-app.use('/api', api);
+// console.log(AWS_ACCESS_KEY, AWS_SECRET)
+//using s3 to authenticate
+const credentials={
+  accessKeyId: AWS_ACCESS_KEY,
+  secretAccessKey: AWS_SECRET
+};
+
+AWS.config.update(credentials);
+const s3 = new AWS.S3();
+
+
+// app.use('/api', api);
 
 app.use(express.static('public'));
 
@@ -23,9 +38,24 @@ app.use(passport.session());
 
 
 app.post('/api/drawings', (req, res)=>{
-  console.log(req.body.image);
+  const params = {
+    Key: 'drawings/'+Date.now(),
+    ContentLength: req.body.image.length,
+    ContentType: 'image/png',
+    ACL: 'public-read',
+    Bucket: 'virtuarthawaii',
+    Body: req.body.image
 
-  res.send("image received")
+  };
+  s3.upload(params, function(err,output){
+    console.log(err);
+    console.log(output);
+    res.send("image received");
+    console.log('website', output.Location);
+  });
+
+
+
 });
 
 passport.serializeUser(function(user, done){
@@ -40,6 +70,8 @@ passport.deserializeUser(function(id, done){
 passport.use(new LocalStrategy((username, password, done)=>{
   //we will use facebook strategy here
   }));
+
+ app.use('/api', apiRoute);
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
