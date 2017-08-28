@@ -22,12 +22,11 @@
     <span class='banner_title'>VirtuART</span>
       <div id="menu">
         <h1>MENU</h1>
-        <button ng-click="someOtherFunction()">cancel</button>
-        <button ng-click="someFunction()">Register</button>
-        <button ng-click="anotherFunction()">Login</button>
-        <button ng-click="yetAnotherFunction()">Log Out</button>
-        <button ng-click="differentFunction()">About The Art</button>
-        <button ng-click="anotherTotallyDiffFunction()">About Us</button>
+        <a ng-href="/register"><button>Register</button></a>
+        <a ng-href="/login"><button>Login</button></a>
+        <a ng-href="/logout"><button>Log Out</button></a>
+        <a ng-href="/aboutTheArt"><button>About The Art</button></a>
+        <a ng-href="/aboutUs"><button>About Us</button></a>
       </div>
   </div>
   <div ng-view></div>
