@@ -20,6 +20,9 @@
 
   <div class='banner'>
     <span class='banner_title'>VirtuART</span>
+    <img src="./img/menu.png" alt="" class="menuIcon">
+  </div>
+  <div ng-view></div>
       <div id="menu">
         <h1>MENU</h1>
         <a ng-href="/register"><button>Register</button></a>
@@ -28,25 +31,23 @@
         <a ng-href="/aboutTheArt"><button>About The Art</button></a>
         <a ng-href="/aboutUs"><button>About Us</button></a>
       </div>
-  </div>
-  <div ng-view></div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/atrament.js/0.2.3/atrament.min.js"></script>
-  <script>THREEx.ArToolkitContext.baseURL = 'https://jeromeetienne.github.io/AR.js/three.js/'</script>
-  <script src="/atrament.js"></script>
-  <script type="text/javascript" src="./scripts/ar.js"></script>
+  <script src="./dist/atrament.min.js"></script>
+  <script src="./atrament.js"></script>
   <script type="text/javascript" src="./scripts/augreal.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script src="/services/services.js"></script>
-  <script type="text/javascript" src="/pages/home/home.controller.js"></script>
-  <script type="text/javascript" src="/pages/login/login.controller.js"></script>
-  <script type="text/javascript" src="/pages/menu/menu.controller.js"></script>
-  <script type="text/javascript" src="/pages/register/register.controller.js"></script>
-  <script type="text/javascript" src="/pages/toolkit/toolkit.controller.js"></script>
+  <script type="text/javascript" src="./scripts/app.js"></script>
+  <script src="./services/services.js"></script>
+  <script type="text/javascript" src="./pages/home/home.controller.js"></script>
+  <script type="text/javascript" src="./pages/login/login.controller.js"></script>
+  <script type="text/javascript" src="./pages/menu/menu.controller.js"></script>
+  <script type="text/javascript" src="./pages/register/register.controller.js"></script>
+  <script type="text/javascript" src="./pages/toolkit/toolkit.controller.js"></script>
   <script type="text/javascript" src="./scripts/three.min.js"></script>
   <script type="text/javascript" src="./scripts/stats.min.js"></script>
-  <!-- ar.js -->
+  <script type="text/javascript" src="./scripts/ar.js"></script>
   <script type="text/javascript" src="./services/services.js"></script>
+  <script type="text/javascript" src="./services/ToolkitService.js"></script>
 </body>
 </html>

@@ -1,14 +1,14 @@
 <div class="main_body">
-  <div id='body_content'></div>
-      <div class="section" ng-repeat="photo in currentPhotos">
-            <div class="message_creator">{{photo.imageName}}: </div>
-            <div class="message_date">{{photo.creator}}</div>
-            <div class="message">{{photo.updatedAt}}</div>
-          </div>
-      </div>
-    </div>
-        <a ng-href="/toolkit">Add Your Own</a>
+  <div id="canvasContainer">
+    <canvas id="cameraCanvas"></canvas>
+  </div>
+<!--   <div id='body_content' width="400" heigth="400"></div> -->
+  <div class="addContainer">
+    <a class="add_you_own_button" ng-href="/toolkit">Add Yours</a>
+  </div>
+  <a class="start_drawing" ng-href="/toolkit">Add Your Own</a>
 </div>
+
 
 <!-- THIS GOT COPIED OVER TO INDEX.HTML -->
 <!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
