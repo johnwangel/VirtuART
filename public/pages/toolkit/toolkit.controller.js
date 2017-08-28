@@ -10,8 +10,6 @@ myApp.controller('ToolkitController', [
           // var sketcher = atrament("#sketcher");
           var canvas = document.getElementById("canvas");
           var image = canvas.toDataURL('image/png', 1.0);
-          console.log(image);
-
           ToolkitService.postImage(image).then(result => {
             console.log(result);
           });
