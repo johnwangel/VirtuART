@@ -1,4 +1,4 @@
-import Mouse from './mouse.js';
+
 
 class Atrament {
   constructor(selector, width, height, color) {
@@ -427,5 +427,5 @@ function atrament(selector, width, height, color) {
   return new Atrament(selector, width, height, color);
 }
 
-module.exports = atrament;
-module.exports.Atrament = Atrament;
+// module.exports = atrament;
+// module.exports.Atrament = Atrament;

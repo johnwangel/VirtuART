@@ -16,9 +16,17 @@ app.use('/api', api);
 app.use(express.static('public'));
 
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+app.post('/api/drawings', (req, res)=>{
+  console.log(req.body.image);
+
+  res.send("image received")
+});
 
 passport.serializeUser(function(user, done){
   done(null, user.id);
