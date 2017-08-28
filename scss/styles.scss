@@ -1,3 +1,100 @@
+
+
+body {
+  margin: 0;
+  /*max-width: 310px;*/
+  /*max-height: 352px;*/
+}
+
+video {
+/*  position: fixed;
+  top: 100px;*/
+  /*width: 500px !important;*/
+  /*height: 500px !important;*/
+}
+
+#canvas{
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  background-color: #FFF;
+  box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
+  z-index: 4;
+}
+
+.start_drawing {
+  position: fixed;
+  top: 600px;
+  z-index: 3;
+}
+
+.banner {
+  height: 50px;
+  background-color: #f4f7fc;
+  color: #4b4c4f;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.banner_title {
+  display: inline;
+  line-height: 50px;
+  font-size: 32px;
+  font-family: Helvetica;
+  vertical-align: center;
+}
+
+.menuIcon {
+  height: 38px;
+  display: inline;
+}
+
+.addContainer {
+  background-color: #f4f7fc;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: fixed;
+  right: -100px;
+  bottom: -100px;
+  cursor: pointer;
+  /*opacity: .7;*/
+}
+
+.add_you_own_button{
+  display: block;
+  /*background-color: purple;*/
+  text-decoration: none;
+  font-family: Helvetica;
+  color: #4b4c4f;
+  opacity: 1;
+  position: relative;
+  top: 30px;
+  left: 20px;
+  width: 75px;
+  padding: 10px 10px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.canvasContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-template-rows: 50% 30% 20%;
+  z-index: -1;
+}
+
+#cameraCanvas {
+  /*position: relative;*/
+  /*width: 300px;*/
+  /*z-index: -1;*/
+}
+
+
 #body_content {
   position: relative;
   margin-left: 100px;
@@ -8,8 +105,8 @@
 
 #sketcher {
   position: fixed;
+  left: 500px;
   border: solid black 2px;
-  margin-left: 200px;
   width: 640px;
   height: 480px;
   z-index: 1;
@@ -27,10 +124,11 @@
 // }
 
 form {
+  position: relative;
   z-index: 3;
-  position: fixed;
-  top: 300;
-  left: 100;
+  // top: 300;
+  // left: 100;
+  width: 640px;
   background: rgba(0, 0, 0, 0.7);
   padding: 1em;
   color:white;

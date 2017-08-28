@@ -1,7 +1,9 @@
 window.atra = function() {
-  var sketcher = window.atrament('#sketcher');
-  var canvas = document.getElementById('sketcher');
-  var atrament = window.atrament(canvas, 640, 480 );
+  let vids = document.getElementsByTagName('video')
+  if (vids.length > 0){
+    document.body.removeChild(vids[0])
+  }
+
 
   var clearButton = document.getElementById('clear');
   canvas.addEventListener('dirty', function(e) {
@@ -16,4 +18,15 @@ window.atra = function() {
 // saveButton.addEventListener('click', function(e){
 //   return 'hi';
 // });
+// };
+
+  // var sketcher = window.atrament('#sketcher');
+  // var canvas = document.getElementById('sketcher');
+  // var atrament = window.atrament(canvas, 640, 480 );
+
+  // var clearButton = document.getElementById('clear');
+  // canvas.addEventListener('dirty', function(e) {
+  //   clearButton.style.display = window.atrament.dirty ? 'inline-block' : 'none';
+  // });
 };
+
