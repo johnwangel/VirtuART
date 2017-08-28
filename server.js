@@ -1,13 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const LocalStrategy = require('passport-local');
 const methodOverride= require('method-override');
-const session= require('express-session');
 const app = express();
-const RedisStore = require('connect-redis')(session);
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+//do we need this?
+//const saltRounds = 10;
 const PORT = process.env.PORT || 3000;
 const api = require('./api');
 const AWS = require('aws-sdk');
@@ -15,7 +12,16 @@ const AWS_ACCESS_KEY = require('./config/aws.json').AwsAccessKeyId;
 const AWS_SECRET = require('./config/aws.json').AwsSecretAccessKey;
 const base64 = require('base-64');
 
+const bcrypt = require('bcrypt');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+
+
+app.use('/api', api);
+
 const db= require('./collections/index.js');
+
 
 // console.log(AWS_ACCESS_KEY, AWS_SECRET)
 //using s3 to authenticate
@@ -31,8 +37,15 @@ app.use('/api', api);
 app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(methodOverride('_method'));
+
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(session({
+  store: new RedisStore(),
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialize: false
+}));
 
 app.post('/api/drawings', (req, res)=>{
   let image = req.body.image;
@@ -54,6 +67,7 @@ app.post('/api/drawings', (req, res)=>{
   });
 });
 
+
 passport.serializeUser(function(user, done){
   done(null, user.id);
 });
@@ -64,7 +78,22 @@ passport.deserializeUser(function(id, done){
     .catch(err => done(err));
 });
 passport.use(new LocalStrategy((username, password, done)=>{
-  //we will use facebook strategy here
+  Users.findOne({where: { username: username} })
+  .then(user => {
+    if (user === null) {
+      return done(null, false, { message: 'Incorrect username or password.'});
+    }
+    else {
+      bcrypt.compare(password, user.password)
+      .then(res => {
+        if (res) { return done(null, user); }
+        else {
+          return done(null, false, {message: 'Incorrect username or password.'});
+        }
+      })
+      .catch(err => { console.log('error: ', err); });
+    }
+  })
   }));
 
 app.listen(PORT, () => {
