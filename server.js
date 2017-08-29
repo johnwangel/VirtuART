@@ -6,6 +6,7 @@ const app = express();
 
 const saltRounds = 10;
 const PORT = process.env.PORT || 3000;
+
 const api = require('./api');
 const AWS = require('aws-sdk');
 const AWS_ACCESS_KEY = require('./config/aws.json').AwsAccessKeyId;
