@@ -10,6 +10,7 @@ MongoClient.connect(mongoConnectionString, function(err, connectedDb) {
 
   artData = mongoDb.collection('artCollection');
   // db.close(); // don't want this piece
+
 });
 
 module.exports = {

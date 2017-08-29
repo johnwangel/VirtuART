@@ -4,7 +4,8 @@
   "description": "Virtual art canvas for community art piece.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "John Atkins Oksana Harris Kristin Treder Keith Johnson",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "angular": "^1.6.5",
     "atrament": "^0.2.3",
     "aws-sdk": "^2.104.0",
+
     "base-64": "^0.1.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",
@@ -28,5 +30,13 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "redis": "^2.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnwangel/VirtuART.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johnwangel/VirtuART/issues"
+  },
+  "homepage": "https://github.com/johnwangel/VirtuART#readme"
 }

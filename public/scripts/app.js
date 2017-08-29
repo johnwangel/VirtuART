@@ -16,6 +16,24 @@ myApp
           templateUrl: '../pages/toolkit/toolkit.html',
           controller: 'ToolkitController'
         })
+
+        .when('/login', {
+          templateUrl: '../pages/login/login.html',
+          controller: 'LoginController'
+        })
+        .when('/register', {
+          templateUrl: '../pages/register/register.html',
+          controller: 'RegisterController'
+        })
+        .when('/register', {
+          templateUrl:'../pages/register/register.html',
+          controller: ''
+        })
+        .when('/login', {
+          templateUrl:'../pages/login/login.html',
+          controller:'LoginController'
+
+        })
         .otherwise({ redirectTo: '/' });
       $locationProvider.html5Mode(true);
     }
@@ -24,6 +42,8 @@ myApp
   return {
     restrict: "A",
     link: function(scope, element){
+      console.log('this is scope on drawing directive', scope);
+      console.log('this is the element on drawing directive', element);
       var ctx = element[0].getContext('2d');
 
       // variable that decides if something should be drawn on mousemove
@@ -43,6 +63,18 @@ myApp
 
         drawing = true;
       });
+
+      element.bind('touchstart', function(event){
+
+        lastX = event.offsetX;
+        lastY = event.offsetY;
+
+        // begins new line
+        ctx.beginPath();
+
+        drawing = true;
+      });
+
       element.bind('mousemove', function(event){
         if(drawing){
           // get current mouse position
@@ -55,9 +87,28 @@ myApp
           lastX = currentX;
           lastY = currentY;
         }
-
       });
+
+      element.bind('touchmove', function(event){
+        if(drawing){
+          // get current mouse position
+          currentX = event.offsetX;
+          currentY = event.offsetY;
+
+          draw(lastX, lastY, currentX, currentY);
+
+          // set current coordinates to last one
+          lastX = currentX;
+          lastY = currentY;
+        }
+      });
+
       element.bind('mouseup', function(event){
+        // stop drawing
+        drawing = false;
+      });
+
+      element.bind('touchend', function(event){
         // stop drawing
         drawing = false;
       });
@@ -73,8 +124,15 @@ myApp
         // to
         ctx.lineTo(cX,cY);
         // color
-        ctx.strokeStyle = "#4bf";
+        ctx.strokeStyle = scope.currentColor;
+
+        // ctx.strokeStyle = 'rgba(255, 0, 0, 0.3)';
         // draw it
+
+        ctx.lineWidth = scope.currentStrokeWidth;
+
+        ctx.globalAlpha = 0.1;
+
         ctx.stroke();
       }
     }

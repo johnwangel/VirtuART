@@ -1,9 +1,15 @@
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   /*max-width: 310px;*/
   /*max-height: 352px;*/
+
 }
 
 video {
@@ -15,10 +21,11 @@ video {
 
 #canvas{
   position: relative;
+  /*width: 100%;*/
   border-bottom: 1px solid rgba(0,0,0,0.3);
   background-color: #FFF;
   box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
-  z-index: 4;
+  z-index: 100;
 }
 
 .start_drawing {
@@ -91,15 +98,6 @@ video {
 #cameraCanvas {
   /*position: relative;*/
   /*width: 300px;*/
-  /*z-index: -1;*/
-}
-
-
-#body_content {
-  position: relative;
-  margin-left: 100px;
-  width: 400px;
-  height: 400px;
   z-index: -1;
 }
 
@@ -146,4 +144,201 @@ form * {
 
 #clear {
   display: none;
+}
+
+
+.drawingTools {
+  height: 100px;
+  width: 100%;
+  background-color: grey;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  /*padding: 10px 10px 0 10px;*/
+}
+
+.brushes {
+  width: 40%;
+  height: 100px;
+  /*background-color: pink;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 10px 5px 5px 10px;
+}
+
+.brushContainer {
+  width: 35px;
+  height: 35px;
+  /*background-color: purple;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.smallBrushContainer {
+  width: 23px;
+  /*background-color: red;*/
+}
+
+.mediumBrushContainer {
+  width: 30px;
+}
+
+.brush {
+  /*background-color: black;*/
+  border-radius: 50%;
+  border: solid 2px black;
+}
+
+.smallBrush {
+  height: 12px;
+  width: 12px;
+}
+.mediumBrush {
+  height: 20px;
+  width: 20px;
+}
+.largeBrush {
+  height: 27px;
+  width: 27px;
+}
+
+.eraserBrushContainer {
+  margin-left: 3px;
+}
+
+.eraserBrush{
+  height: 33px;
+  width: 33px;
+  /*background-color: green;*/
+  background-image: url('../img/ximg.png');
+  background-size: 33px 33px;
+  background-position: center;
+  border: none;
+  border-radius: 0%;
+}
+
+.colorPalette {
+  padding: 10px;
+  width: 60%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  /*background-color: purple;*/
+}
+
+.colorsContainer {
+  /*background-color: yellow;*/
+  width: 95%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+}
+
+.opacitySliderContainer {
+  /*background-color: white;*/
+  height: 50%;
+/*  display: flex;
+  justify-content: center;
+  align-items: center;*/
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  padding-top: 10px;
+
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  height: 7px;
+  margin: 0;
+  border: none;
+  padding: 1px 2px;
+  border-radius: 7px;
+  background: #232528;
+  box-shadow: inset 0 1px 0 0 #0d0e0f, inset 0 -1px 0 0 #3a3d42;
+  -webkit-box-shadow: inset 0 1px 0 0 #0d0e0f, inset 0 -1px 0 0 #3a3d42;
+  outline: none; /* no focus outline */
+}
+
+input[type="range"]::-moz-range-track {
+  border: inherit;
+  background: transparent;
+}
+
+input[type="range"]::-ms-track {
+  border: inherit;
+  color: transparent; /* don't drawn vertical reference line */
+  background: transparent;
+}
+
+input[type="range"]::-ms-fill-lower,
+input[type="range"]::-ms-fill-upper {
+  background: transparent;
+}
+
+input[type="range"]::-ms-tooltip {
+  display: none;
+}
+
+/* thumb */
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #529de1), color-stop(100%, #245e8f)); /* android <= 2.2 */
+  background-image: -webkit-linear-gradient(top , #529de1 0, #245e8f 100%); /* older mobile safari and android > 2.2 */;
+  background-image: linear-gradient(to bottom, #529de1 0, #245e8f 100%); /* W3C */
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background-image: linear-gradient(to bottom, #529de1 0, #245e8f 100%); /* W3C */
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 0;
+  background-image: linear-gradient(to bottom, #529de1 0, #245e8f 100%); /* W3C */
+}
+
+.color {
+  height: 27px;
+  width: 27px;
+  border-radius: 50%;
+}
+
+.red {
+  background-color: red;
+}
+.orange {
+  background-color: orange;
+}
+.yellow {
+  background-color: yellow;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.black {
+  background-color: black;
 }
