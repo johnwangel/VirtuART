@@ -4,16 +4,6 @@ window.atra = function() {
     document.body.removeChild(vids[0])
   }
 
-
-  var clearButton = document.getElementById('clear');
-  canvas.addEventListener('dirty', function(e) {
-    clearButton.style.display = window.atrament.dirty ? 'inline-block' : 'none';
-  });
-
-
-
-
-
 // var saveButton= document.getElementById("save");
 // saveButton.addEventListener('click', function(e){
 //   return 'hi';

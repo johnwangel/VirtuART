@@ -39,7 +39,7 @@ angular.module('myApp')
 
     return {
       getCanvas: getCanvas,
-      postImage: postImage
+      postImage: postImage,
       setColor: setColor,
       setStrokeWidth: setStrokeWidth
     };
