@@ -7,3 +7,7 @@
   "AwsSecretAccessKey": "[MIXED CASE TOKEN]"
 }
 ```
+
+2. Requires MONGO database, named 'VIRTUAL_ART_DB'
+    a. With collection named "artCollection"
+    b. With collection named "artists"
