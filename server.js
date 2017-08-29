@@ -16,12 +16,7 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
-
-
-app.use('/api', api);
-
 const db= require('./collections/index.js');
-
 
 // console.log(AWS_ACCESS_KEY, AWS_SECRET)
 //using s3 to authenticate
@@ -33,7 +28,6 @@ const credentials={
 AWS.config.update(credentials);
 const s3 = new AWS.S3();
 
-app.use('/api', api);
 app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(methodOverride('_method'));
@@ -59,13 +53,16 @@ app.post('/api/drawings', (req, res)=>{
     Bucket: 'virtuarthawaii',
     Body: imageBuffer
   };
-  s3.upload(params, function(err,output){
+  s3.upload(params, function(err, output){
     console.log(err);
     console.log(output);
     res.send("image received");
+    // res.json(output);
     console.log('website', output.Location);
   });
 });
+
+app.use('/api', api);
 
 
 passport.serializeUser(function(user, done){

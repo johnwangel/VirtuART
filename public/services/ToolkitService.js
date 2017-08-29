@@ -8,14 +8,6 @@ angular.module('myApp')
       })
     }
 
-    // function toImage() {
-    //   let image = document.getElementById('canvas').toDataURL('image/png', 1.0);
-    //   //save image to some location
-    //   //user POST to save image location to database
-    //   //return user to main page
-    //   //event listener to re-render image for users???
-    // }
-
     function postImage(base64) {
         const config = {
             method: "POST",

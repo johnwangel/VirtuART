@@ -1,42 +1,27 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const router = express.Router();
-
-const artData = require('../../collections/').artData;
-// console.log('this is art data', artData();
-
-// let db = require('../../models');
-// let Users = db.users;
-// let Messages = db.messages;
-// let Topics = db.topics;
-
+const { artData }  = require('../../collections/');
 
 //load requested canvas
+
 router.get('/', getImages);
+router.post('/initdb', initializeDB);
 
 function getImages(req, res) {
-  console.log('hitting this');
-
-  // console.log('here is our art data. find()', artData().find());
-
-  return artData().find().toArray()
+  artData().findOne({ "scenes.id": "scene1" })
   .then(results => {
-    // console.log('results from home index', results);
-    res.json(results);
+    let urlList = results.scenes[0].tiles.map( allTiles => {
+      return allTiles.url;
+    });
+    res.json(urlList);
   })
+}
 
-  // res.json({string: 'helloooowww'});
-  // .then(mongoRecords => {
-  //   console.log('here is our mongo records', mongoRecords);
-
-  //   res.json({string: 'hiiii thaarr'});
-  // });
-
-  // res.json({
-  //   imageName: 'art.jpg',
-  //   creator: 'Snoopy',
-  //   updatedAt: "8 am"
-  // });
+function initializeDB(req, res){
+  console.log('Init DB', req.body.scenes[0].tiles);
+  res.end('ok');
+  artData().insert(req.body)
 }
 
 module.exports = router;
