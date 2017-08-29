@@ -4,9 +4,12 @@ angular.module('myApp')
   function goHome(){
       return $http.get('/api/home')
       .then( allImages => {
-        return allImages;
+        console.log('this is from our service ', allImages);
+        return allImages.data;
       })
   }
+
+
 
   // function getAllUsers(){
   //   return $http.get('/api/users')

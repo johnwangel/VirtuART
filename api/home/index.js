@@ -21,7 +21,7 @@ function getImages(req, res) {
 
   return artData().find().toArray()
   .then(results => {
-    console.log('results from home index', results);
+    // console.log('results from home index', results);
     res.json(results);
   })
 
