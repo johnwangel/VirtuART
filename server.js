@@ -22,7 +22,7 @@ const RedisStore = require('connect-redis')(session);
 
 app.use('/api', api);
 
-const db= require('./collections/index.js');
+const db = require('./collections/index.js');
 
 
 // console.log(AWS_ACCESS_KEY, AWS_SECRET)
@@ -48,6 +48,9 @@ app.use(session({
   resave: false,
   saveUninitialize: false
 }));
+app.post('/api/login', (req,res)=>{
+
+})
 
 app.post('/api/drawings', (req, res)=>{
   let image = req.body.image;

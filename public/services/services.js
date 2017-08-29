@@ -6,9 +6,22 @@ angular.module('myApp')
       .then( allImages => {
         console.log('this is from our service ', allImages);
         return allImages.data;
-      })
+      });
   }
 
+function Login(){
+  return $http.get('/api/login')
+  .then(allUsers=>{
+    return allUsers.data;
+  });
+
+  function Register(){
+    return $http.post('/api/register')
+    .then(Users=>{
+
+    });
+  }
+}
   // function getAllUsers(){
   //   return $http.get('/api/users')
   //   .then((users) => {
@@ -36,6 +49,8 @@ angular.module('myApp')
 
 
   return {
-    goHome: goHome
+    goHome: goHome,
+    Login: Login,
+    Register: Register
   };
 }]);
