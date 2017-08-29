@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const methodOverride= require('method-override');
 const app = express();
-//do we need this?
-//const saltRounds = 10;
+
+const saltRounds = 10;
 const PORT = process.env.PORT || 3000;
 const api = require('./api');
 const AWS = require('aws-sdk');
@@ -20,7 +20,7 @@ const RedisStore = require('connect-redis')(session);
 
 app.use('/api', api);
 
-const db= require('./collections/index.js');
+const db = require('./collections/index.js');
 
 
 // console.log(AWS_ACCESS_KEY, AWS_SECRET)
@@ -47,6 +47,56 @@ app.use(session({
   saveUninitialize: false
 }));
 
+app.post('/register', (req, res) => {
+  console.log('running a post on register');
+
+  let {username, password} = req.body;
+
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+
+    bcrypt.hash(password, salt, function(err, hash) {
+      return Users.create({
+        username: username,
+        password: hash
+      })
+      .then(createdUser => {
+        let {username, id} = createdUser;
+        let user = {username, id};
+        res.json(user);
+      })
+      .catch((error) => {
+        console.log ('here is our error', error);
+      });
+    });
+  });
+});
+
+app.post('/login', function(req, res, next) {
+  console.log('post to /login is firing');
+  console.log('this is our req.body', req.body);
+  passport.authenticate('local', function (err, user, info) {
+    console.log('going into authenticate');
+    console.log('user from authenticate', user);
+
+    if (err) { return res.status(500).json({err}); }
+
+    if (!user) { return res.status(401).json({success: false}); }
+    req.logIn(user, function(err) {
+      if (err) {return res.status(500).json({err}); }
+      console.log('successful login! from app.post');
+      let {id, username} = user;
+      let logedInUser = {id, username};
+      return res.json(logedInUser);
+    });
+  })(req, res, next);
+});
+
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.json({loggedout: true});
+})
+
 app.post('/api/drawings', (req, res)=>{
   let image = req.body.image;
   let imageBase64String = image.split(',')[1];
@@ -66,6 +116,8 @@ app.post('/api/drawings', (req, res)=>{
     console.log('website', output.Location);
   });
 });
+
+
 
 
 passport.serializeUser(function(user, done){

@@ -9,6 +9,8 @@ angular.module('myApp')
       })
   }
 
+
+
   // function getAllUsers(){
   //   return $http.get('/api/users')
   //   .then((users) => {
