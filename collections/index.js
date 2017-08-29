@@ -14,8 +14,6 @@ MongoClient.connect(mongoConnectionString, function(err, connectedDb) {
 
   // db.close(); // don't want this piece
 
-  // artData.insertOne({images: ["../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/lolcat.jpg", "../img/sparky.jpg"]});
-
 });
 
 module.exports = {

@@ -16,6 +16,24 @@ myApp
           templateUrl: '../pages/toolkit/toolkit.html',
           controller: 'ToolkitController'
         })
+
+        .when('/login', {
+          templateUrl: '../pages/login/login.html',
+          controller: 'LoginController'
+        })
+        .when('/register', {
+          templateUrl: '../pages/register/register.html',
+          controller: 'RegisterController'
+        })
+        .when('/register', {
+          templateUrl:'../pages/register/register.html',
+          controller: ''
+        })
+        .when('/login', {
+          templateUrl:'../pages/login/login.html',
+          controller:'LoginController'
+
+        })
         .otherwise({ redirectTo: '/' });
       $locationProvider.html5Mode(true);
     }

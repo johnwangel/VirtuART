@@ -1,11 +1,13 @@
-var myApp = angular.module('myApp');
+var myApp = angular.module("myApp");
 
-myApp.controller('ToolkitController', [
-  '$scope',
-  'ToolkitService',
+myApp.controller("ToolkitController", [
+  "$scope",
+  "ToolkitService",
   function($scope, ToolkitService) {
+    $scope.image = "";
 
     $scope.image = '';
+
     $scope.currentColor = "black";
     $scope.currentStrokeWidth = '4';
     $scope.transparency = 1;
@@ -14,7 +16,6 @@ myApp.controller('ToolkitController', [
         $scope.image = thisCanvas;
         window.atra();
       });
-
     $scope.setColor = function (event, color) {
       let colorButtons = document.querySelectorAll(".color");
       colorButtons.forEach(button => {
@@ -24,7 +25,6 @@ myApp.controller('ToolkitController', [
       let newColor = ToolkitService.setColor(color);
       $scope.currentColor = newColor;
     }
-
     $scope.setStrokeWidth = function (targetClass, width) {
       let newStrokeWidth = ToolkitService.setStrokeWidth(width);
       $scope.currentStrokeWidth = newStrokeWidth;
@@ -35,13 +35,23 @@ myApp.controller('ToolkitController', [
       });
       let selectedWidth = document.querySelector('.'+targetClass);
       selectedWidth.style.backgroundColor = 'black';
-
     }
-
     $scope.setTransparency = function (transparency) {
       let newTransparency = ToolkitService.setTransparency(transparency);
       $scope.transparency = newTransparency;
       console.log('new transparency', newTransparency);
     }
+    $scope.getPNG = function() {
+          var canvas = document.getElementById("canvas");
+          var image = canvas.toDataURL('image/png', 1.0);
+          ToolkitService.postImage(image).then(result => {
+            console.log(result);
+          });
+        };
+    return ToolkitService.getCanvas().then(thisCanvas => {
+      console.log(thisCanvas);
+      $scope.image = thisCanvas;
+      window.atra();
+    });
   }
 ]);

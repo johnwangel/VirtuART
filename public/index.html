@@ -8,15 +8,6 @@
   <base href="/">
 </head>
 <body ng-app="myApp">
-  <!-- FACEBOOK STUFFS -->
-  <!-- <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=117273505601571";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script> -->
 
   <div class='banner'>
     <span class='banner_title'>VirtuART</span>
@@ -24,19 +15,33 @@
   </div>
   <div ng-view></div>
       <div id="menu">
-        <!-- <h1>MENU</h1> -->
-<!--         <button ng-click="someOtherFunction()">cancel</button>
-        <button ng-click="someFunction()">Register</button>
-        <button ng-click="anotherFunction()">Login</button>
-        <button ng-click="yetAnotherFunction()">Log Out</button>
-        <button ng-click="differentFunction()">About The Art</button>
-        <button ng-click="anotherTotallyDiffFunction()">About Us</button> -->
+        <h1>MENU</h1>
+        <a ng-href="/register"><button>Register</button></a>
+        <a ng-href="/login"><button>Login</button></a>
+        <a ng-href="/logout"><button>Log Out</button></a>
+        <a ng-href="/aboutTheArt"><button>About The Art</button></a>
+        <a ng-href="/aboutUs"><button>About Us</button></a>
       </div>
+
+
+  <div ng-view></div>
+  <script src='./src/mouse.js'></script>
+  <script src="./src/atrament.js"></script>
+  <script src="./dist/atrament.min.js"></script>
+ <script src="./atrament.js"></script>
+
+
+<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/atrament.js/0.2.3/atrament.min.js"></script> -->
+ <!--  <script>THREEx.ArToolkitContext.baseURL = 'https://jeromeetienne.github.io/AR.js/three.js/'</script> -->
+  <!--   <script src="./src/atrament.js"></script>
+  <script src="./src/mouse.js"></script> -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/atrament.js/0.2.3/atrament.min.js"></script>
   <script src="./dist/atrament.min.js"></script>
   <script src="./atrament.js"></script>
+
   <script type="text/javascript" src="./scripts/augreal.js"></script>
   <script type="text/javascript" src="./scripts/app.js"></script>
   <script src="./services/services.js"></script>
