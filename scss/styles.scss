@@ -13,15 +13,18 @@ body {
 }
 
 video {
-/*  position: fixed;
-  top: 100px;*/
+  width: 400px !important;
+  position: fixed;
+  top: 50px;
+  left: 10px;
+  /*top: 100px;*/
   /*width: 500px !important;*/
   /*height: 500px !important;*/
 }
 
 #canvas{
   position: relative;
-  /*width: 100%;*/
+  width: 100%;
   border-bottom: 1px solid rgba(0,0,0,0.3);
   background-color: #FFF;
   box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
@@ -96,8 +99,10 @@ video {
 }
 
 #cameraCanvas {
-  /*position: relative;*/
-  /*width: 300px;*/
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 400px;
   z-index: -1;
 }
 
@@ -189,9 +194,12 @@ form * {
 }
 
 .brush {
-  /*background-color: black;*/
   border-radius: 50%;
   border: solid 2px black;
+}
+
+.brushSelected {
+  background-color: black;
 }
 
 .smallBrush {
@@ -322,6 +330,10 @@ input[type="range"]::-ms-thumb {
   height: 27px;
   width: 27px;
   border-radius: 50%;
+}
+
+.colorSelected {
+  border: 2px solid white;
 }
 
 .red {

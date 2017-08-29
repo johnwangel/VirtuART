@@ -26,14 +26,14 @@
 
   <div class="drawingTools">
     <div class="brushes">
-      <div class="brushContainer smallBrushContainer" ng-click="setStrokeWidth('smallBrush', '4')">
-        <div class="brush smallBrush" ></div>
+      <div class="brushContainer smallBrushContainer" ng-click="setStrokeWidth('small', '4')">
+        <div class="brush smallBrush" ng-class="{brushSelected: brushes.small}"></div>
       </div>
-      <div class="brushContainer mediumBrushContainer" ng-click="setStrokeWidth('mediumBrush', '14')">
-        <div class="brush mediumBrush"></div>
+      <div class="brushContainer mediumBrushContainer" ng-click="setStrokeWidth('medium', '14')">
+        <div class="brush mediumBrush" ng-class="{brushSelected: brushes.medium}"></div>
       </div>
-      <div class="brushContainer largeBrushContainer" ng-click="setStrokeWidth('largeBrush', '30')">
-        <div class="brush largeBrush"></div>
+      <div class="brushContainer largeBrushContainer" ng-click="setStrokeWidth('large', '30')">
+        <div class="brush largeBrush" ng-class="{brushSelected: brushes.large}"></div>
       </div>
       <div class="brushContainer eraserBrushContainer" ng-click="setStrokeWidth('smallBrush', '10')">
         <div class="brush eraserBrush"></div>
@@ -41,12 +41,12 @@
     </div>
     <div class="colorPalette">
       <div class="colorsContainer">
-        <div class="color red" ng-click="setColor($event, 'red')"></div>
-        <div class="color orange" ng-click="setColor($event, 'orange')"></div>
-        <div class="color yellow" ng-click="setColor($event, 'yellow')"></div>
-        <div class="color green" ng-click="setColor($event, 'green')"></div>
-        <div class="color blue" ng-click="setColor($event, 'blue')"></div>
-        <div class="color black" ng-click="setColor($event, 'black')"></div>
+        <div class="color red" ng-click="setColor('red', 'red')" ng-class="{colorSelected: colors.red}"></div>
+        <div class="color orange" ng-click="setColor('orange', 'orange')" ng-class="{colorSelected: colors.orange}"></div>
+        <div class="color yellow" ng-click="setColor('yellow', 'yellow')" ng-class="{colorSelected: colors.yellow}"></div>
+        <div class="color green" ng-click="setColor('green', 'green')" ng-class="{colorSelected: colors.green}"></div>
+        <div class="color blue" ng-click="setColor('blue', 'blue')" ng-class="{colorSelected: colors.blue}"></div>
+        <div class="color black" ng-click="setColor('black', 'black')" ng-class="{colorSelected: colors.black}"></div>
       </div>
       <div class="opacitySliderContainer">
         <input class="slider" type="range" ng-model="opacity" onChange="setTransparency()" min="0" max="1" value="1" step="0.01">
