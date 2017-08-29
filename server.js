@@ -33,6 +33,10 @@ passport.use(new LocalStrategy((username, password, done)=>{
   //we will use facebook strategy here
   }));
 
+app.get('*', function(req, res){
+  res.redirect('/');
+})
+
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
