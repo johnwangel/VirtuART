@@ -153,6 +153,10 @@ passport.use(new LocalStrategy((username, password, done)=>{
   })
   }));
 
+app.get('*', function(req, res){
+  res.redirect('/');
+})
+
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 });
