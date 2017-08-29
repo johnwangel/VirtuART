@@ -78,4 +78,4 @@ class Mouse extends Point {
 
 }
 
-export default Mouse;
+

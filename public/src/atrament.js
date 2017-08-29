@@ -35,7 +35,6 @@ window.atrament = function(selector, width, height, color) {
         if (typeof y === 'undefined') {
           y = position.clientY + document.documentElement.scrollTop - rect.top;
         }
-
         // draw if we should draw
         if (this.mouse.down) {
           this.draw(x, y);
@@ -429,5 +428,10 @@ window.atrament = function(selector, width, height, color) {
 //   return new Atrament(selector, width, height, color);
 // }
 
+
+// for people who like functional programming
+function atrament(selector, width, height, color) {
+  return new Atrament(selector, width, height, color);
+}
 // module.exports = atrament;
 // module.exports.Atrament = Atrament;

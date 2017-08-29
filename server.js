@@ -3,29 +3,20 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const methodOverride= require('method-override');
 const app = express();
-
-const saltRounds = 10;
 const PORT = process.env.PORT || 3000;
 
-const api = require('./api');
+const saltRounds = 10;
+const apiRoute = require('./api');
 const AWS = require('aws-sdk');
 const AWS_ACCESS_KEY = require('./config/aws.json').AwsAccessKeyId;
 const AWS_SECRET = require('./config/aws.json').AwsSecretAccessKey;
-const base64 = require('base-64');
+const db= require('./collections/index.js');
 
 const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 
-
-app.use('/api', api);
-
-const db = require('./collections/index.js');
-
-
-// console.log(AWS_ACCESS_KEY, AWS_SECRET)
-//using s3 to authenticate
 const credentials={
   accessKeyId: AWS_ACCESS_KEY,
   secretAccessKey: AWS_SECRET
@@ -33,12 +24,9 @@ const credentials={
 
 AWS.config.update(credentials);
 const s3 = new AWS.S3();
-
-app.use('/api', api);
-app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
+app.use(express.static('public'));
 app.use(methodOverride('_method'));
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({
@@ -47,6 +35,8 @@ app.use(session({
   resave: false,
   saveUninitialize: false
 }));
+
+app.use('/api', api);
 
 app.post('/register', (req, res) => {
   console.log('running a post on register');
@@ -92,7 +82,6 @@ app.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
-
 app.get('/logout', (req, res) => {
   req.logout();
   res.json({loggedout: true});
@@ -118,8 +107,23 @@ app.post('/api/drawings', (req, res)=>{
   });
 });
 
+app.post('/api/drawings', (req, res)=>{
+  const params = {
+    Key: 'drawings/'+Date.now(),
+    ContentLength: req.body.image.length,
+    ContentType: 'image/png',
+    ACL: 'public-read',
+    Bucket: 'virtuarthawaii',
+    Body: req.body.image
 
-
+  };
+  s3.upload(params, function(err,output){
+    console.log(err);
+    console.log(output);
+    res.send("image received");
+    console.log('website', output.Location);
+  });
+});
 
 passport.serializeUser(function(user, done){
   done(null, user.id);
