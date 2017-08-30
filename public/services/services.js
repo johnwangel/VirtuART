@@ -22,7 +22,7 @@ angular.module("myApp").service("UsersService", [
 
     function register(username, password) {
       console.log(register);
-      return $http.post('/api/register').then(Users => {
+      return $http.post('/register').then(Users => {
         console.log(Users);
         return Users.data;
       });
