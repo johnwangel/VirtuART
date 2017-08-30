@@ -8,7 +8,19 @@ angular.module('myApp')
       })
   }
 
+  function checkTile(thisID){
+      return $http({
+        method: 'POST',
+        url: '/api/toolkit/',
+        data: { id: thisID }
+      })
+      .then( edit => {
+        return edit.data;
+      })
+  }
+
   return {
-    getTiles: getTiles
+    getTiles: getTiles,
+    checkTile: checkTile
   };
 }]);

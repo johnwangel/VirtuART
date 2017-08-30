@@ -9,10 +9,7 @@ router.post('/initdb', initializeDB);
 function getImages(req, res) {
   artData().findOne({ "scenes.id": "scene1" })
   .then(results => {
-    let urlList = results.scenes[0].tiles.map( allTiles => {
-      return allTiles.url;
-    });
-    res.json(urlList);
+    res.json(results.scenes[0]);
   })
 }
 

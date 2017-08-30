@@ -12,6 +12,10 @@ myApp
           templateUrl: '../pages/home/home.html',
           controller: 'MainHomeController'
         })
+        .when('/selection', {
+          templateUrl: '../pages/selection/selection.html',
+          controller: 'SelectionController'
+        })
         .when('/toolkit', {
           templateUrl: '../pages/toolkit/toolkit.html',
           controller: 'ToolkitController'

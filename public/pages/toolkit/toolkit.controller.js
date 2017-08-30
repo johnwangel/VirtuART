@@ -39,12 +39,13 @@ myApp.controller("ToolkitController", [
     };
 
     $scope.currentColor = 'black';
+    $scope.currentId = '';
     $scope.currentStrokeWidth = '4';
     $scope.transparency = 1;
 
     ToolkitService.getCanvas().then(thisCanvas => {
       $scope.image = thisCanvas;
-      window.atra();
+      window.disableCamera();
     });
 
     $scope.getPNG = function() {
@@ -121,11 +122,14 @@ myApp.controller("ToolkitController", [
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
+    $scope.setCurrentId = function(id) {
+      $scope.currentId = id;
+    }
+
 
     return ToolkitService.getCanvas().then(thisCanvas => {
-      console.log(thisCanvas);
       $scope.image = thisCanvas;
-      window.atra();
+      window.disableCamera();
     });
 
   }

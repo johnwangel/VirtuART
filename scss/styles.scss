@@ -431,6 +431,7 @@ input[type="range"]::-ms-thumb {
 .black {
   background-color: black;
 }
+
 .purple {
   background-color: purple;
 }
@@ -530,4 +531,14 @@ input[type="range"]::-ms-thumb {
   line-height: 30px;
   vertical-align: center;
   margin-right: 10px;
+
+
+.photos{
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;
+}
+
+.image:hover {
+  border: solid black 5px;
 }

@@ -22,6 +22,7 @@ router.post('/', saveDrawing);
 
 function saveDrawing (req, res) {
   let image = req.body.image;
+  let thisID = req.body.thisID;
   let imageBase64String = image.split(',')[1];
   let imageBuffer = new Buffer(imageBase64String, 'base64')
   const params = {
@@ -37,15 +38,26 @@ function saveDrawing (req, res) {
     let url = params.Key.split('/')[1];
     let time = Date.now();
 
-    artData().findOne({ "scenes.tiles.id": "scene1_tile1" })
+    artData().findOne({ "scenes.tiles.id": thisID })
     .then( response => {
+      let objIndex = 0;
+      let posX = 0;
+      let posY = 0;
+      response.scenes[0].tiles.filter( (item, i) => {
+        if (item.id = thisID){
+          objIndex = i;
+          posX = item.posX;
+          posY = item.posY;
+        }
+      })
+
       let sceneID = response._id;
-      response.scenes[0].tiles[0] = {
-          "id" : "scene1_tile1",
+      response.scenes[0].tiles[objIndex] = {
+          "id" : thisID,
           "user" : "new_user",
           "createdAt" : time,
-          "posX" : 1,
-          "posY" : 1,
+          "posX" : posX,
+          "posY" : posY,
           "url" : `https://s3-us-west-2.amazonaws.com/invisiart/drawings/${url}`,
           "clean" : "false"
         }
