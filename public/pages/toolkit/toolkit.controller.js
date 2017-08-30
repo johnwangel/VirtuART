@@ -6,7 +6,20 @@ myApp.controller("ToolkitController", [
   function($scope, ToolkitService) {
     $scope.image = "";
 
-    $scope.image = '';
+    $scope.brushes = {
+      small: true,
+      medium: false,
+      large: false
+    }
+
+    $scope.colors = {
+      red: false,
+      orange: false,
+      yellow: false,
+      green: false,
+      blue: false,
+      black: true,
+    }
 
     $scope.currentColor = "black";
     $scope.currentStrokeWidth = '4';
@@ -23,28 +36,33 @@ myApp.controller("ToolkitController", [
       ToolkitService.postImage(image).then(result => {
         console.log("Results from GET PNG ", result);
       });
-    };
 
-    $scope.setColor = function (event, color) {
-      let colorButtons = document.querySelectorAll(".color");
-      colorButtons.forEach(button => {
-        button.style.border = "none";
-      })
-      event.target.style.border = "2px solid white";
+
+
+    $scope.setColor = function (target, color) {
+      for (var x in $scope.colors){
+        $scope.colors[x] = false;
+      }
+
+      $scope.colors[target] = true;
       let newColor = ToolkitService.setColor(color);
       $scope.currentColor = newColor;
     }
 
-    $scope.setStrokeWidth = function (targetClass, width) {
+
+    $scope.setStrokeWidth = function (target, width) {
       let newStrokeWidth = ToolkitService.setStrokeWidth(width);
       $scope.currentStrokeWidth = newStrokeWidth;
       console.log('from controller scope width', $scope.currentStrokeWidth);
-      let brushButtons = document.querySelectorAll(".brush");
-      brushButtons.forEach(button => {
-        button.style.backgroundColor = 'grey';
-      });
-      let selectedWidth = document.querySelector('.'+targetClass);
-      selectedWidth.style.backgroundColor = 'black';
+
+      for (var x in $scope.brushes){
+        $scope.brushes[x] = false;
+      }
+
+      $scope.brushes[target] = true;
+
+      console.log('here are our brushes', $scope.brushes);
+
     }
 
     $scope.setTransparency = function (transparency) {
