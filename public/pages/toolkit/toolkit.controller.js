@@ -17,7 +17,7 @@ myApp.controller("ToolkitController", [
       medium: false,
       large: false,
       eraser: false
-    }
+    };
 
     $scope.colors = {
       red: false,
@@ -32,17 +32,24 @@ myApp.controller("ToolkitController", [
       aqua: false,
       lightseagreen: false,
       white: false
-    }
+    };
 
     $scope.currentColor = 'black';
     $scope.currentStrokeWidth = '4';
     $scope.transparency = 1;
 
     ToolkitService.getCanvas().then(thisCanvas => {
-        $scope.image = thisCanvas;
-        window.atra();
-      });
+      $scope.image = thisCanvas;
+      window.atra();
+    });
 
+    $scope.getPNG = function() {
+      var canvas = document.getElementById("canvas");
+      var image = canvas.toDataURL('image/png', 1.0);
+      ToolkitService.postImage(image).then(result => {
+        console.log("Results from GET PNG ", result);
+      });
+    }
 
     $scope.setColor = function (target, color) {
       for (var x in $scope.colors){
@@ -50,7 +57,6 @@ myApp.controller("ToolkitController", [
       }
 
       $scope.colors[target] = true;
-
       let newColor = ToolkitService.setColor(color);
       $scope.currentColor = newColor;
 
@@ -117,5 +123,6 @@ myApp.controller("ToolkitController", [
       $scope.image = thisCanvas;
       window.atra();
     });
+
   }
 ]);

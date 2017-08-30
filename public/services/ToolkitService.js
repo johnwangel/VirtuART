@@ -1,4 +1,3 @@
-
 angular.module('myApp')
 .service('ToolkitService', ['$http', function($http) {
 
@@ -22,8 +21,12 @@ angular.module('myApp')
           image: base64
         })
       };
-      return $http(config);
+      return $http(config).then(response => {
+        console.log('getting to http config');
+        return response;
+      });
     }
+
     function setColor(color){
       console.log('running function setColor on toolkit service');
       let currentColor = color;
