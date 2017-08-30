@@ -32,12 +32,7 @@ angular.module('myApp')
 
     return {
       getCanvas: getCanvas,
-<<<<<<< HEAD
-
-
-=======
       postImage: postImage
->>>>>>> d1fde5070f3b8f608377927a420700f67e031aef
     };
   }
 ]);

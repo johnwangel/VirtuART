@@ -4,13 +4,13 @@ const router = express.Router();
 
 const artData = require('../../collections/').artData;
 // console.log('this is art data', artData();
-
+const users = require('../../collections/').users;
 // let db = require('../../models');
 // let Users = db.users;
 // let Messages = db.messages;
 // let Topics = db.topics;
 
-
+console.log(users);
 //load requested canvas
 router.get('/', getImages);
 

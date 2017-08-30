@@ -27,7 +27,7 @@ myApp
         .otherwise({ redirectTo: '/' });
       $locationProvider.html5Mode(true);
     }
-  ])
+  ]);
   // .run([
   //   '$rootScope',
   //   'APP_VERSION',

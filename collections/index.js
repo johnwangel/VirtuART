@@ -2,6 +2,7 @@ const mongoConnectionString = 'mongodb://localhost:27017/VIRTUAL_ART_DB';
 const {MongoClient} = require('mongodb');
 let mongoDb = null;
 let artData = null;
+let users = null;
 
 MongoClient.connect(mongoConnectionString, function(err, connectedDb) {
   // assert.equal(null, err);
@@ -9,6 +10,7 @@ MongoClient.connect(mongoConnectionString, function(err, connectedDb) {
   mongoDb = connectedDb;
 
   artData = mongoDb.collection('artCollection');
+  users= mongoDb.collection('users');
   // console.log('this is our art data', artData);
   // console.log('art data no invoke', artData.find().toArray());
 
@@ -19,5 +21,7 @@ MongoClient.connect(mongoConnectionString, function(err, connectedDb) {
 });
 
 module.exports = {
-  artData: () => artData
+  artData: () => artData,
+  users: () => users
+
 };

@@ -3,15 +3,24 @@ var myApp = angular.module('myApp');
 
 myApp.controller(
   'RegisterController', ['$scope', 'RegisterService', function($scope, RegisterService) {
-  $scope.newRegister = { username: '', password: '' };
-  $scope.RegisterService =RegisterService;
-  $scope.Register = function() {
-    var newRegister = {
-      username: $scope.newRegister.username,
-      password: $scope.newRegister.password
+  $scope.newUser = { username: ''};
+  $scope.users = {username:'', password:''};
+  $scope.RegisterService = RegisterService;
+  $scope.register = function() {
+    let newRegister = {
+      username: $scope.newUser.username
     };
-   RegisterService.Register(newUser);
-    $scope.Register.username = '';
-    $scope.Register.password = '';
+
+
+    RegisterService.register(newRegister);
+    RegisterService.register($scope.users)
+    .then(user=>{
+      $scope.newRegister.username = '';
+      $scope.users.username ='';
+    $scope.users.password = '';
+    });
+
+
+
   };
 }]);

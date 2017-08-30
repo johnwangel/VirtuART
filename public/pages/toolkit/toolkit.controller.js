@@ -15,16 +15,7 @@ myApp.controller('ToolkitController', [
           });
         };
 
-<<<<<<< HEAD
 
-
-    return ToolkitService.getCanvas().then(thisCanvas => {
-        $scope.image = thisCanvas;
-        window.atra();
-      });
-  }
-]);
-=======
        return ToolkitService.getCanvas().then(thisCanvas => {
           console.log(thisCanvas);
           $scope.image = thisCanvas;
@@ -32,4 +23,3 @@ myApp.controller('ToolkitController', [
         });
       }
   ]);
->>>>>>> d1fde5070f3b8f608377927a420700f67e031aef
