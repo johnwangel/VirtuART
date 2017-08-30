@@ -5,12 +5,15 @@ angular.module('myApp')
   let currentStrokeWidth = '10px';
 
     function getCanvas() {
+      let thisID = localStorage.getItem('currentID');
+      console.log("FROM GET CANVAS", thisID);
       return $http.get("/api/toolkit").then(canvas => {
         return canvas.data;
       });
     }
 
     function postImage(base64) {
+      let thisID = localStorage.getItem("thisID");
       const config = {
         method: "POST",
         url: "/api/drawings",
@@ -18,7 +21,8 @@ angular.module('myApp')
           "Content-Type": "application/json"
         },
         data: JSON.stringify({
-          image: base64
+          image: base64,
+          thisID: thisID
         })
       };
       return $http(config).then(response => {

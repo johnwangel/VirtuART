@@ -1,0 +1,5 @@
+  <div ng-controller="SelectionController" class="photos">
+    <div class="photo" ng-repeat="photo in photoURLs">
+        <img class="image" id="{{photo.id}}" src="{{photo.url}}" alt="photo" height="100" width="100" ng-dblclick="loadCanvas($event)">
+    </div>
+</div>

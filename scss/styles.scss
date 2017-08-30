@@ -459,9 +459,11 @@ input[type="range"]::-ms-thumb {
 .color16 {
   background-color: $color-1-6;
 }
+
 .color21 {
   background-color: $color-2-1;
 }
+
 .color22 {
   background-color: $color-2-2;
 }
@@ -552,4 +554,14 @@ input[type="range"]::-ms-thumb {
   line-height: 30px;
   vertical-align: center;
   margin-right: 10px;
+
+
+.photos{
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;
+}
+
+.image:hover {
+  border: solid black 5px;
 }
