@@ -3,8 +3,6 @@ const express = require('express');
 const router = express.Router();
 const { artData }  = require('../../collections/');
 
-//load requested canvas
-
 router.get('/', getImages);
 router.post('/initdb', initializeDB);
 
@@ -20,8 +18,8 @@ function getImages(req, res) {
 
 function initializeDB(req, res){
   console.log('Init DB', req.body.scenes[0].tiles);
-  res.end('ok');
   artData().insert(req.body)
+  res.end('ok');
 }
 
 module.exports = router;

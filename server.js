@@ -6,22 +6,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const saltRounds = 10;
 const api = require('./api');
-const AWS = require('aws-sdk');
-const AWS_ACCESS_KEY = require('./config/aws.json').AwsAccessKeyId;
-const AWS_SECRET = require('./config/aws.json').AwsSecretAccessKey;
+
 const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const db= require('./collections/index.js');
-
-const credentials={
-  accessKeyId: AWS_ACCESS_KEY,
-  secretAccessKey: AWS_SECRET
-};
-
-AWS.config.update(credentials);
-const s3 = new AWS.S3();
 
 app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
@@ -80,45 +70,6 @@ app.get('/logout', (req, res) => {
   req.logout();
   res.json({loggedout: true});
 })
-
-app.post('/api/drawings', (req, res)=>{
-  let image = req.body.image;
-  let imageBase64String = image.split(',')[1];
-  let imageBuffer = new Buffer(imageBase64String, 'base64')
-
-  const params = {
-    key: 'drawings/'+Date.now() + '.png',
-    ContentType: 'image/png',
-    ACL: 'public-read',
-    Bucket: 'virtuarthawaii',
-    Body: imageBuffer
-  };
-  s3.upload(params, function(err, output){
-    console.log(err);
-    console.log(output);
-    res.send("image received");
-    // res.json(output);
-    console.log('website', output.Location);
-  });
-});
-
-app.post('/api/drawings', (req, res)=>{
-  const params = {
-    Key: 'drawings/'+Date.now(),
-    ContentLength: req.body.image.length,
-    ContentType: 'image/png',
-    ACL: 'public-read',
-    Bucket: 'virtuarthawaii',
-    Body: req.body.image
-
-  };
-  s3.upload(params, function(err,output){
-    console.log(err);
-    console.log(output);
-    res.send("image received");
-    console.log('website', output.Location);
-  });
-});
 
 passport.serializeUser(function(user, done){
   done(null, user.id);
