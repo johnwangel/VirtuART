@@ -3,13 +3,20 @@ var myApp = angular.module("myApp");
 myApp.controller("ToolkitController", [
   "$scope",
   "ToolkitService",
-  function($scope, ToolkitService) {
+  "$timeout",
+  function($scope, ToolkitService, $timeout) {
     $scope.image = "";
+
+    $scope.lastBrush = 'small';
+    $scope.lastColor = 'black'
+
+    $scope.modalShow = false;
 
     $scope.brushes = {
       small: true,
       medium: false,
-      large: false
+      large: false,
+      eraser: false
     }
 
     $scope.colors = {
@@ -17,11 +24,17 @@ myApp.controller("ToolkitController", [
       orange: false,
       yellow: false,
       green: false,
-      blue: false,
+      saddlebrown: false,
       black: true,
+      purple: false,
+      violet: false,
+      deeppink: false,
+      aqua: false,
+      lightseagreen: false,
+      white: false
     }
 
-    $scope.currentColor = "black";
+    $scope.currentColor = 'black';
     $scope.currentStrokeWidth = '4';
     $scope.transparency = 1;
 
@@ -40,11 +53,17 @@ myApp.controller("ToolkitController", [
 
       let newColor = ToolkitService.setColor(color);
       $scope.currentColor = newColor;
+
+      if ($scope.brushes.eraser === true){
+        $scope.setStrokeWidth($scope.lastBrush);
+      }
+
+      $scope[$scope.lastBrush] = true;
     }
 
 
-    $scope.setStrokeWidth = function (target, width) {
-      let newStrokeWidth = ToolkitService.setStrokeWidth(width);
+    $scope.setStrokeWidth = function (target) {
+      let newStrokeWidth = ToolkitService.setStrokeWidth(target);
       $scope.currentStrokeWidth = newStrokeWidth;
       console.log('from controller scope width', $scope.currentStrokeWidth);
 
@@ -54,21 +73,45 @@ myApp.controller("ToolkitController", [
 
       $scope.brushes[target] = true;
 
+      if(target !== 'eraser') {
+        $scope.lastBrush = target;
+      }
+
       console.log('here are our brushes', $scope.brushes);
 
     }
+
     $scope.setTransparency = function (transparency) {
       let newTransparency = ToolkitService.setTransparency(transparency);
       $scope.transparency = newTransparency;
       console.log('new transparency', newTransparency);
     }
+
     $scope.getPNG = function() {
-          var canvas = document.getElementById("canvas");
-          var image = canvas.toDataURL('image/png', 1.0);
-          ToolkitService.postImage(image).then(result => {
-            console.log(result);
-          });
-        };
+
+      var canvas = document.getElementById("canvas");
+      var image = canvas.toDataURL('image/png', 1.0);
+      ToolkitService.postImage(image).then(result => {
+        console.log(result);
+      });
+
+
+    };
+
+    $scope.clearCanvas = function(){
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext('2d');
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      $scope.modalShow = true;
+
+      $timeout(function(){
+        $scope.modalShow = false;
+        console.log('modal show', $scope.modalShow);
+      }, 2300);
+    };
+
     return ToolkitService.getCanvas().then(thisCanvas => {
       console.log(thisCanvas);
       $scope.image = thisCanvas;

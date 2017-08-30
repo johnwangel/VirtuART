@@ -30,9 +30,26 @@ angular.module('myApp')
       return currentColor;
     }
 
-    function setStrokeWidth(width){
+    function setStrokeWidth(target){
       console.log('running function setStrokeWidth on toolkit service');
-      let currentStrokeWidth = width;
+
+      switch(target){
+        case 'small':
+          currentStrokeWidth = '4';
+          break;
+        case 'medium':
+          currentStrokeWidth = '14';
+          break;
+        case 'large':
+          currentStrokeWidth = '30';
+          break;
+        case 'eraser':
+          currentStrokeWidth = '30';
+          break;
+        default:
+          currentStrokeWidth = '4';
+      }
+
       console.log('current stroke width', currentStrokeWidth);
       return currentStrokeWidth;
     }
