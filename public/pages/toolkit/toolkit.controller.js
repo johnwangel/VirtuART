@@ -26,9 +26,17 @@ myApp.controller("ToolkitController", [
     $scope.transparency = 1;
 
     ToolkitService.getCanvas().then(thisCanvas => {
-        $scope.image = thisCanvas;
-        window.atra();
+      $scope.image = thisCanvas;
+      window.atra();
+    });
+
+    $scope.getPNG = function() {
+      var canvas = document.getElementById("canvas");
+      var image = canvas.toDataURL('image/png', 1.0);
+      ToolkitService.postImage(image).then(result => {
+        console.log("Results from GET PNG ", result);
       });
+
 
 
     $scope.setColor = function (target, color) {
@@ -37,7 +45,6 @@ myApp.controller("ToolkitController", [
       }
 
       $scope.colors[target] = true;
-
       let newColor = ToolkitService.setColor(color);
       $scope.currentColor = newColor;
     }
@@ -57,22 +64,18 @@ myApp.controller("ToolkitController", [
       console.log('here are our brushes', $scope.brushes);
 
     }
+
     $scope.setTransparency = function (transparency) {
       let newTransparency = ToolkitService.setTransparency(transparency);
       $scope.transparency = newTransparency;
       console.log('new transparency', newTransparency);
     }
-    $scope.getPNG = function() {
-          var canvas = document.getElementById("canvas");
-          var image = canvas.toDataURL('image/png', 1.0);
-          ToolkitService.postImage(image).then(result => {
-            console.log(result);
-          });
-        };
+
     return ToolkitService.getCanvas().then(thisCanvas => {
       console.log(thisCanvas);
       $scope.image = thisCanvas;
       window.atra();
     });
+
   }
 ]);
