@@ -6,7 +6,8 @@
 body {
   margin: 0;
   /*max-width: 310px;*/
-  /*max-height: 352px;*/ }
+  /*max-height: 352px;*/
+  background-color: #e2e2e2; }
 
 video {
   width: 400px !important;
@@ -25,8 +26,9 @@ video {
   height: 400px;
   /*width: 100%;*/
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
   background-color: #FFF;
-  box-shadow: 0 9px 20px -5px rgba(0, 0, 0, 0.8);
+  /*box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);*/
   z-index: 100; }
 
 .start_drawing {
@@ -108,14 +110,6 @@ video {
   height: 480px;
   z-index: 1; }
 
-/*// canvas {
-//   width: 100vw;
-//   height: 100vh;
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 2;
-// }*/
 form {
   position: relative;
   z-index: 3;
@@ -135,6 +129,7 @@ form * {
   display: none; }
 
 .drawingTools {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
   height: 100px;
   width: 100%;
   background-color: grey;
@@ -144,16 +139,51 @@ form * {
   flex-direction: row;
   /*padding: 10px 10px 0 10px;*/ }
 
+.brushesNbuttons {
+  display: flex;
+  flex-direction: column;
+  width: 43%;
+  /*background-color: pink;*/ }
+
 .brushes {
-  width: 40%;
-  height: 100px;
-  /*background-color: pink;*/
+  width: 100%;
+  height: 50%;
+  /*background-color: yellow;*/
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 10px 5px 5px 10px; }
+  padding: 15px 10px 8px 10px; }
+
+.saveButton {
+  /*margin-left: 5px;*/ }
+
+.toolkitButtonsContainer {
+  padding: 7px 12px 10px 10px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /*background-color: salmon;*/ }
+
+.toolkitButton {
+  width: 46%;
+  height: 90%;
+  background-color: rgba(192, 192, 192, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  font-family: Arial;
+  font-size: 16px;
+  border: none; }
+
+.toolkitButton:active {
+  background-color: rgba(255, 255, 255, 0.5); }
 
 .brushContainer {
   width: 35px;
@@ -177,6 +207,17 @@ form * {
 .brushSelected {
   background-color: black; }
 
+.eraserSelected {
+  background-image: url("../img/ximga.png");
+  background-size: 125% 126%;
+  background-position: 40% 44%;
+  /*background-color: red;*/ }
+
+.eraserNotSelected {
+  background-image: url("../img/ximg.png");
+  background-size: 30px 30px;
+  background-position: center; }
+
 .smallBrush {
   height: 12px;
   width: 12px; }
@@ -186,28 +227,26 @@ form * {
   width: 20px; }
 
 .largeBrush {
-  height: 27px;
-  width: 27px; }
+  height: 24px;
+  width: 24px; }
 
 .eraserBrushContainer {
-  margin-left: 3px; }
+  /*margin-left: 3px;*/ }
 
 .eraserBrush {
-  height: 33px;
-  width: 33px;
+  height: 30px;
+  width: 30px;
   /*background-color: green;*/
-  background-image: url("../img/ximg.png");
-  background-size: 33px 33px;
-  background-position: center;
   border: none;
   border-radius: 0%; }
 
 .colorPalette {
-  padding: 10px;
-  width: 60%;
+  padding: 5px 10px;
+  width: 57%;
   height: 100px;
   display: flex;
   flex-direction: column;
+  border-left: 1px solid rgba(0, 0, 0, 0.3);
   /*background-color: purple;*/ }
 
 .colorsContainer {
@@ -219,6 +258,12 @@ form * {
   justify-content: space-between;
   align-items: center;
   height: 50%; }
+
+.row1 {
+  /*padding-top: 5px;*/ }
+
+.row2 {
+  /*padding-bottom: 5px;*/ }
 
 .opacitySliderContainer {
   /*background-color: white;*/
@@ -301,6 +346,9 @@ input[type="range"]::-ms-thumb {
 .colorSelected {
   border: 2px solid white; }
 
+.colorSelectedLight {
+  border: 2px solid #3d3d3c; }
+
 .red {
   background-color: red; }
 
@@ -313,11 +361,92 @@ input[type="range"]::-ms-thumb {
 .green {
   background-color: green; }
 
-.blue {
-  background-color: blue; }
+.mediumblue {
+  background-color: mediumblue; }
 
 .black {
   background-color: black; }
+
+.purple {
+  background-color: purple; }
+
+.violet {
+  background-color: violet; }
+
+.deeppink {
+  background-color: deeppink; }
+
+.aqua {
+  background-color: aqua; }
+
+.lightseagreen {
+  background-color: lightseagreen; }
+
+.white {
+  background-color: white; }
+
+.saddlebrown {
+  background-color: saddlebrown; }
+
+.savingModal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto; }
+
+.savingModalHidden {
+  visibility: hidden;
+  /*display: none;*/ }
+
+.savingPopup {
+  background-color: white;
+  width: 60%;
+  height: 130px;
+  margin: 62% auto;
+  padding: 30px;
+  text-align: left;
+  border-radius: 3px; }
+
+.progressBar {
+  display: inline-block;
+  height: 30px;
+  width: 100%;
+  border: 1px solid #cecece; }
+
+.progress {
+  height: 30px;
+  background-color: lightseagreen;
+  /*width: 10%;*/
+  /* animation-name: makeProgress;
+  animation-duration: 2s;
+  animation-delay: 0.6s;*/
+  /*animation-iteration-count: infinite;*/
+  border-radius: 2px;
+  transition: width 1.7s;
+  /*transition-delay: 1s;*/ }
+
+.progressMoving {
+  width: 100%;
+  transition: width 1.7s; }
+
+.progressNotMoving {
+  width: 3%;
+  transition: width 1.7s; }
+
+/*@keyframes makeProgress {
+  0% {width: 0%; border-radius: 2px 0 0 2px;}
+  100% {width: 100%; border-radius: 2px;}
+}*/
+.savingMessage {
+  line-height: 30px;
+  vertical-align: center;
+  margin-right: 10px; }
 
 .photos {
   display: grid;
@@ -326,3 +455,4 @@ input[type="range"]::-ms-thumb {
 
 .image:hover {
   border: solid black 5px; }
+

@@ -93,6 +93,18 @@ myApp
         ctx.beginPath();
 
         drawing = true;
+
+      });
+
+      element.bind('click', function(event){
+        console.log('click registered');
+        console.log('this event on click', event);
+
+        lastX = (event.clientX - rect.left)*scaleX;
+        lastY = (event.clientY - rect.top)*scaleY;
+
+        ctx.fillRect (lastX, lastY, 5, 5);
+
       });
 
       element.bind('mousemove', function(event){
@@ -146,7 +158,9 @@ myApp
 
       // canvas reset
       function reset(){
-       element[0].width = element[0].width;
+       // element[0].width = element[0].width;
+       // online said not to use above
+       ctx.clearRect(0, 0, element[0].width, element[0].height);
       }
 
       function draw(lX, lY, cX, cY){
@@ -155,10 +169,15 @@ myApp
         // to
         ctx.lineTo(cX,cY);
         // color
-        ctx.strokeStyle = scope.currentColor;
 
-        // ctx.strokeStyle = 'rgba(255, 0, 0, 0.3)';
-        // draw it
+        if (scope.brushes.eraser === true){
+          ctx.globalCompositeOperation = 'destination-out';
+          ctx.strokeStyle = 'rgba(0,0,0,1)';
+        } else {
+          ctx.globalCompositeOperation = 'source-over';
+          ctx.strokeStyle = scope.currentColor;
+        }
+
 
         ctx.lineWidth = scope.currentStrokeWidth;
 
