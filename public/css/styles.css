@@ -9,13 +9,20 @@ body {
   /*max-height: 352px;*/ }
 
 video {
-  /*  position: fixed;
-  top: 100px;*/
+  width: 400px !important;
+  position: fixed;
+  top: 50px;
+  left: 10px;
+  /*top: 100px;*/
   /*width: 500px !important;*/
   /*height: 500px !important;*/ }
 
 #canvas {
-  position: relative;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 400px;
   /*width: 100%;*/
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   background-color: #FFF;
@@ -28,7 +35,11 @@ video {
   z-index: 3; }
 
 .banner {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 50px;
+  width: 100%;
   background-color: #f4f7fc;
   color: #4b4c4f;
   display: flex;
@@ -83,8 +94,10 @@ video {
   z-index: -1; }
 
 #cameraCanvas {
-  /*position: relative;*/
-  /*width: 300px;*/
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 400px;
   z-index: -1; }
 
 #sketcher {
@@ -95,6 +108,14 @@ video {
   height: 480px;
   z-index: 1; }
 
+/*// canvas {
+//   width: 100vw;
+//   height: 100vh;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   z-index: 2;
+// }*/
 form {
   position: relative;
   z-index: 3;
@@ -150,9 +171,11 @@ form * {
   width: 30px; }
 
 .brush {
-  /*background-color: black;*/
   border-radius: 50%;
   border: solid 2px black; }
+
+.brushSelected {
+  background-color: black; }
 
 .smallBrush {
   height: 12px;
@@ -274,6 +297,9 @@ input[type="range"]::-ms-thumb {
   height: 27px;
   width: 27px;
   border-radius: 50%; }
+
+.colorSelected {
+  border: 2px solid white; }
 
 .red {
   background-color: red; }

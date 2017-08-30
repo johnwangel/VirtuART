@@ -44,9 +44,22 @@ myApp
   return {
     restrict: "A",
     link: function(scope, element){
+
       console.log('this is scope on drawing directive', scope);
       console.log('this is the element on drawing directive', element);
       var ctx = element[0].getContext('2d');
+
+      var rect = element[0].getBoundingClientRect();
+      console.log('this is RECT', rect);
+
+      var scaleX = element[0].width/rect.width;
+      var scaleY = element[0].height/rect.height;
+
+
+      console.log('element width', element[0].width);
+      console.log('element height', element[0].height);
+      console.log('scale x', scaleX);
+      console.log('scale y', scaleY);
 
       // variable that decides if something should be drawn on mousemove
       var drawing = false;
@@ -68,8 +81,13 @@ myApp
 
       element.bind('touchstart', function(event){
 
-        lastX = event.offsetX;
-        lastY = event.offsetY;
+        console.log('triggered touch staart');
+
+        lastX = (event.touches[0].clientX - rect.left)*scaleX;
+        lastY = (event.touches[0].clientY - rect.top)*scaleY;
+
+        console.log('current X', lastX);
+        console.log('current Y', lastY);
 
         // begins new line
         ctx.beginPath();
@@ -83,6 +101,7 @@ myApp
           currentX = event.offsetX;
           currentY = event.offsetY;
 
+
           draw(lastX, lastY, currentX, currentY);
 
           // set current coordinates to last one
@@ -92,10 +111,19 @@ myApp
       });
 
       element.bind('touchmove', function(event){
+
         if(drawing){
+          console.log('triggered touch move');
           // get current mouse position
-          currentX = event.offsetX;
-          currentY = event.offsetY;
+          console.log('this is event', event);
+          currentX = (event.changedTouches[0].clientX - rect.left) * scaleX;
+          currentY = ((event.changedTouches[0].clientY - rect.top) * scaleY);
+
+          console.log('scale y from touchmove', scaleY);
+
+          console.log('current X', currentX);
+          console.log('current Y', currentY);
+
 
           draw(lastX, lastY, currentX, currentY);
 
@@ -112,6 +140,7 @@ myApp
 
       element.bind('touchend', function(event){
         // stop drawing
+        console.log('triggered touch end');
         drawing = false;
       });
 
@@ -133,7 +162,7 @@ myApp
 
         ctx.lineWidth = scope.currentStrokeWidth;
 
-        ctx.globalAlpha = 0.1;
+        // ctx.globalAlpha = 0.1;
 
         ctx.stroke();
       }
