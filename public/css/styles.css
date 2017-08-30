@@ -1,3 +1,6 @@
+/*banner, add yours button*/
+/*progress bar*/
+/*color palette*/
 * {
   padding: 0;
   margin: 0;
@@ -114,7 +117,7 @@ form {
   position: relative;
   z-index: 3;
   width: 640px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.3);
   padding: 1em;
   color: white; }
 
@@ -349,44 +352,41 @@ input[type="range"]::-ms-thumb {
 .colorSelectedLight {
   border: 2px solid #3d3d3c; }
 
-.red {
+.color11 {
   background-color: red; }
 
-.orange {
+.color12 {
   background-color: orange; }
 
-.yellow {
+.color13 {
   background-color: yellow; }
 
-.green {
+.color14 {
   background-color: green; }
 
-.mediumblue {
+.color15 {
   background-color: mediumblue; }
 
-.black {
+.color16 {
   background-color: black; }
 
-.purple {
+.color21 {
   background-color: purple; }
 
-.violet {
+.color22 {
   background-color: violet; }
 
-.deeppink {
+.color23 {
   background-color: deeppink; }
 
-.aqua {
+.color24 {
   background-color: aqua; }
 
-.lightseagreen {
+.color25 {
   background-color: lightseagreen; }
 
-.white {
+.color26 {
   background-color: white; }
-
-.saddlebrown {
-  background-color: saddlebrown; }
 
 .savingModal {
   position: fixed;
