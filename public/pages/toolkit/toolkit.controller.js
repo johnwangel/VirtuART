@@ -2,15 +2,19 @@ var myApp = angular.module("myApp");
 
 myApp.controller("ToolkitController", [
   "$scope",
+  "$location",
+  "$window",
   "ToolkitService",
   "$timeout",
-  function($scope, ToolkitService, $timeout) {
+  function($scope, $location, $window, ToolkitService, $timeout) {
     $scope.image = "";
 
     $scope.lastBrush = 'small';
     $scope.lastColor = 'black'
 
     $scope.modalShow = false;
+
+    $scope.progressActive = false;
 
     $scope.brushes = {
       small: true,
@@ -101,7 +105,14 @@ myApp.controller("ToolkitController", [
         console.log(result);
       });
 
+      $scope.modalShow = true;
+      $scope.progressActive = true;
 
+      $timeout(function(){
+        // $scope.modalShow = false;
+        // console.log('modal show', $scope.modalShow);
+        $window.location.href = '/';
+      }, 1800);
     };
 
     $scope.clearCanvas = function(){
@@ -109,13 +120,6 @@ myApp.controller("ToolkitController", [
       var ctx = canvas.getContext('2d');
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      $scope.modalShow = true;
-
-      $timeout(function(){
-        $scope.modalShow = false;
-        console.log('modal show', $scope.modalShow);
-      }, 2300);
     };
 
     return ToolkitService.getCanvas().then(thisCanvas => {

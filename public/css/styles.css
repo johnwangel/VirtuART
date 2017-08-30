@@ -422,21 +422,27 @@ input[type="range"]::-ms-thumb {
 .progress {
   height: 30px;
   background-color: lightseagreen;
-  width: 0%;
-  animation-name: makeProgress;
+  /*width: 10%;*/
+  /* animation-name: makeProgress;
   animation-duration: 2s;
-  animation-delay: 0.6s;
+  animation-delay: 0.6s;*/
   /*animation-iteration-count: infinite;*/
-  border-radius: 2px; }
+  border-radius: 2px;
+  transition: width 1.7s;
+  /*transition-delay: 1s;*/ }
 
-@keyframes makeProgress {
-  0% {
-    width: 0%;
-    border-radius: 2px 0 0 2px; }
-  100% {
-    width: 100%;
-    border-radius: 2px; } }
+.progressMoving {
+  width: 100%;
+  transition: width 1.7s; }
 
+.progressNotMoving {
+  width: 3%;
+  transition: width 1.7s; }
+
+/*@keyframes makeProgress {
+  0% {width: 0%; border-radius: 2px 0 0 2px;}
+  100% {width: 100%; border-radius: 2px;}
+}*/
 .savingMessage {
   line-height: 30px;
   vertical-align: center;

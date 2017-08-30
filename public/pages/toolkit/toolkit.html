@@ -1,8 +1,8 @@
 <div class="savingModal" ng-class="{savingModalShowing: modalShow, savingModalHidden: !modalShow}">
   <div class="savingPopup">
-    <span class="savingMessage">Saving ...</span>
-    <div class="progressBar">
-      <div class="progress"></div>
+    <p class="savingMessage">Saving ...</p>
+    <div class="progressBar" >
+      <div class="progress" ng-class="{progressMoving: progressActive, progressNotMoving: !progressActive}"></div>
     </div>
   </div>
 </div>
