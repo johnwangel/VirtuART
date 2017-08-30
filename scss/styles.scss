@@ -342,3 +342,13 @@ input[type="range"]::-ms-thumb {
 .black {
   background-color: black;
 }
+
+.photos{
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;
+}
+
+.image:hover {
+  border: solid black 5px;
+}
