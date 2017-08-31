@@ -82,7 +82,7 @@ app.post('/api/login', function(req, res, next) {
 });
 
 app.post('/api/register', (req, res) => {
-  console.log(req);
+  console.log("from backend post route to register",req.body);
   const { username, password } = req.body;
   console.log("req.body", req.body);
   bcrypt.genSalt(saltRounds, (err, salt) => {

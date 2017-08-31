@@ -2,22 +2,17 @@ var myApp = angular.module('myApp');
 
 
 myApp.controller(
-  'RegisterController', ['$scope', 'RegisterService', function($scope, RegisterService) {
-  $scope.newUser = { username: ''};
-  $scope.users = {username:'', password:''};
-  $scope.RegisterService = RegisterService;
+  'RegisterController', ['$scope', 'UsersService', function($scope, UsersService) {
+  $scope.user= {username:'', password:''};
   $scope.register = function() {
-    let newRegister = {
-      username: $scope.newUser.username
-    };
-
-
-    RegisterService.register(newRegister);
-    RegisterService.register($scope.users)
+    console.log("this is scope.user before calling register service.", $scope.user);
+      UsersService.register($scope.user)
     .then(user=>{
-      $scope.newRegister.username = '';
-      $scope.users.username ='';
-    $scope.users.password = '';
+      console.log("this is user from controller", user);
+    $scope.user.username ='';
+    $scope.user.password = '';
+    //setting user id to local storage
+    //if user does not come back
     });
 
 

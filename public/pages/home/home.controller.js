@@ -1,5 +1,5 @@
 /*jshint esversion:6 */
-console.log('the home controller is running now');
+// console.log('the home controller is running now');
 
 var myApp = angular.module('myApp');
 

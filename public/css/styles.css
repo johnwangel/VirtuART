@@ -113,3 +113,9 @@ form * {
 
 #clear {
   display: none; }
+
+.registerButton {
+  background: blue;
+  background-color: blue;
+  z-index: 10000000;
+}

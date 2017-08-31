@@ -17,22 +17,23 @@ myApp
           controller: 'ToolkitController'
         })
         .when('/register',{
-          templateURl:'../scripts/register/register.html',
+          templateURl:'../pages/register/register.html',
           controller:'RegisterController'
         })
         .when('/login', {
-          templateUrl:'../scripts/login/login.html',
+          templateUrl:'../pages/login/login.html',
           controller:'LoginController'
         })
         .otherwise({ redirectTo: '/' });
       $locationProvider.html5Mode(true);
     }
+  ])
+  .run([
+
+    '$rootScope',
+    'APP_VERSION',
+    function($rootScope, APP_VERSION) {
+      console.log('running');
+      $rootScope.version = APP_VERSION;
+    }
   ]);
-  // .run([
-  //   '$rootScope',
-  //   'APP_VERSION',
-  //   function($rootScope, APP_VERSION) {
-  //     console.log('running');
-  //     $rootScope.version = APP_VERSION;
-  //   }
-  // ]);

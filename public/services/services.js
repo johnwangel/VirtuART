@@ -20,9 +20,9 @@ angular.module("myApp").service("UsersService", [
       });
     }
 
-    function register(username, password) {
-      console.log(register);
-      return $http.post('/register').then(Users => {
+    function register(user) {
+      console.log("this is the user we are receiving on our register service", user);
+      return $http.post('/api/register').then(Users => {
         console.log(Users);
         return Users.data;
       });
