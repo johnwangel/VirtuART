@@ -48,6 +48,7 @@ myApp.controller("ToolkitController", [
       window.disableCamera();
     });
 
+
     $scope.getPNG = function() {
 
       var canvas = document.getElementById("canvas");
@@ -115,25 +116,16 @@ myApp.controller("ToolkitController", [
       //and set url to work in progress
     }
 
-    $scope.getPNG = function() {
-
-      var canvas = document.getElementById("canvas");
-      var image = canvas.toDataURL('image/png', 1.0);
-      ToolkitService.postImage(image).then(result => {
-        console.log(result);
-      });
-
-
     $scope.clearCanvas = function(){
       var canvas = document.getElementById("canvas");
       var ctx = canvas.getContext('2d');
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
+
     $scope.setCurrentId = function(id) {
       $scope.currentId = id;
     }
-
 
     return ToolkitService.getCanvas().then(thisCanvas => {
       $scope.image = thisCanvas;
@@ -142,4 +134,3 @@ myApp.controller("ToolkitController", [
 
   }
 ]);
-

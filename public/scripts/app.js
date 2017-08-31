@@ -20,10 +20,6 @@ myApp
           templateUrl: '../pages/toolkit/toolkit.html',
           controller: 'ToolkitController'
         })
-        .when('/login', {
-          templateUrl: '../pages/login/login.html',
-          controller: 'LoginController'
-        })
         .when('/register', {
           templateUrl: '../pages/register/register.html',
           controller: 'RegisterController'
@@ -50,7 +46,6 @@ myApp
 
       var scaleX = element[0].width/rect.width;
       var scaleY = element[0].height/rect.height;
-
 
       console.log('element width', element[0].width);
       console.log('element height', element[0].height);
@@ -182,4 +177,5 @@ myApp
         ctx.stroke();
       }
     }
-  ]);
+  }
+});
