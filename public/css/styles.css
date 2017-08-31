@@ -132,6 +132,13 @@ form * {
 #clear {
   display: none; }
 
+
+.registerButton {
+  background: blue;
+  background-color: blue;
+  z-index: 10000000;
+}
+
 .drawingTools {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   height: 100px;
@@ -504,3 +511,4 @@ input[type="range"]::-ms-thumb {
   color: white;
   left: 20px;
   top: 60px; }
+

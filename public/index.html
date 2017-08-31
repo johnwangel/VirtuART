@@ -15,6 +15,16 @@
     <img src="./img/menu.png" alt="" class="menuIcon">
   </div>
 
+      <div id="menu" ng-controller="MenuController">
+        <h1>MENU</h1>
+        <a ng-href="/register"><button class="registerButton">Register</button></a>
+        <a ng-href="/login"><button>Login</button></a>
+        <a ng-href="/logout"><button>Log Out</button></a>
+        <a ng-href="/aboutTheArt"><button>About The Art</button></a>
+        <a ng-href="/aboutUs"><button>About Us</button></a>
+      </div>
+
+
   <div ng-view></div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
