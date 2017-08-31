@@ -6,11 +6,10 @@ window.augreal = function(photoData) {
   //////////////////////////////////////////////////////////////////////////////////
   // init renderer
 
-  console.log("inside function - running augreal");
+  console.log('from augreal', photoData);
+
   var canvas = document.getElementById("cameraCanvas");
   var canvasContainer = document.getElementById("canvasContainer");
-
-  console.log('canvas element grabbed', canvasContainer);
 
   let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
 
@@ -66,10 +65,10 @@ window.augreal = function(photoData) {
     onResize()
   })
   function onResize(){
-    arToolkitSource.onResize()
-    arToolkitSource.copySizeTo(renderer.domElement)
+    arToolkitSource.onResizeElement()
+    arToolkitSource.copyElementSizeTo(renderer.domElement)
     if( arToolkitContext.arController !== null ){
-      arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)
+      arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)
     }
   }
   ////////////////////////////////////////////////////////////////////////////////
@@ -147,9 +146,7 @@ window.augreal = function(photoData) {
   // var imageArray = ["../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png","../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg"];
 
 
-  var imageArray = photoData[8].images;
-  console.log('this is IMAGE ARRAY', imageArray);
-
+  var imageArray = photoData;
 
 renderGrid(1, 4, 4);
 
@@ -173,15 +170,14 @@ function renderGrid(squareWidth, rows, columns){
 }
 
 function renderSquare(parent, squareWidth, image, positionZ, positionX){
-  console.log('running function renderSquare with parameters: ', squareWidth, image, positionX, positionZ);
   var loader = new THREE.TextureLoader();
+  loader.crossOrigin = 'anonymous';
   loader.load( image, function ( texture ) {
       var geometry = new THREE.BoxGeometry(squareWidth, 0, squareWidth);
       var material = new THREE.MeshBasicMaterial( { map: texture } );
       var mesh = new THREE.Mesh( geometry, material );
       mesh.position.x = positionX * squareWidth;
       mesh.position.z = positionZ * squareWidth;
-      console.log('image with position', mesh.position.x, mesh.position.z);
       parent.add( mesh );
   });
 }

@@ -1,11 +1,23 @@
 angular.module("myApp").service("UsersService", [
   "$http",
   function($http) {
-    function goHome() {
-      return $http.get('/api/home').then(allImages => {
-        console.log("this is from our service ", allImages);
+    
+  function getTiles(){
+      return $http.get('/api/home')
+      .then( allImages => {
         return allImages.data;
-      });
+      })
+    }
+    
+    function checkTile(thisID){
+      return $http({
+        method: 'POST',
+        url: '/api/toolkit/',
+        data: { id: thisID }
+      })
+      .then( edit => {
+        return edit.data;
+      })
     }
 
     function login(username, password) {
@@ -29,7 +41,8 @@ angular.module("myApp").service("UsersService", [
     }
 
     return {
-      goHome: goHome,
+      getTiles: getTiles,
+      checkTile: checkTile,
       login: login,
       register: register
     };

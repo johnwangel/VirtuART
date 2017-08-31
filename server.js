@@ -1,48 +1,31 @@
 /*jshint esversion: 6 */
-
+const PORT = process.env.PORT || 5000;
 const express = require("express");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const methodOverride = require("method-override");
 const app = express();
+const api = require('./api');
 const { MongoClient } = require("mongodb");
-
-//do we need this?
-//const saltRounds = 10;
-const PORT = process.env.PORT || 5000;
-
-const api = require("./api");
-const AWS = require("aws-sdk");
-const AWS_ACCESS_KEY = require("./config/aws.json").AwsAccessKeyId;
-const AWS_SECRET = require("./config/aws.json").AwsSecretAccessKey;
-
-const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const LocalStrategy = require("passport-local").Strategy;
-const session = require("express-session");
-const RedisStore = require("connect-redis")(session);
-// var client = require('mongodb').MongoClient;
-
-const db = require("./collections/index.js");
+const bcrypt = require('bcrypt');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const db= require('./collections/index.js');
 const users = require("./collections/index.js").users;
 
-// console.log(AWS_ACCESS_KEY, AWS_SECRET)
-//using s3 to authenticate
-const credentials = {
-  accessKeyId: AWS_ACCESS_KEY,
-  secretAccessKey: AWS_SECRET
-};
-
-AWS.config.update(credentials);
-const s3 = new AWS.S3();
-
-// app.use('/api', apiRouter);
-
-app.use("/api", api);
-app.use(express.static("public"));
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(express.static('public'));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(methodOverride('_method'));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(session({
+  store: new RedisStore(),
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialize: false
+}));
 app.use(methodOverride("_method"));
 
 app.use(passport.initialize());
@@ -55,6 +38,8 @@ app.use(
     saveUninitialize: false
   })
 );
+
+app.use('/api', api);
 
 app.post('/api/login', function(req, res, next) {
   console.log("post to /login is firing");
@@ -103,6 +88,7 @@ app.post('/api/register', (req, res) => {
     });
   });
 });
+
 app.get('/logout', (req, res) => {
   req.logout();
   res.json({ loggedout: true });
@@ -112,27 +98,51 @@ app.get('/logout', (req, res) => {
 //   db.close();
 // });
 
-app.post("/api/drawings", (req, res) => {
-  let image = req.body.image;
-  let imageBase64String = image.split(",")[1];
-  let imageBuffer = new Buffer(imageBase64String, "base64");
-
-  const params = {
-    key: "drawings/" + Date.now() + ".png",
-    ContentType: "image/png",
-    ACL: "public-read",
-    Bucket: "virtuarthawaii",
-    Body: imageBuffer
-  };
-  s3.upload(params, function(err, output) {
-    console.log(err);
-    console.log(output);
-    res.send("image received");
-    console.log("website", output.Location);
+app.post('/register', (req, res) => {
+  console.log('running a post on register');
+  let {username, password} = req.body;
+  bcrypt.genSalt(saltRounds, function(err, salt) {
+    bcrypt.hash(password, salt, function(err, hash) {
+      return Users.create({
+        username: username,
+        password: hash
+      })
+      .then(createdUser => {
+        let {username, id} = createdUser;
+        let user = {username, id};
+        res.json(user);
+      })
+      .catch((error) => {
+        console.log ('here is our error', error);
+      });
+    });
   });
 });
 
-passport.serializeUser(function(user, done) {
+app.post('/login', function(req, res, next) {
+  console.log('post to /login is firing');
+  console.log('this is our req.body', req.body);
+  passport.authenticate('local', function (err, user, info) {
+    console.log('going into authenticate');
+    console.log('user from authenticate', user);
+    if (err) { return res.status(500).json({err}); }
+    if (!user) { return res.status(401).json({success: false}); }
+    req.logIn(user, function(err) {
+      if (err) {return res.status(500).json({err}); }
+      console.log('successful login! from app.post');
+      let {id, username} = user;
+      let logedInUser = {id, username};
+      return res.json(logedInUser);
+    });
+  })(req, res, next);
+});
+
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.json({loggedout: true});
+})
+
+passport.serializeUser(function(user, done){
   done(null, user.id);
 });
 passport.deserializeUser(function(id, done) {
@@ -168,6 +178,10 @@ passport.use(
     });
   })
 );
+
+app.get('*', function(req, res){
+  res.redirect('/');
+})
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);

@@ -2,26 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- initial-scale=1.0, -->
+  <meta name="viewport" content="width=device-width, user-scalable=no,  minimum-scale=1.0, maximum-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css">
-  <title>VirtuART</title>
+  <title>InvisiARt</title>
   <base href="/">
 </head>
 <body ng-app="myApp">
-  <!-- FACEBOOK STUFFS -->
-  <!-- <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=117273505601571";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script> -->
 
   <div class='banner'>
-    <span class='banner_title'>VirtuART</span>
+    <span class='banner_title'>Invisi<i><b>AR</b>t</i></span>
     <img src="./img/menu.png" alt="" class="menuIcon">
   </div>
+
       <div id="menu" ng-controller="MenuController">
         <h1>MENU</h1>
         <a ng-href="/register"><button class="registerButton">Register</button></a>
@@ -33,21 +26,10 @@
 
 
   <div ng-view></div>
-  <script src="./dist/atrament.min.js"></script>
- <script src="./atrament.js"></script>
-
-
-<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/atrament.js/0.2.3/atrament.min.js"></script> -->
- <!--  <script>THREEx.ArToolkitContext.baseURL = 'https://jeromeetienne.github.io/AR.js/three.js/'</script> -->
-  <!--   <script src="./src/atrament.js"></script>
-  <script src="./src/mouse.js"></script> -->
-
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/atrament.js/0.2.3/atrament.min.js"></script>
-  <script src="./dist/atrament.min.js"></script>
-  <script src="./atrament.js"></script>
-
+  <script src="./disableCamera.js"></script>
   <script type="text/javascript" src="./scripts/augreal.js"></script>
   <script type="text/javascript" src="./scripts/app.js"></script>
   <script src="./services/services.js"></script>
@@ -56,6 +38,7 @@
   <script type="text/javascript" src="./pages/menu/menu.controller.js"></script>
   <script type="text/javascript" src="./pages/register/register.controller.js"></script>
   <script type="text/javascript" src="./pages/toolkit/toolkit.controller.js"></script>
+  <script type="text/javascript" src="./pages/selection/selection.controller.js"></script>
   <script type="text/javascript" src="./scripts/three.min.js"></script>
   <script type="text/javascript" src="./scripts/stats.min.js"></script>
   <script type="text/javascript" src="./scripts/ar.js"></script>
@@ -63,3 +46,13 @@
   <script type="text/javascript" src="./services/ToolkitService.js"></script>
 </body>
 </html>
+
+
+<!--       <div id="menu">
+        <h1>MENU</h1>
+        <a ng-href="/register"><button>Register</button></a>
+        <a ng-href="/login"><button>Login</button></a>
+        <a ng-href="/logout"><button>Log Out</button></a>
+        <a ng-href="/aboutTheArt"><button>About The Art</button></a>
+        <a ng-href="/aboutUs"><button>About Us</button></a>
+      </div> -->

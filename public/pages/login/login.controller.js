@@ -1,7 +1,5 @@
-var myApp = angular.module('myApp');
-
-
-
+angular.module('myApp')
+.controller('LoginController', ['$scope', '$rootScope', 'UsersService', '$window', function($scope, $rootScope, UsersService, $window){
 myApp.controller(
   'LoginController', ['$scope', 'LoginService', function($scope, LoginService) {
   $scope.newLogin = { username: '', password: '' };

@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const router = express.Router();
+const { artData }  = require('../../collections/');
 
 const artData = require('../../collections/').artData;
 // console.log('this is art data', artData();
@@ -12,31 +13,21 @@ const users = require('../../collections/').users;
 
 console.log(users);
 //load requested canvas
+
 router.get('/', getImages);
+router.post('/initdb', initializeDB);
 
 function getImages(req, res) {
-  console.log('hitting this');
-
-  // console.log('here is our art data. find()', artData().find());
-
-  return artData().find().toArray()
+  artData().findOne({ "scenes.id": "scene1" })
   .then(results => {
-    // console.log('results from home index', results);
-    res.json(results);
+    res.json(results.scenes[0]);
   })
+}
 
-  // res.json({string: 'helloooowww'});
-  // .then(mongoRecords => {
-  //   console.log('here is our mongo records', mongoRecords);
-
-  //   res.json({string: 'hiiii thaarr'});
-  // });
-
-  // res.json({
-  //   imageName: 'art.jpg',
-  //   creator: 'Snoopy',
-  //   updatedAt: "8 am"
-  // });
+function initializeDB(req, res){
+  console.log('Init DB', req.body.scenes[0].tiles);
+  artData().insert(req.body)
+  res.end('ok');
 }
 
 module.exports = router;
