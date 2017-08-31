@@ -20,6 +20,7 @@ myApp.controller('SelectionController', [
           }
       })
     }
+
     return UsersService.getTiles()
     .then(allData => {
       $scope.photoURLs = allData.tiles;

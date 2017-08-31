@@ -504,3 +504,24 @@ input[type="range"]::-ms-thumb {
   color: white;
   left: 20px;
   top: 60px; }
+
+.cancelButton {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 30px;
+  height: 31px;
+  background-color: grey;
+  font-size: 26px;
+  padding: 0;
+  line-height: 21px;
+  padding-right: 5px;
+  text-align: right;
+  border-radius: 2px 0px 2px 20px;
+  padding-top: 1px;
+  opacity: 0.7;
+  color: black;
+  z-index: 1000; }
+
+.cancelButton:active {
+  opacity: 1; }
