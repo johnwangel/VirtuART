@@ -28,10 +28,6 @@ myApp
           templateUrl: '../pages/register/register.html',
           controller: 'RegisterController'
         })
-        .when('/register', {
-          templateUrl:'../pages/register/register.html',
-          controller: ''
-        })
         .when('/login', {
           templateUrl:'../pages/login/login.html',
           controller:'LoginController'
@@ -186,13 +182,4 @@ myApp
         ctx.stroke();
       }
     }
-  };
-});
-  // .run([
-  //   '$rootScope',
-  //   'APP_VERSION',
-  //   function($rootScope, APP_VERSION) {
-  //     console.log('running');
-  //     $rootScope.version = APP_VERSION;
-  //   }
-  // ]);
+  ]);

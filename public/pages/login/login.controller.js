@@ -1,11 +1,24 @@
 angular.module('myApp')
 .controller('LoginController', ['$scope', '$rootScope', 'UsersService', '$window', function($scope, $rootScope, UsersService, $window){
+myApp.controller(
+  'LoginController', ['$scope', 'LoginService', function($scope, LoginService) {
+  $scope.newLogin = { username: '', password: '' };
+  $scope.LoginService =LoginService;
+  $scope.Login = function() {
+    var newLogin = {
+      username: $scope.newLogin.username,
+      password: $scope.newLogin.password
+    };
+   LoginService.Login(newLogin);
+    $scope.Login.username = '';
+    $scope.Login.password = '';
 
   $scope.user = {
     username: '',
     password: ''
-  };
+};
 
+  };
 
   $scope.feedback = '';
 
@@ -26,6 +39,5 @@ angular.module('myApp')
 
     });
 
-    console.log()
-  }
-}])
+  };
+}]);

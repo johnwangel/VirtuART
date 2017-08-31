@@ -49,12 +49,22 @@ myApp.controller("ToolkitController", [
     });
 
     $scope.getPNG = function() {
+
       var canvas = document.getElementById("canvas");
       var image = canvas.toDataURL('image/png', 1.0);
       ToolkitService.postImage(image).then(result => {
-        console.log("Results from GET PNG ", result);
+        console.log(result);
       });
-    }
+
+      $scope.modalShow = true;
+      $scope.progressActive = true;
+
+      $timeout(function(){
+        // $scope.modalShow = false;
+        // console.log('modal show', $scope.modalShow);
+        $window.location.href = '/';
+      }, 1800);
+    };
 
     $scope.setColor = function (target, color) {
       for (var x in $scope.colors){
@@ -113,15 +123,6 @@ myApp.controller("ToolkitController", [
         console.log(result);
       });
 
-      $scope.modalShow = true;
-      $scope.progressActive = true;
-
-      $timeout(function(){
-        // $scope.modalShow = false;
-        // console.log('modal show', $scope.modalShow);
-        $window.location.href = '/';
-      }, 1800);
-    };
 
     $scope.clearCanvas = function(){
       var canvas = document.getElementById("canvas");
@@ -141,3 +142,4 @@ myApp.controller("ToolkitController", [
 
   }
 ]);
+

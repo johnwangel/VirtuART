@@ -56,7 +56,6 @@ angular.module('myApp')
         default:
           currentStrokeWidth = '4';
       }
-
       console.log('current stroke width', currentStrokeWidth);
       return currentStrokeWidth;
     }
