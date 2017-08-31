@@ -20,9 +20,12 @@ myApp.controller('SelectionController', [
           }
       })
     }
+
     return UsersService.getTiles()
     .then(allData => {
       $scope.photoURLs = allData.tiles;
+      console.log('this is scope photo urls', $scope.photoURLs);
+      console.log('this is allData', allData);
       window.disableCamera();
     });
   }

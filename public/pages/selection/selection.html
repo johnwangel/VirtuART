@@ -1,5 +1,13 @@
-  <div ng-controller="SelectionController" class="photos">
-    <div class="photo" ng-repeat="photo in photoURLs">
-        <img class="image" id="{{photo.id}}" src="{{photo.url}}" alt="photo" height="100" width="100" ng-dblclick="loadCanvas($event)">
-    </div>
+<div class="selectionInstructionsContainer">
+  <p class="selectionMsg">Pick a spot for your awesome artwork!</p>
 </div>
+<div class="selectionGridContainer">
+  <div ng-controller="SelectionController" class="optionsGrid">
+    <div class="tileOptionContainer" ng-repeat="photo in photoURLs">
+      <!-- <p class="claimMsg" ng-class="{tileAvailableMsg: {{photo.clean}}, tileNotAvailableMsg: !{{photo.clean}} }" >CLAIM</p> -->
+      <img class="tileOptionImg" id="{{photo.id}}" src="{{photo.url}}" alt="photo" ng-click="loadCanvas($event)" ng-class="{tileAvailable: {{photo.clean}}, tileNotAvailable: !{{photo.clean}} }">
+    </div>
+  </div>
+</div>
+
+<!-- height="100" width="100" -->

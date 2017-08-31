@@ -1,3 +1,31 @@
+$light-grey-background: #e2e2e2;
+$border-grey: rgba(0,0,0,0.3);
+$banner-background: #f4f7fc;
+/*banner, add yours button*/
+$dark-grey-text: #4b4c4f;
+$font-main: Helvetica;
+$modal-background: rgba(0, 0, 0, 0.5);
+$popup-background: white;
+$progressbar-container: #cecece;
+$theme-color: lightseagreen;
+/*progress bar*/
+$selected-colors-light: #3d3d3c;
+$selected-colors-dark: white;
+
+/*color palette*/
+$color-1-1: red;
+$color-1-2: orange;
+$color-1-3: yellow;
+$color-1-4: green;
+$color-1-5: mediumblue;
+$color-1-6: black;
+$color-2-1: purple;
+$color-2-2: violet;
+$color-2-3: deeppink;
+$color-2-4: aqua;
+$color-2-5: lightseagreen;
+$color-2-6: white;
+$color-2-7: saddlebrown;
 
 * {
   padding: 0;
@@ -9,11 +37,12 @@ body {
   margin: 0;
   /*max-width: 310px;*/
   /*max-height: 352px;*/
-  background-color: #e2e2e2;
+  background-color: $light-grey-background;
 }
 
 video {
   width: 400px !important;
+  height: 500px !important;
   position: fixed;
   top: 50px;
   left: 10px;
@@ -26,11 +55,11 @@ video {
   position: fixed;
   top: 50px;
   left: 0;
-  width: 100%;
-  height: 400px;
+  width: 100vw;
+  height: 100vw;
   /*width: 100%;*/
-  border-bottom: 1px solid rgba(0,0,0,0.3);
-  border-top: 1px solid rgba(0,0,0,0.3);
+  border-bottom: 1px solid $border-grey;
+  border-top: 1px solid $border-grey;
   background-color: #FFF;
   /*box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);*/
   z-index: 100;
@@ -49,8 +78,8 @@ video {
   left: 0;
   height: 50px;
   width: 100%;
-  background-color: #f4f7fc;
-  color: #4b4c4f;
+  background-color: $banner-background;
+  color: $dark-grey-text;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -62,7 +91,7 @@ video {
   display: inline;
   line-height: 50px;
   font-size: 32px;
-  font-family: Helvetica;
+  font-family: $font-main;
   vertical-align: center;
 }
 
@@ -72,7 +101,7 @@ video {
 }
 
 .addContainer {
-  background-color: #f4f7fc;
+  background-color: $banner-background;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -83,12 +112,12 @@ video {
   /*opacity: .7;*/
 }
 
-.add_you_own_button{
+.add_your_own_button{
   display: block;
   /*background-color: purple;*/
   text-decoration: none;
-  font-family: Helvetica;
-  color: #4b4c4f;
+  font-family: $font-main;
+  color: $dark-grey-text;
   opacity: 1;
   position: relative;
   top: 30px;
@@ -129,7 +158,7 @@ video {
 
 // canvas {
 //   width: 100vw;
-//   height: 100vh;
+//   height: 100vw;
 //   position: fixed;
 //   top: 0;
 //   left: 0;
@@ -142,7 +171,7 @@ form {
   // top: 300;
   // left: 100;
   width: 640px;
-  background: rgba(0, 0, 0, 0.7);
+  background: $border-grey;
   padding: 1em;
   color:white;
 }
@@ -164,7 +193,7 @@ form * {
 
 
 .drawingTools {
-  border-top: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid $border-grey;
   height: 100px;
   width: 100%;
   background-color: grey;
@@ -299,7 +328,7 @@ form * {
   height: 100px;
   display: flex;
   flex-direction: column;
-  border-left: 1px solid rgba(0,0,0,0.3);
+  border-left: 1px solid $border-grey;
   /*background-color: purple;*/
 }
 
@@ -406,60 +435,55 @@ input[type="range"]::-ms-thumb {
 }
 
 .colorSelected {
-  border: 2px solid white;
+  border: 2px solid $selected-colors-dark;
 }
 
 .colorSelectedLight {
-  border: 2px solid #3d3d3c;
+  border: 2px solid $selected-colors-light;
 }
 
-.red {
-  background-color: red;
+.color11 {
+  background-color: $color-1-1;
 }
-.orange {
-  background-color: orange;
+.color12 {
+  background-color: $color-1-2;
 }
-.yellow {
-  background-color: yellow;
+.color13 {
+  background-color: $color-1-3;
 }
-.green {
-  background-color: green;
+.color14 {
+  background-color: $color-1-4;
 }
-.mediumblue {
-  background-color: mediumblue;
+.color15 {
+  background-color: $color-1-5;
 }
-.black {
-  background-color: black;
-}
-
-.purple {
-  background-color: purple;
-}
-.violet {
-  background-color: violet;
-}
-.deeppink {
-  background-color: deeppink;
-}
-.aqua {
-  background-color: aqua;
+.color16 {
+  background-color: $color-1-6;
 }
 
-.lightseagreen {
-  background-color: lightseagreen;
+.color21 {
+  background-color: $color-2-1;
 }
 
-.white {
-  background-color: white;
+.color22 {
+  background-color: $color-2-2;
 }
-
-.saddlebrown {
-  background-color: saddlebrown;
+.color23 {
+  background-color: $color-2-3;
+}
+.color24 {
+  background-color: $color-2-4;
+}
+.color25 {
+  background-color: $color-2-5;
+}
+.color26 {
+  background-color: $color-2-6;
 }
 
 .savingModal {
   position: fixed;
-  background: rgba(0, 0, 0, 0.5);
+  background: $modal-background;
   top: 0;
   bottom: 0;
   left: 0;
@@ -480,7 +504,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .savingPopup {
-  background-color: white;
+  background-color: $popup-background;
   width: 60%;
   height: 130px;
   margin: 62% auto;
@@ -493,12 +517,12 @@ input[type="range"]::-ms-thumb {
   display: inline-block;
   height: 30px;
   width: 100%;
-  border: 1px solid #cecece;
+  border: 1px solid $progressbar-container;
 }
 
 .progress {
   height: 30px;
-  background-color: lightseagreen;
+  background-color: $theme-color;
   /*width: 10%;*/
 
  /* animation-name: makeProgress;
@@ -531,14 +555,103 @@ input[type="range"]::-ms-thumb {
   line-height: 30px;
   vertical-align: center;
   margin-right: 10px;
-
-
-.photos{
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
 }
 
-.image:hover {
-  border: solid black 5px;
+
+/*selecting tile page */
+
+.selectionInstructionsContainer{
+  margin-top: 50px;
+  padding: 15px;
+  font-family: Helvetica;
+  font-size: 18px;
+  color: lightseagreen;
+}
+
+.selectionGridContainer {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vw;
+  padding: 10px;
+}
+
+.optionsGrid {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-column-gap: 1%;
+  grid-row-gap: 1%;
+  grid-template-columns: 22% 22% 22% 22%;
+  grid-template-rows: 22% 22% 22% 22%;
+/*  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;*/
+}
+
+.tileOptionContainer {
+
+}
+
+.tileOptionImg {
+  width: 100%;
+  height: 100%;
+}
+
+.tileOptionImg:hover {
+  border: 4px solid white;
+}
+
+.tileOptionImg:active {
+
+}
+
+.tileAvailable {
+  /*opacity: 1;*/
+  border: 2px solid white;
+}
+
+.tileNotAvailable {
+  opacity: 0.5;
+  /*border: 2px solid red;*/
+}
+
+.tileNotAvailableMsg {
+  display: none;
+}
+
+.tileAvailableMsg {
+  /*display: none;*/
+}
+
+.claimMsg {
+  font-family: Helvetica;
+  font-size: 18px;
+  position: relative;
+  color: white;
+  left: 20px;
+  top: 60px;
+}
+
+.cancelButton{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 30px;
+  height: 31px;
+  background-color: grey;
+  font-size: 26px;
+  padding: 0;
+  line-height: 21px;
+  padding-right: 5px;
+  text-align: right;
+  border-radius: 2px 0px 2px 20px;
+  padding-top: 1px;
+  opacity: 0.7;
+  color: black;
+  z-index: 1000;
+}
+
+.cancelButton:active {
+  opacity: 1;
 }
