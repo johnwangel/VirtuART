@@ -54,8 +54,11 @@ video {
 }
 
 .menuIcon {
-  height: 38px;
-  display: inline;
+  height: 28px;
+  //display: flex;
+  //align-items: center;
+  //justify-content: space-between;
+  //flex-direction: column;
 }
 
 .addContainer {
@@ -341,4 +344,46 @@ input[type="range"]::-ms-thumb {
 }
 .black {
   background-color: black;
+}
+
+// dropdown menu
+.dropbutton {
+    height: 50px;
+    width: 70px;
+    //display: flex;
+    //background-color: #4CAF50;
+    // color: white;
+    padding: 16px;
+    // font-size: 16px;
+    border: none;
+    //cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    right: 0;
+    display: block;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 26px;
+    font-family: Helvetica;
+}
+
+
+.show {
+  display:block;
 }

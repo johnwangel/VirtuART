@@ -8,7 +8,10 @@ angular.module('myApp')
       })
   }
 
+
+
   return {
     getTiles: getTiles
+
   };
 }]);

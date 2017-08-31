@@ -11,7 +11,25 @@
 
   <div class='banner'>
     <span class='banner_title'>InvisiARt</span>
-    <img src="./img/menu.png" alt="" class="menuIcon">
+    <!-- <img src="./img/menu.png" alt="" class="menuIcon"> -->
+    <div class="dropdown">
+      <button class="dropbutton" ng-click="displayMenu()">
+        <img src="./img/menu.png" alt="" class="menuIcon">
+      </button>
+      <div class="dropdown-content" ng-controller="MenuController">
+
+        <a id="menu-login" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a>
+
+        <a id="menu-logout" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a>
+
+        <a id="menu-register" ng-if="$scope.userLoggedIn === false" ng-href="/register">Register</a>
+
+        <a id="menu-about-the-art" ng-href="/aboutTheArt">About The Art</a>
+
+        <a id="menu-about-us" ng-href="/AboutUs">About Us</a>
+
+      </div>
+    </div>
   </div>
 
   <div ng-view></div>
@@ -43,4 +61,4 @@
         <a ng-href="/logout"><button>Log Out</button></a>
         <a ng-href="/aboutTheArt"><button>About The Art</button></a>
         <a ng-href="/aboutUs"><button>About Us</button></a>
-      </div> -->
+      </div>
