@@ -108,6 +108,20 @@ myApp.controller("ToolkitController", [
       console.log('new transparency', newTransparency);
     }
 
+    $scope.cancel = function(){
+      console.log('firing the cancel method on selection controller');
+      $window.location.href = '/';
+      //function to user service to update flag to false
+      //and set url to work in progress
+    }
+
+    $scope.getPNG = function() {
+
+      var canvas = document.getElementById("canvas");
+      var image = canvas.toDataURL('image/png', 1.0);
+      ToolkitService.postImage(image).then(result => {
+        console.log(result);
+      });
 
 
     $scope.clearCanvas = function(){
