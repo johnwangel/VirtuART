@@ -13,7 +13,7 @@ angular.module('myApp')
     }
 
     function postImage(base64) {
-      let thisID = localStorage.getItem("thisID");
+      let thisID = localStorage.getItem("currentID");
       const config = {
         method: "POST",
         url: "/api/drawings",

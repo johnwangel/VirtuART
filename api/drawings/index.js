@@ -31,13 +31,14 @@ function saveDrawing (req, res) {
     ContentLength: imageBuffer.length,
     ACL: 'public-read',
     Bucket: 'invisiart',
-    Body: imageBuffer
+    Body: imageBuffer,
+    InternalID: thisID
   };
+
   s3.upload(params, function(err, output){
     if (err) res.send(err);
     let url = params.Key.split('/')[1];
     let time = Date.now();
-
     artData().findOne({ "scenes.tiles.id": thisID })
     .then( response => {
       let objIndex = 0;
@@ -52,19 +53,18 @@ function saveDrawing (req, res) {
       })
 
       let sceneID = response._id;
-      response.scenes[0].tiles[objIndex] = {
-          "id" : thisID,
-          "user" : "new_user",
-          "createdAt" : time,
-          "posX" : posX,
-          "posY" : posY,
-          "url" : `https://s3-us-west-2.amazonaws.com/invisiart/drawings/${url}`,
-          "clean" : "false"
-        }
-        artData().updateOne({"_id": sceneID}, response )
-        .then(response => {
-          res.send(response);
-        })
+      let myTile = response.scenes[0].tiles[objIndex];
+      myTile.id = thisID;
+      myTile.user = "new_user";
+      myTile.createdAt = time;
+      myTile.url = `https://s3-us-west-2.amazonaws.com/invisiart/drawings/${url}`;
+      myTile.clean = "false";
+      response.scenes[0].tiles[objIndex] = myTile;
+      console.log("RESPONSE ", response)
+      artData().updateOne({"_id": sceneID}, response )
+      .then(response => {
+        res.send(response);
+      })
     })
   });
 }

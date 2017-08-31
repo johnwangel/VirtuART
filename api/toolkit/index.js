@@ -22,6 +22,7 @@ function loadCanvas(req, res) {
     }
     if (thisObj.clean === "true"){
       result.scenes[0].tiles[thisIndex].clean = "false";
+      result.scenes[0].tiles[thisIndex].url = `https://s3-us-west-2.amazonaws.com/invisiart/drawings/inprogress.png`;
       artData().updateOne({"_id": sceneID}, result )
       .then( response => {
         res.send(testID)
