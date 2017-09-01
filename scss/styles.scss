@@ -11,6 +11,10 @@ $theme-color: lightseagreen;
 /*progress bar*/
 $selected-colors-light: #3d3d3c;
 $selected-colors-dark: white;
+$logo-grey: #505860;
+$logo-pink: #EC0078;
+$logo-ar-font: 'Dancing Script';
+$logo-font: 'Raleway';
 
 /*color palette*/
 $color-1-1: red;
@@ -89,6 +93,7 @@ video {
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
+  z-index: 1000;
 }
 
 .banner_title {
@@ -577,10 +582,13 @@ input[type="range"]::-ms-thumb {
 .selectionInstructionsContainer{
   margin-top: 50px;
   padding: 15px;
-  font-family: Helvetica;
   font-size: 18px;
-  color: lightseagreen;
+  color: $logo-grey;
+  font-family: $logo-font;
+
 }
+
+
 
 .selectionGridContainer {
   display: flex;

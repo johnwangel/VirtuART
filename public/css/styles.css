@@ -54,7 +54,8 @@ video {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px; }
+  padding: 0 15px;
+  z-index: 1000; }
 
 .banner_title {
   display: inline;
@@ -462,9 +463,9 @@ input[type="range"]::-ms-thumb {
 .selectionInstructionsContainer {
   margin-top: 50px;
   padding: 15px;
-  font-family: Helvetica;
   font-size: 18px;
-  color: lightseagreen; }
+  color: #505860;
+  font-family: "Raleway"; }
 
 .selectionGridContainer {
   display: flex;
