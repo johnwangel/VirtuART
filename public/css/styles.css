@@ -440,6 +440,7 @@ input[type="range"]::-ms-thumb {
 .color26 {
   background-color: white; }
 
+/*Saving Modal*/
 .savingModal {
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
@@ -473,7 +474,7 @@ input[type="range"]::-ms-thumb {
 
 .progress {
   height: 30px;
-  background-color: lightseagreen;
+  background-color: #EC0078;
   /*width: 10%;*/
   /* animation-name: makeProgress;
   animation-duration: 2s;
@@ -507,6 +508,59 @@ input[type="range"]::-ms-thumb {
   font-size: 18px;
   color: #505860;
   font-family: "Raleway"; }
+
+/*Not available modal*/
+.notAvailableModal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto; }
+
+.notAvailableModalHidden {
+  visibility: hidden;
+  /*display: none;*/ }
+
+.notAvailablePopup {
+  background-color: white;
+  width: 60%;
+  height: 140px;
+  margin: 62% auto;
+  padding: 30px;
+  text-align: left;
+  border-radius: 3px; }
+
+.notAvailableMessage {
+  line-height: 20px;
+  vertical-align: center;
+  margin-right: 10px;
+  font-family: "Raleway";
+  color: #505860;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 100%;
+  display: inline-block; }
+
+.notAvailableBtn {
+  font-family: "Raleway";
+  color: #505860;
+  font-size: 16px;
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  background: none;
+  width: 50px;
+  height: 25px;
+  border-radius: 2px;
+  float: right;
+  margin-top: 25px; }
+
+.notAvailableBtn:active {
+  color: white;
+  background-color: #EC0078; }
 
 h1 {
   margin: 0;
