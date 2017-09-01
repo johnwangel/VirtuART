@@ -17,7 +17,7 @@ $color-1-1: red;
 $color-1-2: orange;
 $color-1-3: yellow;
 $color-1-4: green;
-$color-1-5: mediumblue;
+$color-1-5: saddlebrown;
 $color-1-6: black;
 $color-2-1: purple;
 $color-2-2: violet;
@@ -187,6 +187,12 @@ form * {
   display: none;
 }
 
+@media (min-width: 1200px) {
+  canvas {
+    width: 100vw;
+    height: 50vw;
+  }
+}
 
 
 .drawingTools {
@@ -290,7 +296,7 @@ form * {
 
 .eraserNotSelected {
   background-image: url('../img/ximg.png');
-  background-size: 30px 30px;
+  background-size: 28px 28px;
   background-position: center;
 }
 
@@ -312,11 +318,22 @@ form * {
 }
 
 .eraserBrush{
+  height: 28px;
+  width: 28px;
+  /*background-color: green;*/
+  border: none;
+  border-radius: 0%;
+}
+
+.undoBtn{
   height: 30px;
   width: 30px;
   /*background-color: green;*/
   border: none;
-  border-radius: 0%;
+  background-image: url('../img/undo.png');
+  background-size: 30px 30px;
+  background-position: center;
+
 }
 
 .colorPalette {
@@ -595,13 +612,13 @@ input[type="range"]::-ms-thumb {
   height: 100%;
 }
 
-.tileOptionImg:hover {
+/*.tileOptionImg:hover {
   border: 4px solid white;
-}
+}*/
 
-.tileOptionImg:active {
+/*.tileOptionImg:active {
 
-}
+}*/
 
 .tileAvailable {
   /*opacity: 1;*/
@@ -631,7 +648,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .cancelButton{
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 0;
   width: 30px;

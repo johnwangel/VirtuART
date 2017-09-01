@@ -50,10 +50,13 @@
         <div class="brushContainer eraserBrushContainer" ng-click="setStrokeWidth('eraser')">
           <div class="brush eraserBrush" ng-class="{eraserSelected: brushes.eraser, eraserNotSelected: !brushes.eraser}"></div>
         </div>
+        <div class="brushContainer undoContainer"     ng-click="undo()">
+          <div class="brush undoBtn"></div>
+        </div>
       </div>
       <div class="toolkitButtonsContainer">
         <button class="toolkitButton clearButton" ng-click="clearCanvas()">CLEAR</button>
-        <button class="toolkitButton saveButton" ng-click="getPNG()">POST</button>
+        <button class="toolkitButton saveButton" ng-click="getPNG()">SAVE</button>
       </div>
     </div>
     <div class="colorPalette">
