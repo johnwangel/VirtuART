@@ -1,3 +1,4 @@
+
 angular.module('myApp');
 myApp.controller(
   'LoginController', ['$scope', 'UsersService', function($scope, UsersService) {

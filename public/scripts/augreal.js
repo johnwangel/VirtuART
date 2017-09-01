@@ -1,12 +1,8 @@
-console.log("running augreal");
-
 window.augreal = function(photoData) {
   //////////////////////////////////////////////////////////////////////////////////
   //    Init
   //////////////////////////////////////////////////////////////////////////////////
   // init renderer
-
-  console.log('from augreal', photoData);
 
   var canvas = document.getElementById("cameraCanvas");
   var canvasContainer = document.getElementById("canvasContainer");
@@ -21,17 +17,11 @@ window.augreal = function(photoData) {
     // renderer.setPixelRatio( 1/2 );
     renderer.setSize( window.innerWidth, window.innerHeight );
 
-    console.log('our renderer size is ', window.innerWidth, window.innerHeight);
-
     renderer.domElement.style.position = 'absolute';
     renderer.domElement.style.top = '0px';
     renderer.domElement.style.left = '0px';
 
-    console.log('renderer dom element position, top, left ', renderer.domElement.style.position,
-    renderer.domElement.style.top, renderer.domElement.style.left);
-
     canvasContainer.appendChild( renderer.domElement );
-
 
 
   // array of functions for the rendering loop
