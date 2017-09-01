@@ -10,7 +10,8 @@ myApp.controller('MainHomeController', [
     $scope.currentPhotos = [];
     return UsersService.getTiles()
     .then(photoData => {
-      let urlList = photoData.tiles.map( allTiles => {
+      let currScene = photoData.filter( scene => scene.status === "current" )[0]
+      let urlList = currScene.tiles.map( allTiles => {
         return allTiles.url;
       });
       window.augreal(urlList);

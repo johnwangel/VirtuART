@@ -41,26 +41,23 @@ function saveDrawing (req, res) {
     let time = Date.now();
     artData().findOne({ "scenes.tiles.id": thisID })
     .then( response => {
-      let objIndex = 0;
-      let posX = 0;
-      let posY = 0;
-      response.scenes[0].tiles.filter( (item, i) => {
-        if (item.id = thisID){
-          objIndex = i;
-          posX = item.posX;
-          posY = item.posY;
-        }
-      })
-
+      let updateData = getUpdateData(response, thisID);
+      if (updateData.sceneStatus === "intermediate"){
+        //change previous scene status to archived
+        response.scenes[updateData.sceneIndex - 1].status = "archived";
+        //change this scene status to current
+        response.scenes[updateData.sceneIndex].status = "current";
+      }
       let sceneID = response._id;
-      let myTile = response.scenes[0].tiles[objIndex];
+      let myTile = response.scenes[updateData.sceneIndex].tiles[updateData.tileIndex];
       myTile.id = thisID;
       myTile.user = "new_user";
       myTile.createdAt = time;
       myTile.url = `https://s3-us-west-2.amazonaws.com/invisiart/drawings/${url}`;
       myTile.clean = "false";
-      response.scenes[0].tiles[objIndex] = myTile;
-      console.log("RESPONSE ", response)
+      myTile.working = "false";
+      myTile.saved = "true";
+      response.scenes[updateData.sceneIndex].tiles[updateData.tileIndex] = myTile;
       artData().updateOne({"_id": sceneID}, response )
       .then(response => {
         res.send(response);
@@ -68,4 +65,22 @@ function saveDrawing (req, res) {
     })
   });
 }
+
+function getUpdateData(response, thisID){
+  for (var i = 0; i < response.scenes.length; i++) {
+    let thisScene = response.scenes[i];
+    for (var j = 0; j < thisScene.tiles.length; j++) {
+      let thisTile = thisScene.tiles[j];
+      if (thisTile.id === thisID){
+        return {
+          sceneIndex: i,
+          sceneStatus: thisScene.status,
+          tileIndex: j
+        }
+      }
+    }
+  }
+}
+
+
 module.exports = router;
