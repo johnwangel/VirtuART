@@ -96,7 +96,7 @@ window.augreal = function(photoData) {
   scene.add(markerRoot)
   var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
     type : 'pattern',
-    patternUrl : '../public/img/invisiart'
+    patternUrl : 'https://s3-us-west-2.amazonaws.com/invisiart/drawings/invisiart'
     // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji'
   });
 
