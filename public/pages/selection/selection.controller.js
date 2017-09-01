@@ -9,12 +9,14 @@ myApp.controller('SelectionController', [
     $scope.photoURLs;
 
     $scope.loadCanvas = function(e){
-      let thisID = e;
+      let thisID = e.target.id;
       localStorage.setItem('currentID', thisID);
-        UsersService.checkTile(thisID)
+
+      return UsersService.checkTile(thisID)
         .then( response => {
-          if (response == false ){
-            alert('Sorry, that canvas is taken. Please select a different one.')
+          if (response === 'false'){
+            console.log('inside false');
+            // alert('Sorry, that canvas is taken. Please select a different one.')
           } else {
             $location.path('/toolkit');
           }
