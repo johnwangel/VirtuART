@@ -18,6 +18,14 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
         })
       }
 
+      function getHistory(){
+        return $http.get('/api/history/')
+        .then( historyData => {
+          console.log("HISTORY FROM GET HISTORY ", historyData.data )
+          return historyData.data;
+        })
+      }
+
       function login(username, password) {
         console.log('login');
         const credentials = {
@@ -41,6 +49,7 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
     return {
       getTiles: getTiles,
       checkTile: checkTile,
+      getHistory: getHistory,
       login: login,
       register: register
     };

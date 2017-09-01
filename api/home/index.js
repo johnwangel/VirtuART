@@ -17,7 +17,7 @@ function getImages(req, res) {
 }
 
 function initializeDB(req, res){
-  console.log('Init DB', req.body.scenes[0].tiles);
+  console.log('Init DB', req.body.scenes);
   artData().insert(req.body)
   res.end('ok');
 }

@@ -20,6 +20,10 @@ myApp
           templateUrl: '../pages/toolkit/toolkit.html',
           controller: 'ToolkitController'
         })
+        .when('/history', {
+          templateUrl:'../pages/history/history.html',
+          controller:'HistoryController'
+        })
         .when('/register', {
           templateUrl: '../pages/register/register.html',
           controller: 'RegisterController'

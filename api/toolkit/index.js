@@ -218,6 +218,4 @@ function generateNewScene(id){
     }
 }
 
-
-
 module.exports = router;
