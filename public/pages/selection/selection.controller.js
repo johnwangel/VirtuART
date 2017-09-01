@@ -23,9 +23,13 @@ myApp.controller('SelectionController', [
 
     return UsersService.getTiles()
     .then(allData => {
-      $scope.photoURLs = allData.tiles;
-      console.log('this is scope photo urls', $scope.photoURLs);
-      console.log('this is allData', allData);
+      let currScene = allData.filter( scene => scene.status === "current" )[0];
+      let interScene = allData.filter( scene => scene.status === "intermediate" )[0];
+      if (interScene) {
+        $scope.photoURLs = interScene.tiles;
+      } else {
+        $scope.photoURLs = currScene.tiles;
+      }
       window.disableCamera();
     });
   }

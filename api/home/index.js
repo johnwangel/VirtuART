@@ -8,9 +8,11 @@ router.get('/', getImages);
 router.post('/initdb', initializeDB);
 
 function getImages(req, res) {
-  artData().findOne({ "scenes.id": "scene1" })
+  artData().findOne({ "scenes.status": "current" })
   .then(results => {
-    res.json(results.scenes[0]);
+    let scenes = results.scenes;
+    let currentScenes = scenes.filter( scene => scene.status === "current" || scene.status === "intermediate" );
+    res.json(currentScenes);
   })
 }
 
