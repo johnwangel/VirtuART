@@ -54,7 +54,8 @@ video {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px; }
+  padding: 0 15px;
+  z-index: 1000; }
 
 .banner_title {
   display: inline;
@@ -126,6 +127,11 @@ form * {
 
 #clear {
   display: none; }
+
+@media (min-width: 1200px) {
+  canvas {
+    width: 100vw;
+    height: 50vw; } }
 
 .drawingTools {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
@@ -214,7 +220,7 @@ form * {
 
 .eraserNotSelected {
   background-image: url("../img/ximg.png");
-  background-size: 30px 30px;
+  background-size: 28px 28px;
   background-position: center; }
 
 .smallBrush {
@@ -233,11 +239,20 @@ form * {
   /*margin-left: 3px;*/ }
 
 .eraserBrush {
+  height: 28px;
+  width: 28px;
+  /*background-color: green;*/
+  border: none;
+  border-radius: 0%; }
+
+.undoBtn {
   height: 30px;
   width: 30px;
   /*background-color: green;*/
   border: none;
-  border-radius: 0%; }
+  background-image: url("../img/undo.png");
+  background-size: 30px 30px;
+  background-position: center; }
 
 .colorPalette {
   padding: 5px 10px;
@@ -361,7 +376,7 @@ input[type="range"]::-ms-thumb {
   background-color: green; }
 
 .color15 {
-  background-color: mediumblue; }
+  background-color: saddlebrown; }
 
 .color16 {
   background-color: black; }
@@ -448,9 +463,9 @@ input[type="range"]::-ms-thumb {
 .selectionInstructionsContainer {
   margin-top: 50px;
   padding: 15px;
-  font-family: Helvetica;
   font-size: 18px;
-  color: lightseagreen; }
+  color: #505860;
+  font-family: "Raleway"; }
 
 .selectionGridContainer {
   display: flex;
@@ -475,9 +490,12 @@ input[type="range"]::-ms-thumb {
   width: 100%;
   height: 100%; }
 
-.tileOptionImg:hover {
-  border: 4px solid white; }
+/*.tileOptionImg:hover {
+  border: 4px solid white;
+}*/
+/*.tileOptionImg:active {
 
+}*/
 .tileAvailable {
   /*opacity: 1;*/
   border: 2px solid white; }
@@ -501,7 +519,7 @@ input[type="range"]::-ms-thumb {
   top: 60px; }
 
 .cancelButton {
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 0;
   width: 30px;

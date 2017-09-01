@@ -9,6 +9,10 @@ myApp.controller("ToolkitController", [
   function($scope, $location, $window, ToolkitService, $timeout) {
     $scope.image = "";
 
+    $scope.drawingStateArr = [];
+
+    $scope.redrawImg = '';
+
     $scope.lastBrush = 'small';
     $scope.lastColor = 'black'
 
@@ -47,7 +51,6 @@ myApp.controller("ToolkitController", [
       $scope.image = thisCanvas;
       window.disableCamera();
     });
-
 
     $scope.getPNG = function() {
 
@@ -117,14 +120,33 @@ myApp.controller("ToolkitController", [
     }
 
     $scope.clearCanvas = function(){
-      var canvas = document.getElementById("canvas");
-      var ctx = canvas.getContext('2d');
+      let canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext('2d');
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     };
 
     $scope.setCurrentId = function(id) {
       $scope.currentId = id;
+    }
+
+    $scope.undo = function(){
+      console.log('undo method firing');
+
+      if ($scope.drawingStateArr.length > 1){
+        $scope.drawingStateArr.pop();
+
+        let previousState = $scope.drawingStateArr[$scope.drawingStateArr.length - 1];
+
+        let canvas = document.getElementById("canvas");
+
+        let ctx = canvas.getContext('2d');
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.putImageData(previousState, 0, 0);
+
+      }
     }
 
     return ToolkitService.getCanvas().then(thisCanvas => {
