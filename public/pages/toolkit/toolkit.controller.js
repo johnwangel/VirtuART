@@ -115,8 +115,8 @@ myApp.controller("ToolkitController", [
     $scope.cancel = function(){
       console.log('firing the cancel method on selection controller');
       $window.location.href = '/';
-      //function to user service to update flag to false
-      //and set url to work in progress
+      //function to user service to update flag to make the tile available
+      //and set url for the tile to claim me
     }
 
     $scope.clearCanvas = function(){

@@ -8,19 +8,27 @@ myApp.controller('SelectionController', [
   function($scope, $location, UsersService) {
     $scope.photoURLs;
 
+    $scope.alertModalShow = false;
+
     $scope.loadCanvas = function(e){
       let thisID = e.target.id;
       localStorage.setItem('currentID', thisID);
 
       return UsersService.checkTile(thisID)
-        .then( response => {
+        .then(response => {
+          console.log('coming back from check tile service', response);
+          //but - backend still returns id if "in progresss" - need it to return false if saved or if in progress - in both scenarios.
           if (response === 'false'){
-            console.log('inside false');
-            // alert('Sorry, that canvas is taken. Please select a different one.')
+            $scope.alertModalShow = true;
           } else {
             $location.path('/toolkit');
           }
       })
+    }
+
+    $scope.refresh = function() {
+      $scope.alertModalShow = false;
+      $location.path('/selection');
     }
 
     return UsersService.getTiles()

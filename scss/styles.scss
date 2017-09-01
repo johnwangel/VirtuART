@@ -195,8 +195,8 @@ form * {
   display: none;
 }
 
-@media (min-width: 1200px) {
-  canvas {
+@media (min-width: 730px) {
+  #canvas {
     width: 100vw;
     height: 50vw;
   }
@@ -795,6 +795,8 @@ h1 {
 
 .cancelButton:active {
   opacity: 1;
+  color: white;
+  background-color: $logo-pink;
 }
 
 .invisi {
