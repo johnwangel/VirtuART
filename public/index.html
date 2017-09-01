@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-<!--   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
+  <!-- initial-scale=1.0, -->
+  <meta name="viewport" content="width=device-width, user-scalable=no,  minimum-scale=1.0, maximum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Calligraffitti|Cookie|Dancing+Script|Raleway|Roboto|Sedgwick+Ave" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <title>InvisiARt</title>
   <base href="/">
 </head>
 <body ng-app="myApp">
-
   <div class='banner'>
-    <span class='banner_title'>InvisiARt</span>
+     <div class="logo"><span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span></div>
     <!-- <img src="./img/menu.png" alt="" class="menuIcon"> -->
+   <img id="cheeseburgermenu" src="./img/menu.png" alt="" class="menuIcon">
     <div class="dropdown">
       <button class="dropbutton" ng-click="displayMenu()">
         <img src="./img/menu.png" alt="" class="menuIcon">
@@ -27,16 +29,25 @@
         <a id="menu-about-the-art" ng-href="/aboutTheArt">About The Art</a>
 
         <a id="menu-about-us" ng-href="/AboutUs">About Us</a>
-
       </div>
     </div>
   </div>
+
+<!--       <div id="menu" ng-controller="MenuController">
+        <h1>MENU</h1>
+        <a ng-href="/register"><button class="registerButton">Register</button></a>
+        <a ng-href="/login"><button>Login</button></a>
+        <a ng-href="/logout"><button>Log Out</button></a>
+        <a ng-href="/aboutTheArt"><button>About The Art</button></a>
+        <a ng-href="/aboutUs"><button>About Us</button></a>
+      </div> -->
+
 
   <div ng-view></div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/atrament.js/0.2.3/atrament.min.js"></script>
-  <script src="./atrament.js"></script>
+  <script src="./disableCamera.js"></script>
   <script type="text/javascript" src="./scripts/augreal.js"></script>
   <script type="text/javascript" src="./scripts/app.js"></script>
   <script src="./services/services.js"></script>
@@ -45,6 +56,7 @@
   <script type="text/javascript" src="./pages/menu/menu.controller.js"></script>
   <script type="text/javascript" src="./pages/register/register.controller.js"></script>
   <script type="text/javascript" src="./pages/toolkit/toolkit.controller.js"></script>
+  <script type="text/javascript" src="./pages/selection/selection.controller.js"></script>
   <script type="text/javascript" src="./scripts/three.min.js"></script>
   <script type="text/javascript" src="./scripts/stats.min.js"></script>
   <script type="text/javascript" src="./scripts/ar.js"></script>
@@ -52,13 +64,3 @@
   <script type="text/javascript" src="./services/ToolkitService.js"></script>
 </body>
 </html>
-
-
-<!--       <div id="menu">
-        <h1>MENU</h1>
-        <a ng-href="/register"><button>Register</button></a>
-        <a ng-href="/login"><button>Login</button></a>
-        <a ng-href="/logout"><button>Log Out</button></a>
-        <a ng-href="/aboutTheArt"><button>About The Art</button></a>
-        <a ng-href="/aboutUs"><button>About Us</button></a>
-      </div>

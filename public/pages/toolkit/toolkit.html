@@ -1,5 +1,15 @@
+<div class="savingModal" ng-class="{savingModalShowing: modalShow, savingModalHidden: !modalShow}">
+  <div class="savingPopup">
+    <p class="savingMessage">Saving ...</p>
+    <div class="progressBar" >
+      <div class="progress" ng-class="{progressMoving: progressActive, progressNotMoving: !progressActive}"></div>
+    </div>
+  </div>
+</div>
+<div class="cancelButton" ng-click="cancel()">&times;</div>
 <canvas width="512" height="512" id="canvas" drawing></canvas>
-<button ng-click="getPNG()">SAVE</button>
+
+<!-- <button >SAVE</button> -->
 
 <!-- <div class="form">
     <form>
@@ -24,32 +34,76 @@
 </div> -->
 
 
+
   <div class="drawingTools">
-    <div class="brushes">
-      <div class="brushContainer smallBrushContainer" ng-click="setStrokeWidth('smallBrush', '4')">
-        <div class="brush smallBrush" ></div>
+    <div class="brushesNbuttons">
+      <div class="brushes">
+        <div class="brushContainer smallBrushContainer" ng-click="setStrokeWidth('small')">
+          <div class="brush smallBrush" ng-class="{brushSelected: brushes.small}"></div>
+        </div>
+        <div class="brushContainer mediumBrushContainer" ng-click="setStrokeWidth('medium')">
+          <div class="brush mediumBrush" ng-class="{brushSelected: brushes.medium}"></div>
+        </div>
+        <div class="brushContainer largeBrushContainer" ng-click="setStrokeWidth('large')">
+          <div class="brush largeBrush" ng-class="{brushSelected: brushes.large}"></div>
+        </div>
+        <div class="brushContainer eraserBrushContainer" ng-click="setStrokeWidth('eraser')">
+          <div class="brush eraserBrush" ng-class="{eraserSelected: brushes.eraser, eraserNotSelected: !brushes.eraser}"></div>
+        </div>
+        <div class="brushContainer undoContainer"     ng-click="undo()">
+          <div class="brush undoBtn"></div>
+        </div>
       </div>
-      <div class="brushContainer mediumBrushContainer" ng-click="setStrokeWidth('mediumBrush', '14')">
-        <div class="brush mediumBrush"></div>
-      </div>
-      <div class="brushContainer largeBrushContainer" ng-click="setStrokeWidth('largeBrush', '30')">
-        <div class="brush largeBrush"></div>
-      </div>
-      <div class="brushContainer eraserBrushContainer" ng-click="setStrokeWidth('smallBrush', '10')">
-        <div class="brush eraserBrush"></div>
+      <div class="toolkitButtonsContainer">
+        <button class="toolkitButton clearButton" ng-click="clearCanvas()">CLEAR</button>
+        <button class="toolkitButton saveButton" ng-click="getPNG()">SAVE</button>
       </div>
     </div>
     <div class="colorPalette">
-      <div class="colorsContainer">
-        <div class="color red" ng-click="setColor($event, 'red')"></div>
-        <div class="color orange" ng-click="setColor($event, 'orange')"></div>
-        <div class="color yellow" ng-click="setColor($event, 'yellow')"></div>
-        <div class="color green" ng-click="setColor($event, 'green')"></div>
-        <div class="color blue" ng-click="setColor($event, 'blue')"></div>
-        <div class="color black" ng-click="setColor($event, 'black')"></div>
+      <div class="colorsContainer row1">
+        <div class="color color11" ng-click="setColor('red', 'red')" ng-class="{colorSelected: colors.red}"></div>
+        <div class="color color12" ng-click="setColor('orange', 'orange')" ng-class="{colorSelected: colors.orange}"></div>
+        <div class="color color13" ng-click="setColor('yellow', 'yellow')" ng-class="{colorSelectedLight: colors.yellow}"></div>
+        <div class="color color14" ng-click="setColor('green', 'green')" ng-class="{colorSelected: colors.green}"></div>
+        <div class="color color15" ng-click="setColor('saddlebrown', 'saddlebrown')" ng-class="{colorSelected: colors.saddlebrown}"></div>
+        <div class="color color16" ng-click="setColor('black', 'black')" ng-class="{colorSelected: colors.black}"></div>
       </div>
-      <div class="opacitySliderContainer">
+      <div class="colorsContainer row2">
+        <div class="color color21" ng-click="setColor('purple', 'purple')" ng-class="{colorSelected: colors.purple}"></div>
+        <div class="color color22" ng-click="setColor('violet', 'violet')" ng-class="{colorSelected: colors.violet}"></div>
+        <div class="color color23" ng-click="setColor('deeppink', 'deeppink')" ng-class="{colorSelected: colors.deeppink}"></div>
+        <div class="color color24" ng-click="setColor('aqua', 'aqua')" ng-class="{colorSelected: colors.aqua}"></div>
+        <div class="color color25" ng-click="setColor('lightseagreen', 'lightseagreen')" ng-class="{colorSelected: colors.lightseagreen}"></div>
+        <div class="color color26" ng-click="setColor('white', 'white')" ng-class="{colorSelectedLight: colors.white}"></div>
+      </div>
+      <!-- <div class="opacitySliderContainer">
         <input class="slider" type="range" ng-model="opacity" onChange="setTransparency()" min="0" max="1" value="1" step="0.01">
-      </div>
+      </div> -->
     </div>
   </div>
+
+
+
+
+
+  <!-- <div class="form">
+    <form>
+      <button id="clear" onclick="event.preventDefault(); window.atrament.clear();">clear</button>
+      <label>Thickness</label>
+      <input type="range" min="1" max="40" oninput="window.atrament.weight = parseFloat(event.target.value);" value="2" step="0.1" autocomplete="off"/>
+      <label>Smoothing</label>
+      <input type="checkbox" onchange="window.atrament.smoothing = event.target.checked;" checked autocomplete="off">
+      <label>Adaptive stroke</label>
+      <input type="checkbox" onchange="window.atrament.adaptiveStroke = event.target.checked;" checked autocomplete="off">
+      <label>Mode</label>
+      <select onchange="window.atrament.mode = event.target.value;">
+        <option value="draw" default>Draw</option>
+        <option value="fill" default>Fill</option>
+        <option value="erase" default>Erase</option>
+      </select>
+      <label>Color</label>
+      <input type="color" onchange="window.atrament.color = event.target.value;" value="#000000" autocomplete="off">
+      <label>Opacity</label>
+      <input type="range" min="0" max="1" onchange="window.atrament.opacity = parseFloat(event.target.value);" value="1" step="0.05" autocomplete="off">
+    </form>
+</div> -->

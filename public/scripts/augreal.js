@@ -147,8 +147,6 @@ window.augreal = function(photoData) {
 
 
   var imageArray = photoData;
-  console.log('this is IMAGE ARRAY', imageArray);
-
 
 renderGrid(1, 4, 4);
 
@@ -172,17 +170,14 @@ function renderGrid(squareWidth, rows, columns){
 }
 
 function renderSquare(parent, squareWidth, image, positionZ, positionX){
-  console.log('running function renderSquare with parameters: ', squareWidth, image, positionX, positionZ);
   var loader = new THREE.TextureLoader();
   loader.crossOrigin = 'anonymous';
   loader.load( image, function ( texture ) {
-      console.log('TEXTURE ', texture);
       var geometry = new THREE.BoxGeometry(squareWidth, 0, squareWidth);
       var material = new THREE.MeshBasicMaterial( { map: texture } );
       var mesh = new THREE.Mesh( geometry, material );
       mesh.position.x = positionX * squareWidth;
       mesh.position.z = positionZ * squareWidth;
-      console.log('image with position', mesh.position.x, mesh.position.z);
       parent.add( mesh );
   });
 }

@@ -1,3 +1,35 @@
+$light-grey-background: #e2e2e2;
+$border-grey: rgba(0,0,0,0.3);
+$banner-background: #f4f7fc;
+/*banner, add yours button*/
+$dark-grey-text: #4b4c4f;
+$font-main: Helvetica;
+$modal-background: rgba(0, 0, 0, 0.5);
+$popup-background: white;
+$progressbar-container: #cecece;
+$theme-color: lightseagreen;
+/*progress bar*/
+$selected-colors-light: #3d3d3c;
+$selected-colors-dark: white;
+$logo-grey: #505860;
+$logo-pink: #EC0078;
+$logo-ar-font: 'Dancing Script';
+$logo-font: 'Raleway';
+
+/*color palette*/
+$color-1-1: red;
+$color-1-2: orange;
+$color-1-3: yellow;
+$color-1-4: green;
+$color-1-5: saddlebrown;
+$color-1-6: black;
+$color-2-1: purple;
+$color-2-2: violet;
+$color-2-3: deeppink;
+$color-2-4: aqua;
+$color-2-5: lightseagreen;
+$color-2-6: white;
+$color-2-7: saddlebrown;
 
 * {
   padding: 0;
@@ -9,23 +41,37 @@ body {
   margin: 0;
   /*max-width: 310px;*/
   /*max-height: 352px;*/
-
+  background-color: $light-grey-background;
 }
 
 video {
-/*  position: fixed;
-  top: 100px;*/
-  /*width: 500px !important;*/
-  /*height: 500px !important;*/
+  // width: 100 !important;
+  height: 100vh !important;
+  top: 50px;
+  left: 0;
+  z-index: -1;
+}
+
+#cameraCanvas {
+  height: 100vh !important;
+  top: 50px;
+  left: 0;
+  z-index: 0;
 }
 
 #canvas{
-  position: relative;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
   /*width: 100%;*/
-  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-bottom: 1px solid $border-grey;
+  border-top: 1px solid $border-grey;
   background-color: #FFF;
-  box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);
+  /*box-shadow: 0 9px 20px -5px rgba(0,0,0,0.8);*/
   z-index: 100;
+
 }
 
 .start_drawing {
@@ -35,21 +81,26 @@ video {
 }
 
 .banner {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 50px;
-  background-color: #f4f7fc;
-  color: #4b4c4f;
+  width: 100%;
+  background-color: $banner-background;
+  color: $dark-grey-text;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
+  z-index: 1000;
 }
 
 .banner_title {
   display: inline;
   line-height: 50px;
   font-size: 32px;
-  font-family: Helvetica;
+  font-family: $font-main;
   vertical-align: center;
 }
 
@@ -62,7 +113,7 @@ video {
 }
 
 .addContainer {
-  background-color: #f4f7fc;
+  background-color: $banner-background;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -73,12 +124,12 @@ video {
   /*opacity: .7;*/
 }
 
-.add_you_own_button{
+.add_your_own_button{
   display: block;
   /*background-color: purple;*/
   text-decoration: none;
-  font-family: Helvetica;
-  color: #4b4c4f;
+  font-family: $font-main;
+  color: $dark-grey-text;
   opacity: 1;
   position: relative;
   top: 30px;
@@ -98,11 +149,6 @@ video {
   z-index: -1;
 }
 
-#cameraCanvas {
-  /*position: relative;*/
-  /*width: 300px;*/
-  z-index: -1;
-}
 
 #sketcher {
   position: fixed;
@@ -117,7 +163,7 @@ video {
 
 // canvas {
 //   width: 100vw;
-//   height: 100vh;
+//   height: 100vw;
 //   position: fixed;
 //   top: 0;
 //   left: 0;
@@ -130,7 +176,7 @@ form {
   // top: 300;
   // left: 100;
   width: 640px;
-  background: rgba(0, 0, 0, 0.7);
+  background: $border-grey;
   padding: 1em;
   color:white;
 }
@@ -149,8 +195,16 @@ form * {
   display: none;
 }
 
+@media (min-width: 1200px) {
+  canvas {
+    width: 100vw;
+    height: 50vw;
+  }
+}
+
 
 .drawingTools {
+  border-top: 1px solid $border-grey;
   height: 100px;
   width: 100%;
   background-color: grey;
@@ -161,16 +215,57 @@ form * {
   /*padding: 10px 10px 0 10px;*/
 }
 
-.brushes {
-  width: 40%;
-  height: 100px;
+.brushesNbuttons {
+  display: flex;
+  flex-direction: column;
+  width: 43%;
   /*background-color: pink;*/
+
+}
+
+.brushes {
+  width: 100%;
+  height: 50%;
+  /*background-color: yellow;*/
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 10px 5px 5px 10px;
+  padding: 15px 10px 8px 10px;
+}
+
+.saveButton {
+  /*margin-left: 5px;*/
+}
+
+.toolkitButtonsContainer {
+  padding: 7px 12px 10px 10px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /*background-color: salmon;*/
+}
+
+.toolkitButton {
+  width: 46%;
+  height: 90%;
+  background-color: rgba(192, 192, 192, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  font-family: Arial;
+  font-size: 16px;
+  border: none;
+}
+
+.toolkitButton:active {
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 .brushContainer {
@@ -192,9 +287,25 @@ form * {
 }
 
 .brush {
-  /*background-color: black;*/
   border-radius: 50%;
   border: solid 2px black;
+}
+
+.brushSelected {
+  background-color: black;
+}
+
+.eraserSelected {
+  background-image: url('../img/ximga.png');
+  background-size: 125% 126%;
+  background-position: 40% 44%;
+  /*background-color: red;*/
+}
+
+.eraserNotSelected {
+  background-image: url('../img/ximg.png');
+  background-size: 28px 28px;
+  background-position: center;
 }
 
 .smallBrush {
@@ -206,31 +317,40 @@ form * {
   width: 20px;
 }
 .largeBrush {
-  height: 27px;
-  width: 27px;
+  height: 24px;
+  width: 24px;
 }
 
 .eraserBrushContainer {
-  margin-left: 3px;
+  /*margin-left: 3px;*/
 }
 
 .eraserBrush{
-  height: 33px;
-  width: 33px;
+  height: 28px;
+  width: 28px;
   /*background-color: green;*/
-  background-image: url('../img/ximg.png');
-  background-size: 33px 33px;
-  background-position: center;
   border: none;
   border-radius: 0%;
 }
 
+.undoBtn{
+  height: 30px;
+  width: 30px;
+  /*background-color: green;*/
+  border: none;
+  background-image: url('../img/undo.png');
+  background-size: 30px 30px;
+  background-position: center;
+
+}
+
 .colorPalette {
-  padding: 10px;
-  width: 60%;
+  padding: 5px 10px;
+  width: 57%;
   height: 100px;
   display: flex;
   flex-direction: column;
+  border-left: 1px solid $border-grey;
   /*background-color: purple;*/
 }
 
@@ -244,6 +364,15 @@ form * {
   align-items: center;
   height: 50%;
 }
+
+.row1 {
+  /*padding-top: 5px;*/
+}
+
+.row2 {
+  /*padding-bottom: 5px;*/
+}
+
 
 .opacitySliderContainer {
   /*background-color: white;*/
@@ -327,20 +456,22 @@ input[type="range"]::-ms-thumb {
   border-radius: 50%;
 }
 
-.red {
-  background-color: red;
+.colorSelected {
+  border: 2px solid $selected-colors-dark;
 }
-.orange {
-  background-color: orange;
+
+.colorSelectedLight {
+  border: 2px solid $selected-colors-light;
 }
-.yellow {
-  background-color: yellow;
+
+.color11 {
+  background-color: $color-1-1;
 }
-.green {
-  background-color: green;
+.color12 {
+  background-color: $color-1-2;
 }
-.blue {
-  background-color: blue;
+.color13 {
+  background-color: $color-1-3;
 }
 .black {
   background-color: black;
@@ -386,4 +517,236 @@ input[type="range"]::-ms-thumb {
 
 .show {
   display:block;
+}
+.color14 {
+  background-color: $color-1-4;
+}
+.color15 {
+  background-color: $color-1-5;
+}
+.color16 {
+  background-color: $color-1-6;
+}
+
+.color21 {
+  background-color: $color-2-1;
+}
+
+.color22 {
+  background-color: $color-2-2;
+}
+.color23 {
+  background-color: $color-2-3;
+}
+.color24 {
+  background-color: $color-2-4;
+}
+.color25 {
+  background-color: $color-2-5;
+}
+.color26 {
+  background-color: $color-2-6;
+}
+
+.savingModal {
+  position: fixed;
+  background: $modal-background;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.savingModalShowing {
+
+}
+
+.savingModalHidden {
+  visibility: hidden;
+  /*display: none;*/
+}
+
+.savingPopup {
+  background-color: $popup-background;
+  width: 60%;
+  height: 130px;
+  margin: 62% auto;
+  padding: 30px;
+  text-align: left;
+  border-radius: 3px;
+}
+
+.progressBar {
+  display: inline-block;
+  height: 30px;
+  width: 100%;
+  border: 1px solid $progressbar-container;
+}
+
+.progress {
+  height: 30px;
+  background-color: $theme-color;
+  /*width: 10%;*/
+
+ /* animation-name: makeProgress;
+  animation-duration: 2s;
+  animation-delay: 0.6s;*/
+  /*animation-iteration-count: infinite;*/
+  border-radius: 2px;
+  transition: width 1.7s;
+
+  /*transition-delay: 1s;*/
+}
+
+.progressMoving {
+  width: 100%;
+  transition: width 1.7s;
+}
+
+.progressNotMoving {
+  width: 3%;
+  transition: width 1.7s;
+}
+
+
+/*@keyframes makeProgress {
+  0% {width: 0%; border-radius: 2px 0 0 2px;}
+  100% {width: 100%; border-radius: 2px;}
+}*/
+
+.savingMessage{
+  line-height: 30px;
+  vertical-align: center;
+  margin-right: 10px;
+}
+
+
+/*selecting tile page */
+
+.selectionInstructionsContainer{
+  margin-top: 50px;
+  padding: 15px;
+  font-size: 18px;
+  color: $logo-grey;
+  font-family: $logo-font;
+
+}
+
+
+
+.selectionGridContainer {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vw;
+  padding: 10px;
+}
+
+.optionsGrid {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-column-gap: 1%;
+  grid-row-gap: 1%;
+  grid-template-columns: 32% 32% 32%;
+  grid-template-rows: 32% 32% 32% 32%;
+/*  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;*/
+}
+
+.tileOptionContainer {
+
+}
+
+.tileOptionImg {
+  width: 100%;
+  height: 100%;
+}
+
+/*.tileOptionImg:hover {
+  border: 4px solid white;
+}*/
+
+/*.tileOptionImg:active {
+
+}*/
+
+.tileAvailable {
+  /*opacity: 1;*/
+  border: 2px solid white;
+}
+
+.tileNotAvailable {
+  opacity: 0.5;
+  /*border: 2px solid red;*/
+}
+
+.tileNotAvailableMsg {
+  display: none;
+}
+
+.tileAvailableMsg {
+  /*display: none;*/
+}
+
+.claimMsg {
+  font-family: Helvetica;
+  font-size: 18px;
+  position: relative;
+  color: white;
+  left: 20px;
+  top: 60px;
+}
+
+.cancelButton{
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 30px;
+  height: 31px;
+  background-color: grey;
+  font-size: 26px;
+  padding: 0;
+  line-height: 21px;
+  padding-right: 5px;
+  text-align: right;
+  border-radius: 2px 0px 2px 20px;
+  padding-top: 1px;
+  opacity: 0.7;
+  color: black;
+  z-index: 1000;
+}
+
+.cancelButton:active {
+  opacity: 1;
+}
+
+.invisi {
+  font-family: 'Raleway';
+  color: #505860;
+  font-size: 30px;
+}
+
+
+.ar {
+  color: #EC0078;
+  font-family: 'Dancing Script';
+  font-weight: 700px;
+  /*width: 40px;*/
+  position: relative;
+  left: 3px;
+  font-size: 32px;
+}
+
+.t {
+  font-family: 'Raleway';
+  position: relative;
+  left: 5px;
+  color: #505860;
+  font-size: 30px;
 }
