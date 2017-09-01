@@ -106,9 +106,9 @@ window.augreal = function(photoData) {
   scene.add(markerRoot)
   var artoolkitMarker = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
     type : 'pattern',
-    patternUrl : 'https://jeromeetienne.github.io/AR.js/data/data/patt.hiro'
+    patternUrl : '../public/img/invisiart'
     // patternUrl : THREEx.ArToolkitContext.baseURL + '../data/data/patt.kanji'
-  })
+  });
 
   // build a smoothedControls
   var smoothedRoot = new THREE.Group()
