@@ -10,11 +10,31 @@
   <base href="/">
 </head>
 <body ng-app="myApp">
+  <div class='banner'>
+     <div class="logo"><span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span></div>
+    <!-- <img src="./img/menu.png" alt="" class="menuIcon"> -->
+   <img id="cheeseburgermenu" src="./img/menu.png" alt="" class="menuIcon">
+    <div class="dropdown">
+      <button class="dropbutton" ng-click="displayMenu()">
+        <img src="./img/menu.png" alt="" class="menuIcon">
+      </button>
+      <div class="dropdown-content" ng-controller="MenuController">
 
   <div class="banner">
     <div class="logo"><span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span></div>
     <a ng-href="/history">Archived Scenes</a>
     <img src="./img/menu.png" alt="" class="menuIcon">
+        <a id="menu-login" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a>
+
+        <a id="menu-logout" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a>
+
+        <a id="menu-register" ng-if="$scope.userLoggedIn === false" ng-href="/register">Register</a>
+
+        <a id="menu-about-the-art" ng-href="/aboutTheArt">About The Art</a>
+
+        <a id="menu-about-us" ng-href="/AboutUs">About Us</a>
+      </div>
+    </div>
   </div>
 
   <div ng-view></div>
@@ -40,13 +60,3 @@
   <script type="text/javascript" src="./services/ToolkitService.js"></script>
 </body>
 </html>
-
-
-<!--       <div id="menu">
-        <h1>MENU</h1>
-        <a ng-href="/register"><button>Register</button></a>
-        <a ng-href="/login"><button>Login</button></a>
-        <a ng-href="/logout"><button>Log Out</button></a>
-        <a ng-href="/aboutTheArt"><button>About The Art</button></a>
-        <a ng-href="/aboutUs"><button>About Us</button></a>
-      </div> -->

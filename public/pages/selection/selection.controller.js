@@ -9,7 +9,7 @@ myApp.controller('SelectionController', [
     $scope.photoURLs;
 
     $scope.loadCanvas = function(e){
-      let thisID = e.path[0].id;
+      let thisID = e;
       localStorage.setItem('currentID', thisID);
         UsersService.checkTile(thisID)
         .then( response => {
