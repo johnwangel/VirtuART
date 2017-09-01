@@ -41,15 +41,24 @@ body {
 }
 
 video {
-  width: 400px !important;
-  height: 500px !important;
-  position: fixed;
+  // width: 100 !important;
+  height: 100vh !important;
   top: 50px;
-  left: 10px;
   /*top: 100px;*/
   /*width: 500px !important;*/
   /*height: 500px !important;*/
 }
+
+#cameraCanvas {
+  position: fixed;
+  height: 100vh !important;
+  top: 50px;
+  top: 50px;
+  left: 0;
+  width: 400px;
+  z-index: -1;
+}
+
 
 #canvas{
   position: fixed;
@@ -137,13 +146,6 @@ video {
   z-index: -1;
 }
 
-#cameraCanvas {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  width: 400px;
-  z-index: -1;
-}
 
 #sketcher {
   position: fixed;
