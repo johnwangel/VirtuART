@@ -1,44 +1,17 @@
-angular.module('myApp')
-.controller('LoginController', ['$scope', '$rootScope', 'UsersService', '$window', function($scope, $rootScope, UsersService, $window){
-  $scope.newLogin = { username: '', password: '' };
-  $scope.LoginService =LoginService;
 
-  $scope.Login = function() {
+angular.module('myApp');
+myApp.controller(
+  'LoginController', ['$scope', 'UsersService', function($scope, UsersService) {
+  $scope.user = { username: '', password: '' };
 
-    var newLogin = {
-      username: $scope.newLogin.username,
-      password: $scope.newLogin.password
-    };
-
-    LoginService.Login(newLogin);
-    $scope.Login.username = '';
-    $scope.Login.password = '';
-
-    $scope.user = {
-      username: '',
-      password: ''
-    };
-
-  };
-
-  $scope.feedback = '';
-
-  $scope.loginUser = function () {
-    console.log('login function on controller running');
-    console.log('this is the user we send', $scope.user);
-
-    //any issues here with passing data securely?
-    UsersService.loginUser($scope.user)
-    .then(user => {
-      console.log('came back to controller from loginUser method', user);
-      if(!user) {$scope.feedback = 'Not a valid user'}
-        else {
-          localStorage.loggedInUserId = user.id;
-          localStorage.loggedIn = true;
-          $window.location.href='/users/' + user.id;
-        }
-
-      });
-
+ $scope.login = function() {
+    console.log("this is scope.user before calling login service", $scope.user);
+    UsersService.login($scope.user)
+    .then(users=>{
+      console.log('this is users from controller', users);
+      $scope.users.username = '';
+      $scope.users.password = '';
+      console.log("end of my login controller");
+    });
   };
 }]);
