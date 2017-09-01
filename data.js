@@ -15,7 +15,9 @@
           "posX": 1,
           "posY": 1,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile2",
@@ -24,7 +26,9 @@
           "posX": 1,
           "posY": 2,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile3",
@@ -33,7 +37,9 @@
           "posX": 1,
           "posY": 3,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile4",
@@ -42,7 +48,9 @@
           "posX": 2,
           "posY": 1,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile5",
@@ -51,7 +59,9 @@
           "posX": 2,
           "posY": 2,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
                 {
           "id": "scene1_tile6",
@@ -60,7 +70,9 @@
           "posX": 2,
           "posY": 3,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
                 {
           "id": "scene1_tile7",
@@ -69,7 +81,9 @@
           "posX": 3,
           "posY": 1,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile8",
@@ -78,7 +92,9 @@
           "posX": 3,
           "posY": 2,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile9",
@@ -87,7 +103,9 @@
           "posX": 3,
           "posY": 3,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile10",
@@ -96,7 +114,9 @@
           "posX": 4,
           "posY": 1,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile11",
@@ -105,7 +125,9 @@
           "posX": 4,
           "posY": 2,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         },
         {
           "id": "scene1_tile12",
@@ -114,7 +136,9 @@
           "posX": 4,
           "posY": 3,
           "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
-          "tile_status": "clean"
+          "clean": "true",
+          "working": "false",
+          "saved": "false"
         }
       ]
   }]
