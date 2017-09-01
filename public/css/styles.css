@@ -54,7 +54,8 @@ video {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px; }
+  padding: 0 15px;
+  z-index: 1000; }
 
 .banner_title {
   display: inline;
@@ -64,8 +65,7 @@ video {
   vertical-align: center; }
 
 .menuIcon {
-  height: 38px;
-  display: inline; }
+  height: 28px; }
 
 .addContainer {
   background-color: #f4f7fc;
@@ -126,6 +126,11 @@ form * {
 
 #clear {
   display: none; }
+
+@media (min-width: 1200px) {
+  canvas {
+    width: 100vw;
+    height: 50vw; } }
 
 .drawingTools {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
@@ -214,7 +219,7 @@ form * {
 
 .eraserNotSelected {
   background-image: url("../img/ximg.png");
-  background-size: 30px 30px;
+  background-size: 28px 28px;
   background-position: center; }
 
 .smallBrush {
@@ -233,11 +238,20 @@ form * {
   /*margin-left: 3px;*/ }
 
 .eraserBrush {
+  height: 28px;
+  width: 28px;
+  /*background-color: green;*/
+  border: none;
+  border-radius: 0%; }
+
+.undoBtn {
   height: 30px;
   width: 30px;
   /*background-color: green;*/
   border: none;
-  border-radius: 0%; }
+  background-image: url("../img/undo.png");
+  background-size: 30px 30px;
+  background-position: center; }
 
 .colorPalette {
   padding: 5px 10px;
@@ -361,10 +375,40 @@ input[type="range"]::-ms-thumb {
   background-color: green; }
 
 .color15 {
-  background-color: mediumblue; }
+  background-color: saddlebrown; }
 
 .color16 {
   background-color: black; }
+
+.dropbutton {
+  height: 50px;
+  width: 70px;
+  padding: 16px;
+  border: none; }
+
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown-content {
+  right: 0;
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 26px;
+  font-family: Helvetica; }
+
+.show {
+  display: block; }
 
 .color21 {
   background-color: purple; }
@@ -448,9 +492,9 @@ input[type="range"]::-ms-thumb {
 .selectionInstructionsContainer {
   margin-top: 50px;
   padding: 15px;
-  font-family: Helvetica;
   font-size: 18px;
-  color: lightseagreen; }
+  color: #505860;
+  font-family: "Raleway"; }
 
 h1 {
   margin: 0;
@@ -481,9 +525,12 @@ h1 {
   width: 100%;
   height: 100%; }
 
-.tileOptionImg:hover {
-  border: 4px solid white; }
+/*.tileOptionImg:hover {
+  border: 4px solid white;
+}*/
+/*.tileOptionImg:active {
 
+}*/
 .tileAvailable {
   /*opacity: 1;*/
   border: 2px solid white; }
@@ -507,7 +554,7 @@ h1 {
   top: 60px; }
 
 .cancelButton {
-  position: absolute;
+  position: fixed;
   top: 50px;
   right: 0;
   width: 30px;
@@ -547,3 +594,4 @@ h1 {
   left: 5px;
   color: #505860;
   font-size: 30px; }
+

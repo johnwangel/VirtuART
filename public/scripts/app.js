@@ -36,25 +36,18 @@ myApp
       $locationProvider.html5Mode(true);
     }
   ])
-  .directive("drawing", function(){
+  .directive('drawing', [function(){
   return {
     restrict: "A",
     link: function(scope, element){
 
-      console.log('this is scope on drawing directive', scope);
-      console.log('this is the element on drawing directive', element);
       var ctx = element[0].getContext('2d');
 
       var rect = element[0].getBoundingClientRect();
-      console.log('this is RECT', rect);
 
       var scaleX = element[0].width/rect.width;
       var scaleY = element[0].height/rect.height;
 
-      console.log('element width', element[0].width);
-      console.log('element height', element[0].height);
-      console.log('scale x', scaleX);
-      console.log('scale y', scaleY);
 
       // variable that decides if something should be drawn on mousemove
       var drawing = false;
@@ -62,6 +55,30 @@ myApp
       // the last coordinates before the current move
       var lastX;
       var lastY;
+
+      var initialCanvasData = ctx.getImageData(0, 0, element[0].width, element[0].height);
+
+        scope.drawingStateArr.push(initialCanvasData);
+
+        console.log('state array length', scope.drawingStateArr.length);
+
+      // var drawingState = element[0].toDataURL('image/png', 1.0);
+
+
+
+
+      // console.log('initial drawing state', drawingState);
+
+      // scope.stateArr.push(ctx.save());
+      // console.log('initial stateArr', scope.stateArr);
+
+      // scope.$watch('redrawImg', function() {
+      //   console.log('changes in redrawImg detected');
+      //   console.log('this is redrawImg', scope.redrawImg);
+      //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      //   ctx.drawImage(scope.redrawImg, 0, 0);
+      // })
 
       element.bind('mousedown', function(event){
 
@@ -72,17 +89,14 @@ myApp
         ctx.beginPath();
 
         drawing = true;
+
       });
+
 
       element.bind('touchstart', function(event){
 
-        console.log('triggered touch staart');
-
         lastX = (event.touches[0].clientX - rect.left)*scaleX;
         lastY = (event.touches[0].clientY - rect.top)*scaleY;
-
-        console.log('current X', lastX);
-        console.log('current Y', lastY);
 
         // begins new line
         ctx.beginPath();
@@ -92,13 +106,18 @@ myApp
       });
 
       element.bind('click', function(event){
-        console.log('click registered');
-        console.log('this event on click', event);
 
         lastX = (event.clientX - rect.left)*scaleX;
         lastY = (event.clientY - rect.top)*scaleY;
 
+        ctx.fillStyle = scope.currentColor;
         ctx.fillRect (lastX, lastY, 5, 5);
+
+        // var newDrawingState = element[0].toDataURL('image/png');
+
+        // scope.stateArr.push(newDrawingState);
+
+        // console.log('now sopce array', scope.stateArr);
 
       });
 
@@ -120,17 +139,9 @@ myApp
       element.bind('touchmove', function(event){
 
         if(drawing){
-          console.log('triggered touch move');
-          // get current mouse position
-          console.log('this is event', event);
+
           currentX = (event.changedTouches[0].clientX - rect.left) * scaleX;
           currentY = ((event.changedTouches[0].clientY - rect.top) * scaleY);
-
-          console.log('scale y from touchmove', scaleY);
-
-          console.log('current X', currentX);
-          console.log('current Y', currentY);
-
 
           draw(lastX, lastY, currentX, currentY);
 
@@ -141,14 +152,60 @@ myApp
       });
 
       element.bind('mouseup', function(event){
+        console.log('firing mouseup');
         // stop drawing
         drawing = false;
+
+        // var newDrawingState = element[0].toDataURL('image/png');
+
+        // console.log('new drawing state', newDrawingState);
+
+        // scope.stateArr.push(newDrawingState);
+
+        // console.log('now sopce array', scope.stateArr);
+
+        var canvasData = ctx.getImageData(0, 0, element[0].width, element[0].height);
+
+        var lastIndex = scope.drawingStateArr.length - 1;
+
+        var lastState = scope.drawingStateArr[lastIndex];
+
+        // if (JSON.stringify(canvasData) !== JSON.stringify(lastState)){
+          scope.drawingStateArr.push(canvasData);
+        // }
+
+
+
+        // ctx.save();
+
       });
 
       element.bind('touchend', function(event){
+
+        console.log('firing TOUCHEND');
         // stop drawing
-        console.log('triggered touch end');
         drawing = false;
+
+        // var newDrawingState = element[0].toDataURL('image/png');
+
+        // scope.stateArr.push(newDrawingState);
+
+
+
+        // ctx.save();
+
+        var canvasData = ctx.getImageData(0, 0, element[0].width, element[0].height);
+
+        var lastIndex = scope.drawingStateArr.length - 1;
+
+        var lastState = scope.drawingStateArr[lastIndex];
+
+        // if (JSON.stringify(canvasData) !== JSON.stringify(lastState)){
+          scope.drawingStateArr.push(canvasData);
+        // }
+
+        console.log('now sopce array length', scope.drawingStateArr.length);
+
       });
 
       // canvas reset
@@ -182,4 +239,4 @@ myApp
       }
     }
   }
-});
+}]);
