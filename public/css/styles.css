@@ -65,8 +65,7 @@ video {
   vertical-align: center; }
 
 .menuIcon {
-  height: 38px;
-  display: inline; }
+  height: 28px; }
 
 .addContainer {
   background-color: #f4f7fc;
@@ -381,6 +380,36 @@ input[type="range"]::-ms-thumb {
 .color16 {
   background-color: black; }
 
+.dropbutton {
+  height: 50px;
+  width: 70px;
+  padding: 16px;
+  border: none; }
+
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown-content {
+  right: 0;
+  display: block;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 26px;
+  font-family: Helvetica; }
+
+.show {
+  display: block; }
+
 .color21 {
   background-color: purple; }
 
@@ -559,3 +588,4 @@ input[type="range"]::-ms-thumb {
   left: 5px;
   color: #505860;
   font-size: 30px; }
+
