@@ -3,9 +3,10 @@ var myApp = angular.module('myApp');
 
 myApp.controller('SelectionController', [
   '$scope',
+  '$window',
   '$location',
   'UsersService',
-  function($scope, $location, UsersService) {
+  function($scope, $window, $location, UsersService) {
     $scope.photoURLs;
 
     $scope.alertModalShow = false;
@@ -17,9 +18,43 @@ myApp.controller('SelectionController', [
       return UsersService.checkTile(thisID)
         .then(response => {
           console.log('coming back from check tile service', response);
-          //but - backend still returns id if "in progresss" - need it to return false if saved or if in progress - in both scenarios.
+
           if (response === 'false'){
-            $scope.alertModalShow = true;
+
+            let alertModal = document.createElement('div');
+            alertModal.className = 'notAvailableModal';
+            alertModal.addEventListener('click', removeAlertModal);
+
+            let alertPopup = document.createElement('div');
+            alertPopup.className = 'notAvailablePopup';
+
+            let alertMsg = document.createElement('p');
+            alertMsg.className = 'notAvailableMessage';
+            alertMsg.innerHTML = 'Oops! Someone just claimed that spot.';
+
+            let alertBtn = document.createElement('button');
+            alertBtn.className = 'notAvailableBtn';
+            alertBtn.innerHTML = 'OK';
+            alertBtn.addEventListener('click', removeAlertModal);
+
+            alertModal.appendChild(alertPopup);
+            alertPopup.appendChild(alertMsg);
+            alertPopup.appendChild(alertBtn);
+
+            document.body.appendChild(alertModal);
+
+            function removeAlertModal(){
+              console.log('running remove function');
+              let alertDivs = document.querySelectorAll('.notAvailableModal');
+              console.log('these are alertDivs', alertDivs);
+              if(alertDivs.length > 0){
+                console.log('inside alert divs if');
+                alertDivs.forEach(modal => {
+                  modal.style.display = 'none';
+                })
+              }
+            }
+
           } else {
             $location.path('/toolkit');
           }

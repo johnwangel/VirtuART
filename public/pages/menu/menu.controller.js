@@ -1,8 +1,22 @@
 var myApp = angular.module('myApp');
 
 myApp.controller('MenuController', ['$scope', '$window', function($scope, $window) {
-    $scope.accessRegisterPage = function(){
-      console.log('we are in our menu method');
-        $window.location.href = '/register';
+
+    $scope.menuOpen = false;
+
+    $scope.toggleMenu = function(){
+      console.log('display menu running');
+
+      if ($scope.menuOpen === true){
+        $scope.menuOpen = false;
+      } else {
+        $scope.menuOpen = true;
+      }
     };
+
+    $scope.hideMenu = function() {
+      if ($scope.menuOpen === true){
+        $scope.menuOpen = false;
+      }
+    }
   }]);

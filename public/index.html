@@ -11,29 +11,29 @@
 </head>
 <body ng-app="myApp">
 
-<!--       <button class="dropbutton" ng-click="displayMenu()">
-        <img src="./img/menu.png" alt="" class="menuIcon">
-      </button>
-      <div class="dropdown-content" ng-controller="MenuController"></div>
- -->
-  <div class="banner">
+  <div class="banner" ng-controller="MenuController">
     <div class="logo">
       <span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span>
     </div>
 
-    <img src="./img/menu.png" alt="" class="menuIcon">
+    <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon">
 
-    <a id="menu-login" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a>
+      <div class="dropDownMenu" ng-if="menuOpen">
 
-    <a id="menu-logout" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a>
+        <!-- KEEP FOR WHEN WE DO USERS -->
+        <!-- <a id="menu-login" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a>
 
-    <a id="menu-register" ng-if="$scope.userLoggedIn === false" ng-href="/register">Register</a>
+        <a id="menu-logout" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a>
 
-    <a id="menu-about-the-art" ng-href="/aboutTheArt">About The Art</a>
+        <a id="menu-register" ng-if="$scope.userLoggedIn === false" ng-href="/register">Register</a> -->
 
-    <a id="menu-about-us" ng-href="/AboutUs">About Us</a>
+        <a id="menu-about-the-art" class="menuItem" ng-href="/aboutTheArt" ng-click="hideMenu()">About the Art</a>
 
-    <a ng-href="/history">Archived Scenes</a>
+        <a id="menu-about-us" class="menuItem" ng-href="/AboutUs" ng-click="hideMenu()">About</a>
+
+        <a id="menu-history" class="menuItem" ng-href="/history" ng-click="hideMenu()">Archived Artwalls</a>
+
+      </div>
 
   </div>
 
