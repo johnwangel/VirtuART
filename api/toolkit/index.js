@@ -49,7 +49,9 @@ function loadCanvas(req, res) {
           artData().findOne({ "scenes.tiles.id": testID })
           .then(results => {
             let currentScene = results.scenes.filter( scene => scene.status === "current" )[0];
-              if ( sceneIsFull(currentScene) ){
+            let intermediateScene = results.scenes.filter( scene => scene.status === "intermediate" )[0];
+              if ( sceneIsFull(currentScene) &&  !intermediateScene ){
+                  console.log("THIS SHOULD ONLY FIRE WHEN THE LAST ITEM ON A CANVAS IS SELECTED")
                   let newScene = generateNewScene(currentScene.id);
                   results.scenes.push(newScene)
                   artData().updateOne({"_id": sceneID}, results )
