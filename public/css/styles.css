@@ -4,7 +4,8 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 body {
   margin: 0;
@@ -55,13 +56,13 @@ video {
   flex-direction: row;
   justify-content: space-around;
   padding: 0 15px;
-  z-index: 1000; }
+  z-index: 100; }
 
 .banner_title {
   display: inline;
   line-height: 50px;
   font-size: 32px;
-  font-family: Helvetica;
+  font-family: "Raleway";
   vertical-align: center; }
 
 .logo {
@@ -70,9 +71,34 @@ video {
   margin: 0px; }
 
 .menuIcon {
-  display: flex;
   height: 28px;
-  justify-content: flex-end; }
+  z-index: 1000; }
+
+.dropDownMenu {
+  /*width: 150px;*/
+  /*height: 100px;*/
+  position: absolute;
+  /*top: 50px;*/
+  bottom: 0;
+  right: 0;
+  background-color: #f4f7fc;
+  border-radius: 0px 0px 2px 2px;
+  z-index: 1; }
+
+.dropDownMenu a {
+  text-decoration: none;
+  font-family: "Raleway";
+  font-size: 16px;
+  color: #505860;
+  display: block;
+  padding: 10px 15px;
+  border-top: solid 1px #e2e2e2; }
+
+.dropDownMenu a:active {
+  color: white;
+  background-color: #EC0078;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
 
 .addContainer {
   background-color: #f4f7fc;
@@ -83,13 +109,26 @@ video {
   right: -100px;
   bottom: -100px;
   cursor: pointer;
-  /*opacity: .7;*/ }
+  /*opacity: .7;*/
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 105px;
+  padding-top: 40px;
+  font-size: 18px;
+  color: #505860;
+  font-family: "Raleway";
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
+.addContainer:active {
+  color: white;
+  background-color: #EC0078;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .add_your_own_button {
   display: block;
   /*background-color: purple;*/
   text-decoration: none;
-  font-family: Helvetica;
+  font-family: "Raleway";
   color: #4b4c4f;
   opacity: 1;
   position: relative;
@@ -191,10 +230,12 @@ form * {
   color: white;
   font-family: Arial;
   font-size: 16px;
-  border: none; }
+  border: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .toolkitButton:active {
-  background-color: rgba(255, 255, 255, 0.5); }
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .brushContainer {
   width: 35px;
@@ -202,7 +243,8 @@ form * {
   /*background-color: purple;*/
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .smallBrushContainer {
   width: 23px;
@@ -213,21 +255,25 @@ form * {
 
 .brush {
   border-radius: 50%;
-  border: solid 2px black; }
+  border: solid 2px black;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .brushSelected {
-  background-color: black; }
+  background-color: black;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .eraserSelected {
   background-image: url("../img/ximga.png");
   background-size: 125% 126%;
   background-position: 40% 44%;
-  /*background-color: red;*/ }
+  /*background-color: red;*/
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .eraserNotSelected {
   background-image: url("../img/ximg.png");
   background-size: 28px 28px;
-  background-position: center; }
+  background-position: center;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .smallBrush {
   height: 12px;
@@ -242,6 +288,7 @@ form * {
   width: 24px; }
 
 .eraserBrushContainer {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   /*margin-left: 3px;*/ }
 
 .eraserBrush {
@@ -249,7 +296,8 @@ form * {
   width: 28px;
   /*background-color: green;*/
   border: none;
-  border-radius: 0%; }
+  border-radius: 0%;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .undoBtn {
   height: 30px;
@@ -258,7 +306,8 @@ form * {
   border: none;
   background-image: url("../img/undo.png");
   background-size: 30px 30px;
-  background-position: center; }
+  background-position: center;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .colorPalette {
   padding: 5px 10px;
@@ -277,7 +326,8 @@ form * {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 50%; }
+  height: 50%;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .row1 {
   /*padding-top: 5px;*/ }
@@ -361,13 +411,16 @@ input[type="range"]::-ms-thumb {
 .color {
   height: 27px;
   width: 27px;
-  border-radius: 50%; }
+  border-radius: 50%;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .colorSelected {
-  border: 2px solid white; }
+  border: 2px solid white;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .colorSelectedLight {
-  border: 2px solid #3d3d3c; }
+  border: 2px solid #3d3d3c;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
 .color11 {
   background-color: red; }
@@ -378,50 +431,11 @@ input[type="range"]::-ms-thumb {
 .color13 {
   background-color: yellow; }
 
-.black {
-  background-color: black; }
-
-/* dropdown menu*/
-/*.dropbutton {
-    height: 50px;
-    width: 70px;
-    //display: flex;
-    //background-color: #4CAF50;
-    // color: white;
-    padding: 16px;
-    // font-size: 16px;
-    border: none;
-    //cursor: pointer;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    right: 0;
-    display: block;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 26px;
-    font-family: Helvetica;
-}*/
-.show {
-  display: block; }
-
 .color14 {
   background-color: green; }
+
+.show {
+  display: block; }
 
 .color15 {
   background-color: saddlebrown; }
@@ -528,6 +542,9 @@ input[type="range"]::-ms-thumb {
   width: 100%;
   height: 100%;
   overflow: auto; }
+
+.notAvailableModalShowing {
+  visibility: visible; }
 
 .notAvailableModalHidden {
   visibility: hidden;
