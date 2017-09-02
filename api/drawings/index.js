@@ -42,6 +42,7 @@ function saveDrawing (req, res) {
     artData().findOne({ "scenes.tiles.id": thisID })
     .then( response => {
       let updateData = getUpdateData(response, thisID);
+      console.log("UPDATE DATA", updateData);
       if (updateData.sceneStatus === "intermediate"){
         //change previous scene status to archived
         response.scenes[updateData.sceneIndex - 1].status = "archived";

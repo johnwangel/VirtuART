@@ -11,6 +11,7 @@ function getImages(req, res) {
   artData().findOne({ "scenes.status": "current" })
   .then(results => {
     let scenes = results.scenes;
+
     let currentScenes = scenes.filter( scene => scene.status === "current" || scene.status === "intermediate" );
     res.json(currentScenes);
   })
