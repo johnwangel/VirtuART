@@ -165,7 +165,16 @@ video {
   height: 100vh;
   background-color: $light-grey-background;
   text-align: justify;
+}
 
+.howtouse{
+  position: absolute;
+  top: 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: $light-grey-background;
+  text-align: justify;
+  padding: 30px 33px 30px 30px;
 }
 
 .addContainer {
@@ -889,9 +898,10 @@ h1 {
 }
 
 .heading1 {
-  font-size: 24px;
+  font-size: 22px;
   color: $logo-grey;
   font-family: $font-main;
+  margin-bottom: 10px;
 }
 
 .team {
