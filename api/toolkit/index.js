@@ -49,10 +49,12 @@ function loadCanvas(req, res) {
           artData().findOne({ "scenes.tiles.id": testID })
           .then(results => {
             let currentScene = results.scenes.filter( scene => scene.status === "current" )[0];
-            let intermediateScene = results.scenes.filter( scene => scene.status === "intermediate" )[0] || undefined;
-            console.log("INTERMEDIATE SCENE ", intermediateScene)
-              if ( sceneIsFull(currentScene) &&  !intermediateScene ){
+            // let intermediateScene = results.scenes.filter( scene => scene.status === "intermediate" )[0] || undefined;
+            // console.log("INTERMEDIATE SCENE ", intermediateScene)
+            //   if ( sceneIsFull(currentScene) &&  !intermediateScene ){
+              if ( sceneIsFull(currentScene) ){
                   console.log("THIS SHOULD ONLY FIRE WHEN THE LAST ITEM ON A CANVAS IS SELECTED")
+                  results.scenes[currentID].status = "saved";
                   let newScene = generateNewScene(currentScene.id);
                   results.scenes.push(newScene)
                   artData().updateOne({"_id": sceneID}, results )
@@ -85,7 +87,7 @@ function getIDs(result){
 
   for (var i = 0; i < result.scenes.length; i++) {
     if (result.scenes[i].status === "current") currentID = i;
-    if (result.scenes[i].status === "intermediate") intermediateID = i;
+    // if (result.scenes[i].status === "intermediate") intermediateID = i;
   }
   if (intermediateID){
     return intermediateID;
@@ -111,7 +113,7 @@ function generateNewScene(id){
       "createdAt" : currentTime,
       "rows" : 3,
       "columns" : 4,
-      "status" : "intermediate",
+      "status" : "current",
       "marker" : "default",
       "tiles" : [
         {
