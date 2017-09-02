@@ -120,16 +120,15 @@ video {
 
 
 .dropDownMenu {
-  /*width: 150px;*/
-  /*height: 100px;*/
   position: absolute;
-  /*top: 50px;*/
-  bottom: 0;
+  top: 50px;
   right: 0;
   background-color: $banner-background;
   border-radius: 0px 0px 2px 2px;
-  z-index: 1;
+  transition: top 2s;
 }
+
+
 
 .dropDownMenu a {
   text-decoration: none;

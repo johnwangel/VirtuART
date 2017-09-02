@@ -22,7 +22,7 @@
 
         <a id="menu-logout"  class="menu_item" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a><br/>
 
-    <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon">
+    <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon" >
 
       <div class="dropDownMenu" ng-if="menuOpen">
 
@@ -33,9 +33,9 @@
 
         <a id="menu-register" ng-if="$scope.userLoggedIn === false" ng-href="/register">Register</a> -->
 
-        <a id="menu-about-the-art" class="menuItem" ng-href="/aboutTheArt" ng-click="hideMenu()">About the Art</a>
+        <!--         <a id="menu-about-the-art" class="menuItem" ng-href="/aboutTheArt" ng-click="hideMenu()">About the Art</a> -->
 
-        <a id="menu-about-us" class="menuItem" ng-href="/AboutUs" ng-click="hideMenu()">About</a>
+        <a id="menu-about-us" class="menuItem" ng-href="/AboutUs" ng-click="hideMenu()">About Us</a>
 
         <a id="menu-history" class="menuItem" ng-href="/history" ng-click="hideMenu()">Archived Artwalls</a>
 
