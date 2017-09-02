@@ -738,12 +738,44 @@ h1 {
   margin-bottom: 20px; }
 
 .heading2 {
-  font-size: 18px;
+  font-size: 20px;
   color: #505860;
   font-family: "Raleway"; }
 
 .description {
-  font-size: 18px;
+  font-size: 17px;
   color: #505860;
   font-family: "Raleway";
-  margin-bottom: 20px; }
+  margin-bottom: 30px; }
+
+.headshot {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 310px;
+  height: 200px;
+  background-position: center;
+  border-radius: 2px;
+  box-shadow: 0px 4px 10px #4b4c4f; }
+
+.kristin {
+  background-image: url("../img/kristin2.jpg");
+  background-size: 340px;
+  background-position: 31% 76%; }
+
+.keith {
+  background-image: url("../img/keith2.jpg");
+  background-size: 328px;
+  background-position: 51%; }
+
+.john {
+  background-image: url("../img/john2.jpg");
+  background-size: 337px;
+  background-position: 30% 96%; }
+
+.oksana {
+  background-image: url("../img/oksana2.jpg");
+  background-size: 320px;
+  background-position: 100% 8%; }
+
+.crossout {
+  text-decoration: line-through; }
