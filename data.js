@@ -158,7 +158,7 @@
           "createdAt": "Mon Aug 28 14:16:47 HST 2017",
           "posX": 1,
           "posY": 1,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -169,7 +169,7 @@
           "createdAt": "Mon Aug 28 14:16:47 HST 2017",
           "posX": 1,
           "posY": 2,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -180,7 +180,7 @@
           "createdAt": "Mon Aug 28 14:16:48 HST 2017",
           "posX": 1,
           "posY": 3,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -191,7 +191,7 @@
           "createdAt": "Mon Aug 28 14:16:49 HST 2017",
           "posX": 2,
           "posY": 1,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -202,7 +202,7 @@
           "createdAt": "Mon Aug 28 14:16:50 HST 2017",
           "posX": 2,
           "posY": 2,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -213,7 +213,7 @@
           "createdAt": "Mon Aug 28 14:16:51 HST 2017",
           "posX": 2,
           "posY": 3,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -224,7 +224,7 @@
           "createdAt": "Mon Aug 28 14:16:52 HST 2017",
           "posX": 3,
           "posY": 1,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -235,7 +235,7 @@
           "createdAt": "Mon Aug 28 14:16:53 HST 2017",
           "posX": 3,
           "posY": 2,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -246,7 +246,7 @@
           "createdAt": "Mon Aug 28 14:16:54 HST 2017",
           "posX": 3,
           "posY": 3,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -257,7 +257,7 @@
           "createdAt": "Mon Aug 28 14:16:55 HST 2017",
           "posX": 4,
           "posY": 1,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -268,7 +268,7 @@
           "createdAt": "Mon Aug 28 14:16:56 HST 2017",
           "posX": 4,
           "posY": 2,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"
@@ -279,7 +279,7 @@
           "createdAt": "Mon Aug 28 14:16:57 HST 2017",
           "posX": 4,
           "posY": 3,
-          "url": "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url": "/img/add.png",
           "clean": "true",
           "working": "false",
           "saved": "false"

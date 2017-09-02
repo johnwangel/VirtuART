@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const router = express.Router();
-const AVAILABLE_ICON = 'https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png';
-const INPROGRESS_ICON = 'https://s3-us-west-2.amazonaws.com/invisiart/drawings/inprogress.png';
+const AVAILABLE_ICON = '/img/add.png';
+const INPROGRESS_ICON = '/img/inprogress.png';
 const { artData }  = require('../../collections/');
 
 //load requested canvas
@@ -119,7 +119,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 1,
           "posY" : 1,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -130,7 +130,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 1,
           "posY" : 2,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -141,7 +141,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 1,
           "posY" : 3,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -152,7 +152,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 2,
           "posY" : 1,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -163,7 +163,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 2,
           "posY" : 2,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -174,7 +174,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 2,
           "posY" : 3,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -185,7 +185,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 3,
           "posY" : 1,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -196,7 +196,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 3,
           "posY" : 2,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -207,7 +207,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 3,
           "posY" : 3,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -218,7 +218,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 4,
           "posY" : 1,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -229,7 +229,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 4,
           "posY" : 2,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
@@ -240,7 +240,7 @@ function generateNewScene(id){
           "createdAt" : currentTime,
           "posX" : 4,
           "posY" : 3,
-          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png",
+          "url" : AVAILABLE_ICON,
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
