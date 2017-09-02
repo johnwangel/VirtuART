@@ -52,12 +52,21 @@ myApp.controller("ToolkitController", [
       window.disableCamera();
     });
 
+    $scope.cancel = function(){
+      let thisID = localStorage.getItem('currentID');
+      ToolkitService.cancelCanvas(thisID)
+      .then( result => {
+        console.log(result);
+        $window.location.href = '/';
+      })
+    }
+
     $scope.getPNG = function() {
 
       var canvas = document.getElementById("canvas");
       var image = canvas.toDataURL('image/png', 1.0);
       ToolkitService.postImage(image).then(result => {
-        console.log(result);
+        localStorage.setItem('currentID', '');
       });
 
       $scope.modalShow = true;
@@ -110,16 +119,6 @@ myApp.controller("ToolkitController", [
       let newTransparency = ToolkitService.setTransparency(transparency);
       $scope.transparency = newTransparency;
       console.log('new transparency', newTransparency);
-    }
-
-    $scope.cancel = function(){
-      console.log('firing the cancel method on selection controller');
-      // let thisID = '';
-      // ToolkitService.cancelCanvas(thisID)
-
-      $window.location.href = '/';
-      //function to user service to update flag to make the tile available
-      //and set url for the tile to claim me
     }
 
     $scope.clearCanvas = function(){

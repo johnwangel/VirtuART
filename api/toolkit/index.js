@@ -1,6 +1,8 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const router = express.Router();
+const AVAILABLE_ICON = 'https://s3-us-west-2.amazonaws.com/invisiart/drawings/add.png';
+const INPROGRESS_ICON = 'https://s3-us-west-2.amazonaws.com/invisiart/drawings/inprogress.png';
 const { artData }  = require('../../collections/');
 
 //load requested canvas
@@ -8,12 +10,23 @@ router.post('/', loadCanvas);
 router.post('/cancel', cancel);
 
 function cancel(req, res){
-
+  let thisID = req.body.id;
+  let parsedID = parseID(thisID);
+  artData().findOne({ "scenes.tiles.id": thisID })
+  .then( result => {
+    let sceneID = result._id;
+    result.scenes[parsedID.sceneIndex].tiles[parsedID.tileIndex].clean = 'true';
+    result.scenes[parsedID.sceneIndex].tiles[parsedID.tileIndex].working = 'false';
+    result.scenes[parsedID.sceneIndex].tiles[parsedID.tileIndex].url = AVAILABLE_ICON;
+    artData().updateOne({"_id": sceneID}, result )
+    .then( finished => {
+      res.send(finished);
+    })
+  })
 }
 
 function loadCanvas(req, res) {
   let testID = req.body.id;
-
   artData().findOne({ "scenes.tiles.id": testID })
   .then( result => {
     let currentID = getIDs(result);
@@ -28,10 +41,9 @@ function loadCanvas(req, res) {
       }
     }
     if (thisObj.clean === "true"){
-      console.log("IF THIS FIRES WHEN SOMETING IS IN PROGRESS THATS FUCKED UP");
       result.scenes[currentID].tiles[thisIndex].clean = "false";
       result.scenes[currentID].tiles[thisIndex].working = "true";
-      result.scenes[currentID].tiles[thisIndex].url = `https://s3-us-west-2.amazonaws.com/invisiart/drawings/inprogress.png`;
+      result.scenes[currentID].tiles[thisIndex].url = INPROGRESS_ICON;
       artData().updateOne({"_id": sceneID}, result )
       .then( response => {
           artData().findOne({ "scenes.tiles.id": testID })
@@ -52,7 +64,19 @@ function loadCanvas(req, res) {
   })
 }
 
+function parseID(thisID){
+  let newIDs = thisID.split('_');
+  let sceneID = Number(newIDs[0].split('').splice(5).join(''));
+  let sceneIndex = --sceneID;
+  let tileID = Number(newIDs[1].split('').splice(4).join(''));
+  let tileIndex = --tileID;
+  console.log(sceneIndex, tileIndex);
+  return { sceneIndex, tileIndex }
+}
+
 function getIDs(result){
+  //This function provides the index of the scene with status 'intermediate', or the index
+  //of the scene with status 'current' if the previous does not exist
   let currentID = undefined;
   let intermediateID = undefined;
 
