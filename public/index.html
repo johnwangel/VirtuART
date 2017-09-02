@@ -18,22 +18,28 @@
  -->
   <div class="banner">
     <div class="logo">
-      <span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span>
+    <img src="./img/logo.png" alt="logo" height="40px">
+<!--       <span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span> -->
+      <img src="./img/menu.png" alt="menu" class="menuIcon">
+    <div class="dropdownMenu">
+
+        <a id="menu-login" class="menu_item" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a><br/>
+
+        <a id="menu-logout"  class="menu_item" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a><br/>
+
+        <a id="menu-register"  class="menu_item" ng-if="$scope.userLoggedIn === false" ng-href="/register">Register</a><br/>
+
+        <a id="menu-about-the-art"  class="menu_item" ng-href="/aboutTheArt">About The Art</a><br/>
+
+        <a id="menu-about-us"  class="menu_item" ng-href="/AboutUs">About Us</a><br/>
+
+        <a ng-href="/history" class="menu_item" >Archived Scenes</a>
+
+      </div>
+
     </div>
 
-    <img src="./img/menu.png" alt="" class="menuIcon">
 
-    <a id="menu-login" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a>
-
-    <a id="menu-logout" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a>
-
-    <a id="menu-register" ng-if="$scope.userLoggedIn === false" ng-href="/register">Register</a>
-
-    <a id="menu-about-the-art" ng-href="/aboutTheArt">About The Art</a>
-
-    <a id="menu-about-us" ng-href="/AboutUs">About Us</a>
-
-    <a ng-href="/history">Archived Scenes</a>
 
   </div>
 
