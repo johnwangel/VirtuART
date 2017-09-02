@@ -71,6 +71,7 @@ video {
   margin: 0px; }
 
 .menuIcon {
+  display: flex;
   height: 28px;
   z-index: 1000; }
 
@@ -96,6 +97,19 @@ video {
   background-color: #EC0078;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
+.aboutus {
+  padding: 20px;
+  top: 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e2e2e2;
+  text-align: justify; }
+
+.aboutus h1 {
+  margin-top: 60px; }
+
+.aboutus p {
+  margin-top: 40px; }
 
 .addContainer {
   background-color: #f4f7fc;

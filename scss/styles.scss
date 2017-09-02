@@ -146,6 +146,24 @@ video {
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
+.aboutus {
+  padding: 20px;
+  top: 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: $light-grey-background;
+  text-align: justify;
+
+}
+.aboutus h1 {
+  margin-top: 60px;
+}
+
+.aboutus p {
+  margin-top: 40px;
+}
+
+
 .addContainer {
   background-color: $banner-background;
   width: 200px;

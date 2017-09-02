@@ -24,6 +24,10 @@ myApp
           templateUrl:'../pages/history/history.html',
           controller:'HistoryController'
         })
+        .when('/aboutus', {
+          templateUrl:'../pages/about/about.html',
+          controller:'AboutController'
+        })
         .when('/register', {
           templateUrl: '../pages/register/register.html',
           controller: 'RegisterController'

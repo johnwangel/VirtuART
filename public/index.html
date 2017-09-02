@@ -15,12 +15,7 @@
     <div class="logo">
     <img src="./img/logo.png" alt="logo" height="40px">
 <!--       <span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span> -->
-      <img src="./img/menu.png" alt="menu" class="menuIcon">
-    <div class="dropdownMenu">
-
-        <a id="menu-login" class="menu_item" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a><br/>
-
-        <a id="menu-logout"  class="menu_item" ng-if="$scope.userLoggedIn === true" ng-href="/logout">Logout</a><br/>
+    </div>
 
     <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon" >
 
@@ -35,12 +30,14 @@
 
         <!--         <a id="menu-about-the-art" class="menuItem" ng-href="/aboutTheArt" ng-click="hideMenu()">About the Art</a> -->
 
-        <a id="menu-about-us" class="menuItem" ng-href="/AboutUs" ng-click="hideMenu()">About Us</a>
+         <a id="menu-home" class="menuItem" ng-href="/" ng-click="hideMenu()">Home</a>
+
+        <a id="menu-about-us" class="menuItem" ng-href="/aboutus" ng-click="hideMenu()">About Us</a>
 
         <a id="menu-history" class="menuItem" ng-href="/history" ng-click="hideMenu()">Archived Artwalls</a>
 
       </div>
-      
+
   </div>
 
   <div ng-view></div>
@@ -59,6 +56,7 @@
   <script type="text/javascript" src="./pages/toolkit/toolkit.controller.js"></script>
   <script type="text/javascript" src="./pages/selection/selection.controller.js"></script>
   <script type="text/javascript" src="./pages/history/history.controller.js"></script>
+  <script type="text/javascript" src="./pages/about/about.controller.js"></script>
   <script type="text/javascript" src="./scripts/three.min.js"></script>
   <script type="text/javascript" src="./scripts/stats.min.js"></script>
   <script type="text/javascript" src="./scripts/ar.js"></script>
