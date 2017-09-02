@@ -138,7 +138,7 @@ window.augreal = function(photoData) {
 
   var imageArray = photoData;
 
-renderGrid(1, 3, 4);
+renderGrid(1, 4, 3);
 
 function renderGrid(squareWidth, rows, columns){
   var gridWidth = squareWidth * columns;

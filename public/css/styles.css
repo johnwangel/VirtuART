@@ -9,6 +9,7 @@
 
 body {
   margin: 0;
+  font-family: 'Raleway';
   /*max-width: 310px;*/
   /*max-height: 352px;*/
   background-color: #e2e2e2; }
@@ -53,8 +54,7 @@ video {
   color: #4b4c4f;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 15px;
   z-index: 100; }
 
@@ -64,6 +64,11 @@ video {
   font-size: 32px;
   font-family: "Raleway";
   vertical-align: center; }
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0px; }
 
 .menuIcon {
   height: 28px;
@@ -93,6 +98,7 @@ video {
   color: white;
   background-color: #EC0078;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+
 
 .addContainer {
   background-color: #f4f7fc;
@@ -582,6 +588,9 @@ input[type="range"]::-ms-thumb {
 
 h1 {
   margin: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
   font-family: 'Raleway';
   color: #505860;
   font-size: 30px; }
@@ -591,7 +600,7 @@ h1 {
   justify-content: center;
   width: 100vw;
   height: 100vw;
-  padding: 10px; }
+  padding: 0px; }
 
 .optionsGrid, .scene {
   width: 100%;

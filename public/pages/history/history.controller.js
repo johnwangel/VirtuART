@@ -9,6 +9,9 @@ myApp.controller('HistoryController', [
 
     return UsersService.getHistory()
     .then(historicalData => {
+      historicalData.forEach( (scene, i ) => {
+        scene.title = `Art Wall ${i+1}`;
+      });
       $scope.historyData = historicalData;
       window.disableCamera();
     });

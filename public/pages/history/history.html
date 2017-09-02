@@ -1,6 +1,6 @@
 <div class="selectionInstructionsContainer" ng-repeat="scene in historyData">
-  <h1 class="sceneTitle">{{scene.id}}</h1>
-  <div class="selectionGridContainer">
+  <h1 class="sceneTitle">{{scene.title}}</h1>
+  <div class="historyGridContainer">
     <div ng-controller="SelectionController" class="optionsGrid">
       <div class="tileOptionContainer" ng-repeat="tile in scene.tiles">
         <img class="tileOptionImg" id="{{tile.id}}" src="{{tile.url}}" alt="photo">
