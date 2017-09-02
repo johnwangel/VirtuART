@@ -114,6 +114,9 @@ myApp.controller("ToolkitController", [
 
     $scope.cancel = function(){
       console.log('firing the cancel method on selection controller');
+      // let thisID = '';
+      // ToolkitService.cancelCanvas(thisID)
+
       $window.location.href = '/';
       //function to user service to update flag to make the tile available
       //and set url for the tile to claim me

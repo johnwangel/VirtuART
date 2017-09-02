@@ -138,7 +138,7 @@ window.augreal = function(photoData) {
 
   var imageArray = photoData;
 
-renderGrid(1, 4, 4);
+renderGrid(1, 3, 4);
 
 function renderGrid(squareWidth, rows, columns){
   var gridWidth = squareWidth * columns;
@@ -171,7 +171,6 @@ function renderSquare(parent, squareWidth, image, positionZ, positionX){
       parent.add( mesh );
   });
 }
-
 
   // var textToader = new THREE.FontLoader();
   // textToader.load( '/font.json', fontLoadComplete,  fontLoadProgress, fontLoadError);

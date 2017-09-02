@@ -5,14 +5,17 @@ const { artData }  = require('../../collections/');
 
 //load requested canvas
 router.post('/', loadCanvas);
+router.post('/cancel', cancel);
+
+function cancel(req, res){
+
+}
 
 function loadCanvas(req, res) {
   let testID = req.body.id;
 
   artData().findOne({ "scenes.tiles.id": testID })
   .then( result => {
-    //determine if there are both current and intermediate scenes
-    //use intermediate if exists, otherwise use current
     let currentID = getIDs(result);
     let sceneID = result._id;
     let tiles = result.scenes[currentID].tiles;
@@ -25,7 +28,9 @@ function loadCanvas(req, res) {
       }
     }
     if (thisObj.clean === "true"){
+      console.log("IF THIS FIRES WHEN SOMETING IS IN PROGRESS THATS FUCKED UP");
       result.scenes[currentID].tiles[thisIndex].clean = "false";
+      result.scenes[currentID].tiles[thisIndex].working = "true";
       result.scenes[currentID].tiles[thisIndex].url = `https://s3-us-west-2.amazonaws.com/invisiart/drawings/inprogress.png`;
       artData().updateOne({"_id": sceneID}, result )
       .then( response => {

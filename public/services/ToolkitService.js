@@ -12,6 +12,17 @@ angular.module('myApp')
       });
     }
 
+    function cancelCanvas(thisID){
+      return $http({
+        method: 'POST',
+        url: '/api/toolkit/cancel',
+        data: { id: thisID }
+      })
+      .then( edit => {
+        return edit.data;
+      })
+    }
+
     function postImage(base64) {
       let thisID = localStorage.getItem("currentID");
       const config = {
