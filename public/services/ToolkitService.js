@@ -18,8 +18,8 @@ angular.module('myApp')
         url: '/api/toolkit/cancel',
         data: { id: thisID }
       })
-      .then( edit => {
-        return edit.data;
+      .then( cancelInfo => {
+        return cancelInfo;
       })
     }
 
@@ -75,7 +75,8 @@ angular.module('myApp')
       getCanvas: getCanvas,
       postImage: postImage,
       setColor: setColor,
-      setStrokeWidth: setStrokeWidth
+      setStrokeWidth: setStrokeWidth,
+      cancelCanvas: cancelCanvas
     };
   }
 ]);
