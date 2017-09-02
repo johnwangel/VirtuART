@@ -14,6 +14,21 @@ myApp.controller('MainHomeController', [
       $location.path('/selection');
     }
 
+    function waitForElementToDisplay(selector, time) {
+        if(document.querySelector(selector)!=null) {
+            let myvideo = document.getElementsByTagName('video')[0];
+            let myDiv = document.getElementById('canvas_body');
+            myDiv.appendChild(myvideo);
+            console.log('Moved video to div element.')
+            return;
+        }
+        else {
+            setTimeout(function() {
+                waitForElementToDisplay(selector, time);
+            }, time);
+        }
+    }
+
     return UsersService.getTiles()
     .then(photoData => {
       let currScene = photoData.filter( scene => scene.status === "current" )[0]
@@ -21,7 +36,10 @@ myApp.controller('MainHomeController', [
         return allTiles.url;
       });
       window.augreal(urlList);
+      waitForElementToDisplay('video', 5000)
     });
+
+
 
 
   }
