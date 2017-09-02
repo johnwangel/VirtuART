@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <!-- initial-scale=1.0, -->
   <meta name="viewport" content="width=device-width, user-scalable=no,  minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="shortcut icon" href="./img/favicon.jpeg"/>
   <link href="https://fonts.googleapis.com/css?family=Calligraffitti|Cookie|Dancing+Script|Raleway|Roboto|Sedgwick+Ave" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
   <title>InvisiARt</title>
@@ -12,14 +13,14 @@
 <body ng-app="myApp">
 
   <div class="banner" ng-controller="MenuController">
-    <div class="logo">
-    <img src="./img/logo.png" alt="logo" height="40px">
+    <!-- <div class="logo"> -->
+    <img class="logoImage" src="./img/logo.png" alt="InvisiARt">
 <!--       <span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span> -->
-    </div>
+    <!-- </div> -->
 
     <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon" >
 
-      <div class="dropDownMenu" ng-if="menuOpen">
+    <div id="dropDownMenu" class="dropDownMenu" ng-if="menuOpen" ng-class="{menuFixed: fixedNeeded, menuAbsolute: !fixedNeeded}">
 
         <!-- KEEP FOR WHEN WE DO USERS -->
         <!-- <a id="menu-login" ng-if="$scope.userLoggedIn === false" ng-href="/login">Login</a>
@@ -34,9 +35,9 @@
 
         <a id="menu-about-us" class="menuItem" ng-href="/aboutus" ng-click="hideMenu()">About Us</a>
 
-        <a id="menu-history" class="menuItem" ng-href="/history" ng-click="hideMenu()">Archived Artwalls</a>
+        <a id="menu-history" class="menuItem" ng-href="/history" ng-click="hideMenu()">Archived Art Walls</a>
 
-      </div>
+    </div>
 
   </div>
 
