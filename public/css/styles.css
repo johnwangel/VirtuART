@@ -115,6 +115,15 @@ video {
   background-color: #e2e2e2;
   text-align: justify; }
 
+.howtouse {
+  position: absolute;
+  top: 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e2e2e2;
+  text-align: justify;
+  padding: 30px 33px 30px 30px; }
+
 .addContainer {
   background-color: #f4f7fc;
   width: 200px;
@@ -720,9 +729,10 @@ h1 {
   padding: 30px 33px 30px 30px; }
 
 .heading1 {
-  font-size: 24px;
+  font-size: 22px;
   color: #505860;
-  font-family: "Raleway"; }
+  font-family: "Raleway";
+  margin-bottom: 10px; }
 
 .team {
   margin-bottom: 20px; }

@@ -28,6 +28,10 @@ myApp
           templateUrl:'../pages/about/about.html',
           controller:'AboutController'
         })
+        .when('/howtouse', {
+          templateUrl:'../pages/howtouse/howtouse.html',
+          controller:'HowToUseController'
+        })
         .when('/register', {
           templateUrl: '../pages/register/register.html',
           controller: 'RegisterController'

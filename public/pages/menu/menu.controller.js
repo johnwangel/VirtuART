@@ -6,9 +6,6 @@ myApp.controller('MenuController', ['$scope', '$location', '$window', function($
     $scope.fixedNeeded = false;
 
     $scope.toggleMenu = function(){
-      console.log('display menu running');
-
-      console.log('present day Memphis', $location.path());
 
       if ($location.path() === '/toolkit'){
         console.log('recognized as toolkit');
