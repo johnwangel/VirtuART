@@ -4,8 +4,7 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
+  box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -54,9 +53,10 @@ video {
   color: #4b4c4f;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding: 0 15px;
-  z-index: 100; }
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px 0 12px;
+  z-index: 20000 !important; }
 
 .banner_title {
   display: inline;
@@ -65,10 +65,12 @@ video {
   font-family: "Raleway";
   vertical-align: center; }
 
-.logo {
+/*.logo {
   display: flex;
-  justify-content: flex-start;
-  margin: 0px; }
+  align-items: center;
+}*/
+.logoImage {
+  height: 30px; }
 
 .menuIcon {
   display: flex;
@@ -76,12 +78,11 @@ video {
   z-index: 1000; }
 
 .dropDownMenu {
-  position: absolute;
   top: 50px;
   right: 0;
   background-color: #f4f7fc;
   border-radius: 0px 0px 2px 2px;
-  transition: top 2s; }
+  z-index: 2000; }
 
 .dropDownMenu a {
   text-decoration: none;
@@ -97,6 +98,15 @@ video {
   background-color: #EC0078;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); }
 
+.menuFixed {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 2000 !important; }
+
+.menuAbsolute {
+  position: absolute; }
+
 .aboutus {
   padding: 20px;
   top: 50px;
@@ -104,12 +114,6 @@ video {
   height: 100vh;
   background-color: #e2e2e2;
   text-align: justify; }
-
-.aboutus h1 {
-  margin-top: 60px; }
-
-.aboutus p {
-  margin-top: 40px; }
 
 .addContainer {
   background-color: #f4f7fc;
@@ -499,20 +503,20 @@ input[type="range"]::-ms-thumb {
   border-radius: 3px; }
 
 .progressBar {
-  display: inline-block;
+  /*display: inline-block;*/
   height: 30px;
   width: 100%;
-  border: 1px solid #cecece; }
+  border: 1px solid #cecece;
+  border-radius: 2px; }
 
 .progress {
-  height: 30px;
+  height: 28px;
   background-color: #EC0078;
   /*width: 10%;*/
   /* animation-name: makeProgress;
   animation-duration: 2s;
   animation-delay: 0.6s;*/
   /*animation-iteration-count: infinite;*/
-  border-radius: 2px;
   transition: width 1.7s;
   /*transition-delay: 1s;*/ }
 
@@ -540,6 +544,11 @@ input[type="range"]::-ms-thumb {
   font-size: 18px;
   color: #505860;
   font-family: "Raleway"; }
+
+.artWallContainer {
+  position: relative;
+  top: 50px;
+  padding-bottom: 20px; }
 
 /*Not available modal*/
 .notAvailableModal {
@@ -604,9 +613,13 @@ h1 {
   text-align: center;
   font-family: 'Raleway';
   color: #505860;
-  font-size: 30px; }
+  font-size: 24px; }
+
+.historyGridContainer {
+  margin-left: 5px; }
 
 .selectionGridContainer {
+  margin-left: 3px;
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -614,7 +627,7 @@ h1 {
   padding: 0px; }
 
 .optionsGrid, .scene {
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
   margin: auto;
   display: grid;
@@ -700,3 +713,27 @@ h1 {
   left: 5px;
   color: #505860;
   font-size: 30px; }
+
+.aboutus {
+  position: absolute;
+  top: 50px;
+  padding: 30px 33px 30px 30px; }
+
+.heading1 {
+  font-size: 24px;
+  color: #505860;
+  font-family: "Raleway"; }
+
+.team {
+  margin-bottom: 20px; }
+
+.heading2 {
+  font-size: 18px;
+  color: #505860;
+  font-family: "Raleway"; }
+
+.description {
+  font-size: 18px;
+  color: #505860;
+  font-family: "Raleway";
+  margin-bottom: 20px; }

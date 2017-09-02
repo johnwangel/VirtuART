@@ -47,6 +47,7 @@ myApp.controller("ToolkitController", [
     $scope.currentStrokeWidth = '4';
     $scope.transparency = 1;
 
+
     ToolkitService.getCanvas().then(thisCanvas => {
       $scope.image = thisCanvas;
       window.disableCamera();

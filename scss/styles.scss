@@ -35,7 +35,6 @@ $color-2-7: saddlebrown;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 body {
@@ -92,10 +91,10 @@ video {
   color: $dark-grey-text;
   display: flex;
   flex-direction: row;
-  // align-items: center;
-  justify-content: space-around;
-  padding: 0 15px;
-  z-index: 100;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px 0 12px;
+  z-index: 20000 !important;
 }
 
 .banner_title {
@@ -106,10 +105,13 @@ video {
   vertical-align: center;
 }
 
-.logo {
+/*.logo {
   display: flex;
-  justify-content: flex-start;
-  margin: 0px;
+  align-items: center;
+}*/
+
+.logoImage {
+  height: 30px;
 }
 
 .menuIcon {
@@ -120,14 +122,12 @@ video {
 
 
 .dropDownMenu {
-  position: absolute;
   top: 50px;
   right: 0;
   background-color: $banner-background;
   border-radius: 0px 0px 2px 2px;
-  transition: top 2s;
+  z-index: 2000;
 }
-
 
 
 .dropDownMenu a {
@@ -138,12 +138,24 @@ video {
   display: block;
   padding: 10px 15px;
   border-top: solid 1px $light-grey-background;
+
 }
 
 .dropDownMenu a:active {
   color: white;
   background-color: $logo-pink;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+
+.menuFixed {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 2000 !important;
+}
+
+.menuAbsolute {
+  position: absolute;
 }
 
 .aboutus {
@@ -155,14 +167,6 @@ video {
   text-align: justify;
 
 }
-.aboutus h1 {
-  margin-top: 60px;
-}
-
-.aboutus p {
-  margin-top: 40px;
-}
-
 
 .addContainer {
   background-color: $banner-background;
@@ -622,14 +626,15 @@ input[type="range"]::-ms-thumb {
 }
 
 .progressBar {
-  display: inline-block;
+  /*display: inline-block;*/
   height: 30px;
   width: 100%;
   border: 1px solid $progressbar-container;
+  border-radius: 2px;
 }
 
 .progress {
-  height: 30px;
+  height: 28px;
   background-color: $logo-pink;
   /*width: 10%;*/
 
@@ -637,7 +642,7 @@ input[type="range"]::-ms-thumb {
   animation-duration: 2s;
   animation-delay: 0.6s;*/
   /*animation-iteration-count: infinite;*/
-  border-radius: 2px;
+
   transition: width 1.7s;
 
   /*transition-delay: 1s;*/
@@ -675,6 +680,12 @@ input[type="range"]::-ms-thumb {
   color: $logo-grey;
   font-family: $logo-font;
 
+}
+
+.artWallContainer {
+  position: relative;
+  top: 50px;
+  padding-bottom: 20px;
 }
 
 /*Not available modal*/
@@ -748,10 +759,15 @@ h1 {
   text-align: center;
   font-family: 'Raleway';
   color: #505860;
-  font-size: 30px;
+  font-size: 24px;
+}
+
+.historyGridContainer {
+  margin-left: 5px;
 }
 
 .selectionGridContainer {
+  margin-left: 3px;
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -760,7 +776,7 @@ h1 {
 }
 
 .optionsGrid, .scene {
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
   margin: auto;
   display: grid;
@@ -864,4 +880,33 @@ h1 {
   left: 5px;
   color: #505860;
   font-size: 30px;
+}
+
+.aboutus {
+  position: absolute;
+  top: 50px;
+  padding: 30px 33px 30px 30px;
+}
+
+.heading1 {
+  font-size: 24px;
+  color: $logo-grey;
+  font-family: $font-main;
+}
+
+.team {
+  margin-bottom: 20px;
+}
+
+.heading2 {
+  font-size: 18px;
+  color: $logo-grey;
+  font-family: $font-main;
+}
+
+.description {
+  font-size: 18px;
+  color: $logo-grey;
+  font-family: $font-main;
+  margin-bottom: 20px;
 }

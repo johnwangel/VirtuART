@@ -7,6 +7,9 @@ myApp.controller('SelectionController', [
   '$location',
   'UsersService',
   function($scope, $window, $location, UsersService) {
+
+    window.disableCamera();
+
     $scope.photoURLs;
 
     $scope.alertModalShow = false;
@@ -75,7 +78,6 @@ myApp.controller('SelectionController', [
       } else {
         $scope.photoURLs = currScene.tiles;
       }
-      window.disableCamera();
     });
   }
 ]);
