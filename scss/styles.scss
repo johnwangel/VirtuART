@@ -39,6 +39,7 @@ $color-2-7: saddlebrown;
 
 body {
   margin: 0;
+  font-family: 'Raleway';
   /*max-width: 310px;*/
   /*max-height: 352px;*/
   background-color: $light-grey-background;
@@ -90,8 +91,8 @@ video {
   color: $dark-grey-text;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  // align-items: center;
+  justify-content: space-around;
   padding: 0 15px;
   z-index: 1000;
 }
@@ -104,9 +105,17 @@ video {
   vertical-align: center;
 }
 
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0px;
+}
+
 .menuIcon {
+  display: flex;
   height: 28px;
-  //display: flex;
+  justify-content: flex-end;
+  //display: blockplay: flex;
   //align-items: center;
   //justify-content: space-between;
   //flex-direction: column;
@@ -701,9 +710,11 @@ input[type="range"]::-ms-thumb {
   background-color: $logo-pink;
 }
 
-
 h1 {
   margin: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
   font-family: 'Raleway';
   color: #505860;
   font-size: 30px;
@@ -714,7 +725,7 @@ h1 {
   justify-content: center;
   width: 100vw;
   height: 100vw;
-  padding: 10px;
+  padding: 0px;
 }
 
 .optionsGrid, .scene {
