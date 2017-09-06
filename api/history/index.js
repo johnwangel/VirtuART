@@ -10,7 +10,6 @@ function getArchivedScenes(req, res) {
   .then(results => {
     let scenes = results.scenes;
     let archived = scenes.filter( scene => scene.status === "archived" );
-    console.log("HISTORY FROM ARCHIVED", archived)
     res.json(archived);
   })
 }

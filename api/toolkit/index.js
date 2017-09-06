@@ -28,10 +28,10 @@ function cancel(req, res){
 function loadCanvas(req, res) {
   let testID = req.body.id;
   artData().findOne({ "scenes.tiles.id": testID })
-  .then( result => {
-    let currentID = getIDs(result);
-    let sceneID = result._id;
-    let tiles = result.scenes[currentID].tiles;
+  .then( allData => {
+    let currentID = getIDs(allData);
+    let sceneID = allData._id;
+    let tiles = allData.scenes[currentID].tiles;
     let thisIndex = 0;
     let thisObj = [];
     for (var i = 0; i < tiles.length; i++) {
@@ -41,18 +41,18 @@ function loadCanvas(req, res) {
       }
     }
     if (thisObj.clean === "true"){
-      result.scenes[currentID].tiles[thisIndex].clean = "false";
-      result.scenes[currentID].tiles[thisIndex].working = "true";
-      result.scenes[currentID].tiles[thisIndex].url = INPROGRESS_ICON;
-      artData().updateOne({"_id": sceneID}, result )
+      allData.scenes[currentID].tiles[thisIndex].clean = "false";
+      allData.scenes[currentID].tiles[thisIndex].working = "true";
+      allData.scenes[currentID].tiles[thisIndex].url = INPROGRESS_ICON;
+      artData().updateOne({"_id": sceneID}, allData )
       .then( response => {
           artData().findOne({ "scenes.tiles.id": testID })
           .then(results => {
             let currentScene = results.scenes.filter( scene => scene.status === "current" )[0];
-            // let intermediateScene = results.scenes.filter( scene => scene.status === "intermediate" )[0] || undefined;
-            // console.log("INTERMEDIATE SCENE ", intermediateScene)
-            //   if ( sceneIsFull(currentScene) &&  !intermediateScene ){
-              if ( sceneIsFull(currentScene) ){
+            let intermediateScene = results.scenes.filter( scene => scene.status === "intermediate" )[0] || undefined;
+
+              if ( sceneIsFull(currentScene) &&  !intermediateScene ){
+              // if ( sceneIsFull(currentScene) ){
                   console.log("THIS SHOULD ONLY FIRE WHEN THE LAST ITEM ON A CANVAS IS SELECTED")
                   results.scenes[currentID].status = "saved";
                   let newScene = generateNewScene(currentScene.id);
