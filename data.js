@@ -306,7 +306,7 @@
           "working" : "false",
           "saved" : "true"
         },
-                {
+        {
           "id" : "scene3_tile8",
           "user" : "new_user",
           "createdAt" : 1504403743751,
@@ -336,19 +336,19 @@
       "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
       "rows" : 3,
       "columns" : 3,
-      "status" : "current",
+      "status" : "archived",
       "marker" : "default",
       "tiles" : [
         {
           "id" : "scene4_tile1",
-          "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "user" : "new_user",
+          "createdAt" : 1504663925037,
           "posX" : 1,
           "posY" : 1,
-          "url" : "img/add.png",
-          "clean" : "true",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504663924592.png",
+          "clean" : "false",
           "working" : "false",
-          "saved" : "false"
+          "saved" : "true"
         },
         {
           "id" : "scene4_tile2",
@@ -356,84 +356,304 @@
           "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
           "posX" : 1,
           "posY" : 2,
-          "url" : "img/add.png",
-          "clean" : "true",
-          "working" : "false",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504241837734.png",
+          "clean" : "false",
+          "working" : "true",
           "saved" : "false"
         },
         {
           "id" : "scene4_tile3",
-          "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "user" : "new_user",
+          "createdAt" : 1504664229748,
           "posX" : 1,
           "posY" : 3,
-          "url" : "img/add.png",
-          "clean" : "true",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504664229469.png",
+          "clean" : "false",
           "working" : "false",
-          "saved" : "false"
+          "saved" : "true"
         },
         {
           "id" : "scene4_tile4",
-          "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "user" : "new_user",
+          "createdAt" : 1504664297151,
           "posX" : 2,
           "posY" : 1,
-          "url" : "img/add.png",
-          "clean" : "true",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504664296897.png",
+          "clean" : "false",
           "working" : "false",
-          "saved" : "false"
+          "saved" : "true"
         },
         {
           "id" : "scene4_tile5",
-          "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "user" : "new_user",
+          "createdAt" : 1504664415364,
           "posX" : 2,
           "posY" : 2,
-          "url" : "img/add.png",
-          "clean" : "true",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504664415130.png",
+          "clean" : "false",
           "working" : "false",
-          "saved" : "false"
+          "saved" : "true"
         },
         {
           "id" : "scene4_tile6",
-          "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "user" : "new_user",
+          "createdAt" : 1504664518177,
           "posX" : 2,
           "posY" : 3,
-          "url" : "img/add.png",
-          "clean" : "true",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504664517905.png",
+          "clean" : "false",
           "working" : "false",
-          "saved" : "false"
+          "saved" : "true"
         },
         {
           "id" : "scene4_tile7",
-          "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "user" : "new_user",
+          "createdAt" : 1504664804308,
           "posX" : 3,
           "posY" : 1,
-          "url" : "img/add.png",
-          "clean" : "true",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504664804016.png",
+          "clean" : "false",
           "working" : "false",
-          "saved" : "false"
+          "saved" : "true"
         },
         {
           "id" : "scene4_tile8",
-          "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "user" : "new_user",
+          "createdAt" : 1504664898144,
           "posX" : 3,
           "posY" : 2,
-          "url" : "img/add.png",
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504664897714.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene4_tile9",
+          "user" : "new_user",
+          "createdAt" : 1504664978024,
+          "posX" : 3,
+          "posY" : 3,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504664977653.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        }
+      ]
+    },
+    {
+      "id" : "scene5",
+      "owner" : "admin",
+      "createdAt" : "Wed Sep 06 2017 02:28:27 GMT+0000 (UTC)",
+      "rows" : 3,
+      "columns" : 4,
+      "status" : "archived",
+      "marker" : "default",
+      "tiles" : [
+        {
+          "id" : "scene5_tile1",
+          "user" : "new_user",
+          "createdAt" : 1504665982152,
+          "posX" : 1,
+          "posY" : 1,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504665981808.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene5_tile2",
+          "user" : "new_user",
+          "createdAt" : 1504666264379,
+          "posX" : 1,
+          "posY" : 2,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504666264080.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene5_tile3",
+          "user" : "admin",
+          "createdAt" : "Wed Sep 06 2017 02:28:27 GMT+0000 (UTC)",
+          "posX" : 1,
+          "posY" : 3,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504224329912.png",
+          "clean" : "false",
+          "working" : "true",
+          "saved" : "false"
+        },
+        {
+          "id" : "scene5_tile4",
+          "user" : "admin",
+          "createdAt" : "Wed Sep 06 2017 02:28:27 GMT+0000 (UTC)",
+          "posX" : 2,
+          "posY" : 1,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1505156974650.png",
+          "clean" : "false",
+          "working" : "true",
+          "saved" : "false"
+        },
+        {
+          "id" : "scene5_tile5",
+          "user" : "admin",
+          "createdAt" : "Wed Sep 06 2017 02:28:27 GMT+0000 (UTC)",
+          "posX" : 2,
+          "posY" : 2,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504240738534.png",
+          "clean" : "false",
+          "working" : "true",
+          "saved" : "false"
+        },
+        {
+          "id" : "scene5_tile6",
+          "user" : "new_user",
+          "createdAt" : 1504734692817,
+          "posX" : 2,
+          "posY" : 3,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504734692522.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene5_tile7",
+          "user" : "new_user",
+          "createdAt" : 1504919481350,
+          "posX" : 3,
+          "posY" : 1,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504919480902.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene5_tile8",
+          "user" : "new_user",
+          "createdAt" : 1504736406190,
+          "posX" : 3,
+          "posY" : 2,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504736405962.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene5_tile9",
+          "user" : "new_user",
+          "createdAt" : 1504809172973,
+          "posX" : 3,
+          "posY" : 3,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504809172678.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        }
+      ]
+    },
+    {
+      "id" : "scene6",
+      "owner" : "admin",
+      "createdAt" : "Sat Sep 09 2017 01:10:13 GMT+0000 (UTC)",
+      "rows" : 3,
+      "columns" : 3,
+      "status" : "current",
+      "marker" : "default",
+      "tiles" : [
+        {
+          "id" : "scene6_tile1",
+          "user" : "new_user",
+          "createdAt" : 1504919560803,
+          "posX" : 1,
+          "posY" : 1,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504919560565.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene6_tile2",
+          "user" : "new_user",
+          "createdAt" : 1505156975067,
+          "posX" : 1,
+          "posY" : 2,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1505156974650.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene6_tile3",
+          "user" : "admin",
+          "createdAt" : "Sat Sep 09 2017 01:10:13 GMT+0000 (UTC)",
+          "posX" : 1,
+          "posY" : 3,
+          "url" : "/img/add.png",
           "clean" : "true",
           "working" : "false",
           "saved" : "false"
         },
         {
-          "id" : "scene4_tile9",
+          "id" : "scene6_tile4",
+          "user" : "new_user",
+          "createdAt" : 1504919742614,
+          "posX" : 2,
+          "posY" : 1,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1504919742337.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene6_tile5",
+          "user" : "new_user",
+          "createdAt" : 1505157104475,
+          "posX" : 2,
+          "posY" : 2,
+          "url" : "https://s3-us-west-2.amazonaws.com/invisiart/drawings/1505157104223.png",
+          "clean" : "false",
+          "working" : "false",
+          "saved" : "true"
+        },
+        {
+          "id" : "scene6_tile6",
           "user" : "admin",
-          "createdAt" : "Sun Sep 03 2017 03:57:38 GMT+0000 (UTC)",
+          "createdAt" : "Sat Sep 09 2017 01:10:13 GMT+0000 (UTC)",
+          "posX" : 2,
+          "posY" : 3,
+          "url" : "/img/add.png",
+          "clean" : "true",
+          "working" : "false",
+          "saved" : "false"
+        },
+        {
+          "id" : "scene6_tile7",
+          "user" : "admin",
+          "createdAt" : "Sat Sep 09 2017 01:10:13 GMT+0000 (UTC)",
+          "posX" : 3,
+          "posY" : 1,
+          "url" : "/img/add.png",
+          "clean" : "true",
+          "working" : "false",
+          "saved" : "false"
+        },
+        {
+          "id" : "scene6_tile8",
+          "user" : "admin",
+          "createdAt" : "Sat Sep 09 2017 01:10:13 GMT+0000 (UTC)",
+          "posX" : 3,
+          "posY" : 2,
+          "url" : "/img/add.png",
+          "clean" : "true",
+          "working" : "false",
+          "saved" : "false"
+        },
+        {
+          "id" : "scene6_tile9",
+          "user" : "admin",
+          "createdAt" : "Sat Sep 09 2017 01:10:13 GMT+0000 (UTC)",
           "posX" : 3,
           "posY" : 3,
-          "url" : "img/add.png",
+          "url" : "/img/add.png",
           "clean" : "true",
           "working" : "false",
           "saved" : "false"

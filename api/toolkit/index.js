@@ -54,7 +54,7 @@ function loadCanvas(req, res) {
               if ( sceneIsFull(currentScene) &&  !intermediateScene ){
               // if ( sceneIsFull(currentScene) ){
                   console.log("THIS SHOULD ONLY FIRE WHEN THE LAST ITEM ON A CANVAS IS SELECTED")
-                  results.scenes[currentID].status = "saved";
+                  //results.scenes[currentID].status = "archived";
                   let newScene = generateNewScene(currentScene.id);
                   results.scenes.push(newScene)
                   artData().updateOne({"_id": sceneID}, results )
@@ -87,7 +87,7 @@ function getIDs(result){
 
   for (var i = 0; i < result.scenes.length; i++) {
     if (result.scenes[i].status === "current") currentID = i;
-    // if (result.scenes[i].status === "intermediate") intermediateID = i;
+    if (result.scenes[i].status === "intermediate") intermediateID = i;
   }
   if (intermediateID){
     return intermediateID;
@@ -112,8 +112,8 @@ function generateNewScene(id){
       "owner" : "admin",
       "createdAt" : currentTime,
       "rows" : 3,
-      "columns" : 4,
-      "status" : "current",
+      "columns" : 3,
+      "status" : "intermediate",
       "marker" : "default",
       "tiles" : [
         {
@@ -209,39 +209,6 @@ function generateNewScene(id){
           "user" : "admin",
           "createdAt" : currentTime,
           "posX" : 3,
-          "posY" : 3,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile10",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 4,
-          "posY" : 1,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile11",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 4,
-          "posY" : 2,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile12",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 4,
           "posY" : 3,
           "url" : AVAILABLE_ICON,
           "clean" : "true",
