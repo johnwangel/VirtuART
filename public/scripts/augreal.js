@@ -130,11 +130,8 @@ window.augreal = function(photoData) {
   var squareWidth = 1;
   var squareHeight = 1;
 
-  var gridSquaresX = 4;
-  var gridSquaresY = 1;
-
-  // var imageArray = ["../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/../img/ian.gif", "../img/kristin.png","../img/lolcat.jpg", "../img/sparky.jpg", "../img/add.png", "../img/keith.jpg", "../img/liz.jpg", "../img/ian.gif", "../img/kristin.png", "../img/oksana.jpg"];
-
+  // var gridSquaresX = 4;
+  // var gridSquaresY = 1;
 
   var imageArray = photoData;
 
@@ -154,8 +151,10 @@ function renderGrid(squareWidth, rows, columns){
     }
   }
 
-  ourGrid.position.x = squareWidth/2 - gridWidth/2;
-  ourGrid.position.z = squareWidth/2 - gridHeight/2;
+  // ourGrid.position.x = squareWidth/2 - gridWidth/2;
+  // ourGrid.position.z = squareWidth/2 - gridHeight/2;
+  ourGrid.position.x = -gridWidth/3;
+  ourGrid.position.z = -gridHeight/3;
   arWorldRoot.add(ourGrid);
 }
 
