@@ -15,7 +15,7 @@
   <div class="banner" ng-controller="MenuController">
     <!-- <div class="logo"> -->
     <img class="logoImage" src="./img/logo.png" alt="InvisiARt">
-<!--       <span class="invisi">Invisi</span><strong><span class="ar">AR</span></strong><span class="t">t</span> -->
+    <span class="user" ng-if="user.username">Welcome {{user.username}}!</span>
     <!-- </div> -->
 
     <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon" >

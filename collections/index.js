@@ -14,5 +14,4 @@ MongoClient.connect(mongoConnectionString, function(err, connectedDb) {
 module.exports = {
   artData: () => artData,
   users: () => users
-
 };

@@ -1,5 +1,7 @@
 angular.module("myApp").service("UsersService", [ "$http", function($http) {
 
+    const userInfo = { username: '', id: '' };
+
     function getTiles(){
         return $http.get('/api/home')
         .then( allImages => {
@@ -39,14 +41,23 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
       }
 
       function register(user) {
-        console.log("this is the user we are receiving on our register service", user);
-        return $http.post('/api/register').then(Users => {
-          console.log(Users);
-          return Users.data;
+        return $http({
+          method: 'POST',
+          url: '/api/register/',
+          data: {
+                  username : user.username,
+                  password : user.password
+                }
+        })
+        .then( user => {
+          userInfo.username = user.data.username;
+          userInfo.id = user.data._id;
+          return user.data;
         });
       }
 
     return {
+      userInfo : userInfo,
       getTiles: getTiles,
       checkTile: checkTile,
       getHistory: getHistory,

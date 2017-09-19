@@ -9,7 +9,6 @@ myApp.controller('MainHomeController', [
   'UsersService',
   function($scope, $location, UsersService) {
     $scope.currentPhotos = [];
-    $scope.userLoggedIn = false;
 
     $scope.addBtn = function() {
       $location.path('/selection');
@@ -39,9 +38,5 @@ myApp.controller('MainHomeController', [
       window.augreal(urlList);
       waitForElementToDisplay('video', 5000)
     });
-
-
-
-
   }
 ]);
