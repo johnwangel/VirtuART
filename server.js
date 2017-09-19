@@ -11,8 +11,7 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
-// const db= require('./collections/index.js');
-// const users = require("./collections/index.js").users;
+const { userdb }  = require('./collections/');
 
 app.use(express.static('public'));
 app.use(bodyParser.json({limit: '50mb'}));
@@ -25,21 +24,21 @@ app.use(session({
   saveUninitialize: false
 }));
 
-app.use('/api', api);
-
 passport.serializeUser(function(user, done){
   done(null, user.id);
 });
+
 passport.deserializeUser(function(id, done) {
   return (users
       .findById(id)
-      //we will not have to worry about the users model as of now since we are using MONGO!
       .then(user => done(null, user))
       .catch(err => done(err)) );
 });
+
 passport.use(
   new LocalStrategy((username, password, done) => {
-    users.findOne({ where: { username: username } }).then(user => {
+    userdb().findOne( { username: username } )
+    .then( user => {
       if (user === null) {
         return done(null, false, {
           message: "Incorrect username or password."
@@ -56,13 +55,31 @@ passport.use(
               });
             }
           })
-          .catch(err => {
-            console.log("error: ", err);
-          });
       }
+    })
+    .catch(err => {
+      console.log("error: ", err);
     });
   })
 );
+
+app.post('/api/login/', function (req, res, next) {
+  passport.authenticate("local", function(err, user, info) {
+    if (err) {
+      console.log("GETTING TO ERROR IN LOGIN")
+      return res.status(500).json({ err });
+    }
+    if (!user) {
+      console.log("USER NOT FOUND IN LOGIN")
+      return res.status(401).json({ success: false });
+    }
+    let { _id, username } = user;
+    let loggedInUser = { _id, username };
+    return res.json(loggedInUser);
+  })(req, res, next);
+});
+
+app.use('/api', api);
 
 app.get('*', function(req, res){
   res.redirect('/');

@@ -13,36 +13,21 @@
 <body ng-app="myApp">
 
   <div class="banner" ng-controller="MenuController">
-    <!-- <div class="logo"> -->
     <img class="logoImage" src="./img/logo.png" alt="InvisiARt">
     <span class="user" ng-if="user.username">Welcome {{user.username}}!</span>
-    <!-- </div> -->
-
     <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon" >
 
     <div id="dropDownMenu" class="dropDownMenu" ng-if="menuOpen" ng-class="{menuFixed: fixedNeeded, menuAbsolute: !fixedNeeded}">
-
-        <!-- KEEP FOR WHEN WE DO USERS -->
-        <a id="menu-login" ng-if="!userLoggedIn" ng-href="/login"  ng-click="hideMenu()">Login</a>
-        <a id="menu-register" ng-if="!userLoggedIn" ng-href="/register"  ng-click="hideMenu()">Register</a>
-
-        <a id="menu-logout" ng-if="userLoggedIn" ng-href="/logout" ng-click="hideMenu()">Logout</a>
-
-
-        <!--<a id="menu-about-the-art" class="menuItem" ng-href="/aboutTheArt" ng-click="hideMenu()">About the Art</a> -->
-
-        <a id="menu-home" class="menuItem" ng-href="/" ng-click="hideMenu()">Home</a>
-
-        <a id="menu-about-us" class="menuItem" ng-href="/aboutus" ng-click="hideMenu()">About Us</a>
-
-        <a id="menu-how-to-use" class="menuItem" ng-href="/howtouse" ng-click="hideMenu()">How to Use</a>
-
-        <a id="menu-history" class="menuItem" ng-href="/history" ng-click="hideMenu()">Archived Art Walls</a>
-
+      <a id="menu-login" ng-if="!userLoggedIn" ng-href="/login"  ng-click="hideMenu()">Login</a>
+      <a id="menu-register" ng-if="!userLoggedIn" ng-href="/register"  ng-click="hideMenu()">Register</a>
+      <a id="menu-logout" ng-if="userLoggedIn" ng-href="/logout" ng-click="hideMenu()">Logout</a>
+      <!--<a id="menu-about-the-art" class="menuItem" ng-href="/aboutTheArt" ng-click="hideMenu()">About the Art</a> -->
+      <a id="menu-home" class="menuItem" ng-href="/" ng-click="hideMenu()">Home</a>
+      <a id="menu-about-us" class="menuItem" ng-href="/aboutus" ng-click="hideMenu()">About Us</a>
+      <a id="menu-how-to-use" class="menuItem" ng-href="/howtouse" ng-click="hideMenu()">How to Use</a>
+      <a id="menu-history" class="menuItem" ng-href="/history" ng-click="hideMenu()">Archived Art Walls</a>
     </div>
-
   </div>
-
   <div ng-view></div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>

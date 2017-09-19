@@ -2,6 +2,7 @@ var myApp = angular.module('myApp');
 
 myApp.controller(
   'RegisterController', ['$scope', '$location', 'UsersService', function($scope, $location, UsersService) {
+  $scope.user = { username: '', password: '' }
   window.disableCamera();
 
   $scope.register = function() {

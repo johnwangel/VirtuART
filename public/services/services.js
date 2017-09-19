@@ -28,15 +28,22 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
         })
       }
 
-      function login(username, password) {
-        console.log('login');
+      function login(user) {
+        const { username, password } = user;
         const credentials = {
           username: username,
           password: password
         };
-        return $http.post('/api/login').then(allUsers => {
-          console.log('this is our users', allUsers);
-          return allUsers.data;
+        return $http({
+          method: 'POST',
+          url: '/api/login/',
+          data: credentials
+        })
+        .then( user => {
+          console.log( "USER FROM LOGIN SERVICE ", user.data )
+          userInfo.username = user.data.username;
+          userInfo.id = user.data._id;
+          return user.data;
         });
       }
 
