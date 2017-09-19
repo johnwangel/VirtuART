@@ -4,6 +4,7 @@ myApp.controller('MenuController', ['$scope', '$location', '$window', function($
 
     $scope.menuOpen = false;
     $scope.fixedNeeded = false;
+    $scope.userLoggedIn = false;
 
     $scope.toggleMenu = function(){
 

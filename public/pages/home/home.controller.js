@@ -9,6 +9,7 @@ myApp.controller('MainHomeController', [
   'UsersService',
   function($scope, $location, UsersService) {
     $scope.currentPhotos = [];
+    $scope.userLoggedIn = false;
 
     $scope.addBtn = function() {
       $location.path('/selection');
