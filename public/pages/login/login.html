@@ -1,10 +1,10 @@
-<div class="main_body"">
-  <h1>LOGIN</h1>
-  <a ng-href="/home"><button>cancel</button></a>
-  <br>
-  <input type="text" placeholder="username" ng-model="user.username">
-  <input type="text" placeholder="password" ng-model="user.password">
-  <button ng-click="login()">Login</button>
-  <h3>Need an account?</h3>
-  <a ng-href="/register"><button>Create New Account</button></a>
+<div class="log_body"">
+  <h1 class="log_head">Login</h1>
+  <input class="log_input" type="text" placeholder="username" ng-model="user.username">
+  <input class="log_input" type="password" placeholder="password" ng-model="user.password">
+  <span class="log_message" ng-if="user.message">{{user.message}}</span>
+  <button class="log_button" ng-click="login()">Login</button>
+  <a ng-href="/home"><button class="log_button">Cancel</button></a>
+  <h2 class="log_head2">Need an account?</h2>
+  <a ng-href="/register"><button class="log_button" >Create New Account</button></a>
 </div>

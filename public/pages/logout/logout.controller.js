@@ -8,5 +8,4 @@ myApp.controller(
     window.disableCamera();
 
     return UsersService.logoutUser();
-
 }]);

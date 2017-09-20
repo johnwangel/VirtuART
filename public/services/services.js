@@ -1,6 +1,6 @@
 angular.module("myApp").service("UsersService", [ "$http", function($http) {
 
-    const userInfo = { username: '', id: '' };
+    const userInfo = { username: '', id: '', message: '' };
 
     function getTiles(){
         return $http.get('/api/home')
@@ -40,10 +40,15 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
           data: credentials
         })
         .then( user => {
-          console.log( "USER FROM LOGIN SERVICE ", user.data )
           userInfo.username = user.data.username;
           userInfo.id = user.data._id;
           return user.data;
+        })
+        .catch( err => {
+          userInfo.username = '';
+          userInfo.id = '';
+          userInfo.message = "Username/Password combo not recognized.";
+          return err.data;
         });
       }
 
