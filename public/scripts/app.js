@@ -40,6 +40,10 @@ myApp
           templateUrl:'../pages/login/login.html',
           controller:'LoginController'
         })
+        .when('/logout', {
+          templateUrl:'../pages/logout/logout.html',
+          controller:'LogoutController'
+        })
         .otherwise({ redirectTo: '/' });
       $locationProvider.html5Mode(true);
     }

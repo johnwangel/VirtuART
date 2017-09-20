@@ -63,13 +63,20 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
         });
       }
 
+      function logoutUser(){
+        userInfo.username = '';
+        userInfo.id = '';
+        return userInfo;
+      }
+
     return {
       userInfo : userInfo,
       getTiles: getTiles,
       checkTile: checkTile,
       getHistory: getHistory,
       login: login,
-      register: register
+      register: register,
+      logoutUser: logoutUser
     };
   }
 ]);

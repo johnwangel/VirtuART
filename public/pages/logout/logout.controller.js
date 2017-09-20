@@ -1,16 +1,12 @@
-angular.module('myApp')
-.controller('LogoutController', ['$scope', 'UsersService', '$window', function($scope, UsersService, $window){
-  $scope.logout = function (){
-    console.log('triggering logout button functionality');
-    UsersService.logoutUser()
-    .then(result => {
-      console.log('coming back from controller', result);
-      localStorage.loggedInUserId = null;
-      localStorage.loggedIn = false;
+var myApp = angular.module('myApp');
 
-      console.log('logging out', localStorage.loggedInUserId);
+myApp.controller(
+  'LogoutController', ['$scope', '$location', 'UsersService',
+  function($scope, $location, UsersService){
 
-      $window.location.href="/login";
-    });
-  }
+    $scope.user = { username: '', password: '' }
+    window.disableCamera();
+
+    return UsersService.logoutUser();
+
 }]);

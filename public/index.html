@@ -18,9 +18,9 @@
     <img src="./img/menu.png" ng-click="toggleMenu()" alt="" class="menuIcon" >
 
     <div id="dropDownMenu" class="dropDownMenu" ng-if="menuOpen" ng-class="{menuFixed: fixedNeeded, menuAbsolute: !fixedNeeded}">
-      <a id="menu-login" ng-if="!userLoggedIn" ng-href="/login"  ng-click="hideMenu()">Login</a>
-      <a id="menu-register" ng-if="!userLoggedIn" ng-href="/register"  ng-click="hideMenu()">Register</a>
-      <a id="menu-logout" ng-if="userLoggedIn" ng-href="/logout" ng-click="hideMenu()">Logout</a>
+      <a id="menu-login" ng-if="!user.username" ng-href="/login"  ng-click="hideMenu()">Login</a>
+      <a id="menu-register" ng-if="!user.username" ng-href="/register" ng-click="hideMenu()">Register</a>
+      <a id="menu-logout" ng-if="user.username" ng-href="/logout" ng-click="hideMenu()">Logout</a>
       <!--<a id="menu-about-the-art" class="menuItem" ng-href="/aboutTheArt" ng-click="hideMenu()">About the Art</a> -->
       <a id="menu-home" class="menuItem" ng-href="/" ng-click="hideMenu()">Home</a>
       <a id="menu-about-us" class="menuItem" ng-href="/aboutus" ng-click="hideMenu()">About Us</a>
@@ -39,6 +39,7 @@
   <script src="./services/services.js"></script>
   <script type="text/javascript" src="./pages/home/home.controller.js"></script>
   <script type="text/javascript" src="./pages/login/login.controller.js"></script>
+  <script type="text/javascript" src="./pages/logout/logout.controller.js"></script>
   <script type="text/javascript" src="./pages/menu/menu.controller.js"></script>
   <script type="text/javascript" src="./pages/register/register.controller.js"></script>
   <script type="text/javascript" src="./pages/toolkit/toolkit.controller.js"></script>

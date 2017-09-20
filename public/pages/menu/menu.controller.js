@@ -10,8 +10,6 @@ myApp.controller('MenuController', ['$scope', '$location', '$window', 'UsersServ
 
     $scope.toggleMenu = function(){
 
-      console.log('USER FROM MENU ', $scope.user);
-
       if ($location.path() === '/toolkit'){
         $scope.fixedNeeded = true;
       } else {

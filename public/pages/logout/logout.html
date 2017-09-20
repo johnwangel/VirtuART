@@ -1,5 +1,5 @@
-<div>
-  <h1>LOGOUT</h1>
-  <button ng-click="login()">Login</button>
-  <a ng-href="/home"><button>cancel</button></a>
+<div class="main_body"">
+  <span>Successfully logged out.</span><br/>
+  <a id="menu-home" class="menuItem" ng-href="/">Home</a><br/>
+  <a id="menu-login" ng-if="!user.username" ng-href="/login">Login</a>
 </div>
