@@ -2,6 +2,7 @@
   <h1 class="log_head">Register</h1>
   <input class="log_input" type="text" placeholder="username" ng-model="user.username">
   <input class="log_input" type="password" placeholder="password" ng-model="user.password" >
+  <span class="log_message" ng-if="user.message">{{user.message}}</span>
   <button class="log_button" ng-click="register()">Register</button>
   <a ng-href="/home"><button  class="log_button">Cancel</button></a>
   <h2 class="log_head2">Already have an account?</h2>

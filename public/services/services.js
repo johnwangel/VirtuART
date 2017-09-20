@@ -61,10 +61,17 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
                   password : user.password
                 }
         })
-        .then( user => {
-          userInfo.username = user.data.username;
-          userInfo.id = user.data._id;
-          return user.data;
+        .then( result => {
+          if (result.data.userExists){
+            userInfo.username = '';
+            userInfo.id = '';
+            userInfo.message = 'That username is taken. Please choose a different username.';
+            return result.data;
+          }
+          userInfo.username = result.data.username;
+          userInfo.id = result.data._id;
+          userInfo.message = '';
+          return result.data;
         });
       }
 
