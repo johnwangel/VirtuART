@@ -1,6 +1,4 @@
 /*jshint esversion:6 */
-// console.log('the home controller is running now');
-
 var myApp = angular.module('myApp');
 
 myApp.controller('MainHomeController', [
@@ -11,7 +9,12 @@ myApp.controller('MainHomeController', [
     $scope.currentPhotos = [];
 
     $scope.addBtn = function() {
-      $location.path('/selection');
+      if (UsersService.userInfo.username) {
+        $location.path('/selection');
+      } else {
+        UsersService.userInfo.message = "You must be logged in to create artwork."
+        $location.path('/login');
+      }
     }
 
     function waitForElementToDisplay(selector, time) {

@@ -9,10 +9,12 @@ myApp.controller(
     UsersService.login( $scope.user )
     .then( result => {
       if (result.success === false){
-        $scope.user.message = UsersService.userInfo.message;
         return;
       }
       $location.path('/home');
     });
   };
+
+  return $scope.user.message = UsersService.userInfo.message;
+
 }]);

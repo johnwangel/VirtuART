@@ -23,6 +23,7 @@ router.post('/', saveDrawing);
 function saveDrawing (req, res) {
   let image = req.body.image;
   let thisID = req.body.thisID;
+  let thisUser = req.body.thisUser;
   let imageBase64String = image.split(',')[1];
   let imageBuffer = new Buffer(imageBase64String, 'base64')
   const params = {
@@ -42,7 +43,6 @@ function saveDrawing (req, res) {
     artData().findOne({ "scenes.tiles.id": thisID })
     .then( response => {
       let updateData = getUpdateData(response, thisID);
-      console.log("UPDATE DATA", updateData);
       if (updateData.sceneStatus === "intermediate"){
         //change previous scene status to archived
         response.scenes[updateData.sceneIndex - 1].status = "archived";
@@ -52,7 +52,7 @@ function saveDrawing (req, res) {
       let sceneID = response._id;
       let myTile = response.scenes[updateData.sceneIndex].tiles[updateData.tileIndex];
       myTile.id = thisID;
-      myTile.user = "new_user";
+      myTile.user = thisUser;
       myTile.createdAt = time;
       myTile.url = `https://s3-us-west-2.amazonaws.com/invisiart/drawings/${url}`;
       myTile.clean = "false";

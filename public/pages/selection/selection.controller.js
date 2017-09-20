@@ -20,8 +20,6 @@ myApp.controller('SelectionController', [
 
       return UsersService.checkTile(thisID)
         .then(response => {
-          console.log('coming back from check tile service', response);
-
           if (response === 'false'){
 
             let alertModal = document.createElement('div');

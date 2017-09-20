@@ -1,5 +1,5 @@
 angular.module('myApp')
-.service('ToolkitService', ['$http', function($http) {
+.service('ToolkitService', ['$http', 'UsersService', function($http, UsersService) {
 
   let currentColor = "black";
   let currentStrokeWidth = '10px';
@@ -25,6 +25,8 @@ angular.module('myApp')
 
     function postImage(base64) {
       let thisID = localStorage.getItem("currentID");
+      let thisUser = UsersService.userInfo.username;
+      console.log("USERNAME FROM TOOLKIT ", thisUser);
       const config = {
         method: "POST",
         url: "/api/drawings",
@@ -33,11 +35,11 @@ angular.module('myApp')
         },
         data: JSON.stringify({
           image: base64,
-          thisID: thisID
+          thisID: thisID,
+          thisUser: thisUser
         })
       };
       return $http(config).then(response => {
-        console.log('getting to http config');
         return response;
       });
     }
