@@ -8,7 +8,7 @@ myApp.controller(
  $scope.login = function() {
     UsersService.login( $scope.user )
     .then( result => {
-      if (result.success === false){
+      if (!result.success === null || result.success === false){
         return;
       }
       $location.path('/home');
