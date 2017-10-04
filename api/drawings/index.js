@@ -83,5 +83,4 @@ function getUpdateData(response, thisID){
   }
 }
 
-
 module.exports = router;

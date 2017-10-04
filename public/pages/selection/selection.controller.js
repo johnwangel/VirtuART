@@ -45,11 +45,8 @@ myApp.controller('SelectionController', [
             document.body.appendChild(alertModal);
 
             function removeAlertModal(){
-              console.log('running remove function');
               let alertDivs = document.querySelectorAll('.notAvailableModal');
-              console.log('these are alertDivs', alertDivs);
               if(alertDivs.length > 0){
-                console.log('inside alert divs if');
                 alertDivs.forEach(modal => {
                   modal.style.display = 'none';
                 })

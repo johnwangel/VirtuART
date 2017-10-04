@@ -6,7 +6,6 @@ angular.module('myApp')
 
     function getCanvas() {
       let thisID = localStorage.getItem('currentID');
-      console.log("FROM GET CANVAS", thisID);
       return $http.get("/api/toolkit").then(canvas => {
         return canvas.data;
       });
@@ -26,7 +25,6 @@ angular.module('myApp')
     function postImage(base64) {
       let thisID = localStorage.getItem("currentID");
       let thisUser = UsersService.userInfo.username;
-      console.log("USERNAME FROM TOOLKIT ", thisUser);
       const config = {
         method: "POST",
         url: "/api/drawings",

@@ -104,119 +104,44 @@ function sceneIsFull(currentScene){
 function generateNewScene(id){
   let oldID = Number(id.split('').splice(5).join(''));
   let newID = ++oldID;
-
   let currentTime = Date();
+  let rows = 3;
+  let columns = 3;
 
   return {
       "id" : "scene" + newID,
       "owner" : "admin",
       "createdAt" : currentTime,
-      "rows" : 3,
-      "columns" : 3,
+      "rows" : rows,
+      "columns" : columns,
       "status" : "intermediate",
       "marker" : "default",
-      "tiles" : [
-        {
-          "id" : "scene" + String(newID) + "_tile1",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 1,
-          "posY" : 1,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile2",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 1,
-          "posY" : 2,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile3",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 1,
-          "posY" : 3,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile4",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 2,
-          "posY" : 1,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile5",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 2,
-          "posY" : 2,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile6",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 2,
-          "posY" : 3,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile7",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 3,
-          "posY" : 1,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile8",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 3,
-          "posY" : 2,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        },
-        {
-          "id" : "scene" + String(newID) + "_tile9",
-          "user" : "admin",
-          "createdAt" : currentTime,
-          "posX" : 3,
-          "posY" : 3,
-          "url" : AVAILABLE_ICON,
-          "clean" : "true",
-          "working" : "false",
-          "saved" : "false"
-        }
-      ]
+      "tiles" : createTiles(String(newID), rows, columns)
     }
+}
+
+function createTiles(id, rows, columns){
+  let tileObj = [];
+  let count = 1;
+  let currentTime = Date();
+
+  for (var i = 1; i <= rows; i++) {
+    for (var j = 1; j <= columns; j++) {
+      tileObj.push({
+          "id" : `scene${id}_tile${count}`,
+          "user" : "admin",
+          "createdAt" : currentTime,
+          "posX" : i,
+          "posY" : j,
+          "url" : AVAILABLE_ICON,
+          "clean" : "true",
+          "working" : "false",
+          "saved" : "false"
+      });
+      count++;
+    }
+  }
+  return tileObj;
 }
 
 module.exports = router;
