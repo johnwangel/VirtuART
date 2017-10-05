@@ -2,12 +2,17 @@ var myApp = angular.module("myApp");
 
 myApp.controller("ToolkitController", [
   "$scope",
+  "$rootScope",
   "$location",
   "$window",
   "ToolkitService",
+  "UsersService",
   "$timeout",
-  function($scope, $location, $window, ToolkitService, $timeout) {
-    $scope.image = "";
+  function($scope, $rootScope, $location, $window, ToolkitService, UsersService, $timeout) {
+    $rootScope.imageForDB = '';
+    $rootScope.imageDrawn = false;
+
+    $scope.image = '';
 
     $scope.drawingStateArr = [];
 
@@ -17,6 +22,8 @@ myApp.controller("ToolkitController", [
     $scope.lastColor = 'black'
 
     $scope.modalShow = false;
+
+    $scope.loginModalShow = false;
 
     $scope.progressActive = false;
 
@@ -57,7 +64,6 @@ myApp.controller("ToolkitController", [
       let thisID = localStorage.getItem('currentID');
       ToolkitService.cancelCanvas(thisID)
       .then( result => {
-        console.log(result);
         $window.location.href = '/';
       })
     }
@@ -65,20 +71,42 @@ myApp.controller("ToolkitController", [
     $scope.getPNG = function() {
 
       var canvas = document.getElementById("canvas");
-      var image = canvas.toDataURL('image/png', 1.0);
-      ToolkitService.postImage(image).then(result => {
-        localStorage.setItem('currentID', '');
-      });
+
+      $rootScope.imageForDB = canvas.toDataURL('image/png', 1.0);
+      $rootScope.imageDrawn = true;
 
       $scope.modalShow = true;
       $scope.progressActive = true;
 
       $timeout(function(){
-        // $scope.modalShow = false;
-        // console.log('modal show', $scope.modalShow);
-        $window.location.href = '/';
+        $scope.modalShow = false;
+        if (!UsersService.userInfo.username) {
+          $scope.loginModalShow = true;
+        } else {
+          ToolkitService.postImage($rootScope.imageForDB).then(result => {
+            localStorage.setItem('currentID', '');
+            $rootScope.imageForDB = '';
+            $location.path('/');
+            $scope.loginModalShow = false;
+          });
+        }
       }, 1800);
+
     };
+
+    $scope.noToReg = function() {
+      ToolkitService.postImage($rootScope.imageForDB).then(result => {
+        localStorage.setItem('currentID', '');
+        $rootScope.imageForDB = '';
+        $rootScope.imageDrawn = false;
+      });
+      $window.location.href = '/';
+      $scope.loginModalShow = false;
+    }
+
+    $scope.yesToReg = function() {
+      $location.path('/login');
+    }
 
     $scope.setColor = function (target, color) {
       for (var x in $scope.colors){
@@ -100,7 +128,6 @@ myApp.controller("ToolkitController", [
     $scope.setStrokeWidth = function (target) {
       let newStrokeWidth = ToolkitService.setStrokeWidth(target);
       $scope.currentStrokeWidth = newStrokeWidth;
-      console.log('from controller scope width', $scope.currentStrokeWidth);
 
       for (var x in $scope.brushes){
         $scope.brushes[x] = false;
@@ -112,14 +139,11 @@ myApp.controller("ToolkitController", [
         $scope.lastBrush = target;
       }
 
-      console.log('here are our brushes', $scope.brushes);
-
     }
 
     $scope.setTransparency = function (transparency) {
       let newTransparency = ToolkitService.setTransparency(transparency);
       $scope.transparency = newTransparency;
-      console.log('new transparency', newTransparency);
     }
 
     $scope.clearCanvas = function(){
