@@ -1,6 +1,6 @@
 {
-  "name": "virtuart",
-  "version": "0.0.1",
+  "name": "invisiart",
+  "version": "1.0.0",
   "description": "Virtual art canvas for community art piece.",
   "main": "server.js",
   "scripts": {
