@@ -562,9 +562,9 @@ input[type="range"]::-ms-thumb {
 
 .savingPopup {
   background-color: white;
-  width: 60%;
+  width: 260px;
   height: 130px;
-  margin: 62% auto;
+  margin: 220px auto;
   padding: 30px;
   text-align: left;
   border-radius: 3px; }
@@ -846,6 +846,16 @@ h1 {
   left: 0;
   right: 0;
   z-index: 1000;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   width: 100%;
   height: 100%;
   overflow: auto; }
@@ -886,9 +896,9 @@ h1 {
 
 .loginPopup {
   background-color: white;
-  width: 67%;
+  width: 260px;
   height: 195px;
-  margin: 55% auto;
+  margin: 220px auto;
   padding: 20px 30px;
   text-align: justify;
   border-radius: 3px; }
@@ -897,3 +907,65 @@ h1 {
   line-height: 20px;
   vertical-align: center;
   font-size: 15px; }
+
+.introPopUpModal {
+  position: fixed;
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition-property: opacity;
+  transition-duration: 1s;
+  opacity: 1; }
+
+.introPopUpModalOpacity {
+  opacity: 0; }
+
+.introPopUpModalHidden {
+  display: none; }
+
+.introPopUp {
+  background-color: white;
+  width: 235px;
+  margin: 220px auto;
+  padding: 20px 30px;
+  text-align: center;
+  border-radius: 3px;
+  opacity: .7; }
+
+.introPopUpMsg {
+  line-height: 20px;
+  vertical-align: center;
+  font-size: 15px;
+  text-align: justify; }
+
+.introPopUpImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 3px;
+  margin: 20px auto 10px auto; }
+
+.closeBtn {
+  position: relative;
+  top: -20px;
+  right: -30px;
+  width: 30px;
+  height: 31px;
+  background-color: grey;
+  font-size: 26px;
+  padding: 0;
+  line-height: 21px;
+  padding-right: 5px;
+  text-align: right;
+  border-radius: 2px 2px 2px 20px;
+  padding-top: 1px;
+  opacity: 1.7;
+  color: black;
+  z-index: 1000;
+  float: right; }

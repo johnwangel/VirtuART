@@ -4,13 +4,27 @@ var myApp = angular.module('myApp');
 myApp.controller('MainHomeController', [
   '$scope',
   '$location',
+  '$timeout',
   'UsersService',
-  function($scope, $location, UsersService) {
+  function($scope, $location, $timeout, UsersService) {
     $scope.currentPhotos = [];
+    $scope.introPopUpOpen = true;
+
+    $scope.closeIntroPopUp = function(){
+      $scope.introPopUpOpen = false;
+    }
 
     $scope.addBtn = function() {
         $location.path('/selection');
     }
+
+    $timeout(function(){
+      document.getElementById('introPopUpModal').classList.add('introPopUpModalOpacity');
+    }, 7000);
+
+    $timeout(function(){
+      $scope.introPopUpOpen = false;
+    }, 8000);
 
     function waitForElementToDisplay(selector, time) {
         if(document.querySelector(selector)!=null) {

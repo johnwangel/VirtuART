@@ -1,3 +1,10 @@
+<div id="introPopUpModal" class="introPopUpModal" ng-class="{introPopUpModalShowing: introPopUpOpen, introPopUpModalHidden: !introPopUpOpen}">
+  <div class="introPopUp">
+    <div class="closeBtn" ng-click="closeIntroPopUp()">&times</div>
+    <p class="introPopUpMsg">To check out the AR art wall, point your camera at this marker:</p>
+    <img class="introPopUpImg" src="../../img/invisiart_marker.jpg">
+  </div>
+</div>
 <div id="canvas_body" class="main_body">
   <div id="canvasContainer">
     <canvas id="cameraCanvas"></canvas>
