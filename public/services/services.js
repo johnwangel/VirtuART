@@ -42,6 +42,8 @@ angular.module("myApp").service("UsersService", [ "$http", function($http) {
         .then( user => {
           userInfo.username = user.data.username;
           userInfo.id = user.data._id;
+
+
           return user.data;
         })
         .catch( err => {

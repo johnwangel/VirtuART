@@ -1,3 +1,12 @@
+<div class="loginModal" ng-class="{loginModalShowing: loginModalShow, loginModalHidden: !loginModalShow}">
+  <div class="loginPopup">
+    <p class="loginMessage">Would you like to log in or register? Registering allows you to save your work and create your own art walls.</p>
+    <div class="loginPageBtns">
+      <div class="loginPageBtn yesBtn" ng-click="yesToReg()">Yes</div>
+      <div class="loginPageBtn noBtn" ng-click="noToReg()">No, thanks</div>
+    </div>
+  </div>
+</div>
 <div class="savingModal" ng-class="{savingModalShowing: modalShow, savingModalHidden: !modalShow}">
   <div class="savingPopup">
     <p class="savingMessage">Saving ...</p>

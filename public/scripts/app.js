@@ -72,8 +72,6 @@ myApp
 
         scope.drawingStateArr.push(initialCanvasData);
 
-        console.log('state array length', scope.drawingStateArr.length);
-
       // var drawingState = element[0].toDataURL('image/png', 1.0);
 
 
@@ -164,7 +162,6 @@ myApp
       });
 
       element.bind('mouseup', function(event){
-        console.log('firing mouseup');
         // stop drawing
         drawing = false;
 
@@ -194,7 +191,6 @@ myApp
 
       element.bind('touchend', function(event){
 
-        console.log('firing TOUCHEND');
         // stop drawing
         drawing = false;
 
@@ -216,7 +212,6 @@ myApp
           scope.drawingStateArr.push(canvasData);
         // }
 
-        console.log('now sopce array length', scope.drawingStateArr.length);
 
       });
 

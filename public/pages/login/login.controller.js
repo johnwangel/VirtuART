@@ -1,7 +1,7 @@
 
 angular.module('myApp');
 myApp.controller(
-  'LoginController', ['$scope', '$location', 'UsersService', function($scope, $location, UsersService) {
+  'LoginController', ['$scope', '$rootScope', '$location', 'UsersService', 'ToolkitService', function($scope, $rootScope, $location, UsersService, ToolkitService) {
   $scope.user = { username: '', password: '', message: '' };
   window.disableCamera();
 
@@ -11,6 +11,15 @@ myApp.controller(
       if (!result.success === null || result.success === false){
         return;
       }
+
+      if ($rootScope.imageDrawn === true) {
+        ToolkitService.postImage($rootScope.imageForDB).then(result => {
+          localStorage.setItem('currentID', '');
+          $rootScope.imageForDB = '';
+          $rootScope.imageDrawn = false;
+        });
+      }
+
       $location.path('/home');
     });
   };

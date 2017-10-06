@@ -9,12 +9,7 @@ myApp.controller('MainHomeController', [
     $scope.currentPhotos = [];
 
     $scope.addBtn = function() {
-      if (UsersService.userInfo.username) {
         $location.path('/selection');
-      } else {
-        UsersService.userInfo.message = "You must be logged in to create artwork."
-        $location.path('/login');
-      }
     }
 
     function waitForElementToDisplay(selector, time) {
@@ -39,7 +34,7 @@ myApp.controller('MainHomeController', [
         return allTiles.url;
       });
       window.augreal(urlList);
-      waitForElementToDisplay('video', 5000)
+      // waitForElementToDisplay('video', 5000)
     });
   }
 ]);
