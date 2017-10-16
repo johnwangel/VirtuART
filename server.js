@@ -21,7 +21,8 @@ app.use(session({
   store: new RedisStore(),
   secret: 'keyboard cat',
   resave: false,
-  saveUninitialize: false
+  saveUninitialized: true,
+  cookie: { secure: true }
 }));
 
 passport.serializeUser(function(user, done){

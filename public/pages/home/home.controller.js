@@ -19,7 +19,9 @@ myApp.controller('MainHomeController', [
     }
 
     $timeout(function(){
-      document.getElementById('introPopUpModal').classList.add('introPopUpModalOpacity');
+      if (document.getElementById('introPopUpModal')) {
+        document.getElementById('introPopUpModal').classList.add('introPopUpModalOpacity');
+      }
     }, 7000);
 
     $timeout(function(){

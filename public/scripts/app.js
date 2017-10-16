@@ -92,8 +92,12 @@ myApp
 
       element.bind('mousedown', function(event){
 
-        lastX = event.offsetX;
-        lastY = event.offsetY;
+        lastX = (event.clientX - rect.left)*scaleX;
+        lastY = (event.clientY - rect.top)*scaleY;
+
+        console.log('EVENT', event);
+        console.log('client x and y ', event.clientX, event.clientY);
+        console.log('offset x and y ', event.offsetX, event.offsetY);
 
         // begins new line
         ctx.beginPath();
@@ -134,8 +138,8 @@ myApp
       element.bind('mousemove', function(event){
         if(drawing){
           // get current mouse position
-          currentX = event.offsetX;
-          currentY = event.offsetY;
+          currentX = (event.clientX - rect.left) * scaleX;
+          currentY = (event.clientY - rect.top) * scaleY;
 
 
           draw(lastX, lastY, currentX, currentY);
