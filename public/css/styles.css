@@ -258,7 +258,7 @@ form * {
 @media (min-width: 730px) {
   #canvas {
     width: 100vw;
-    height: 50vw; } }
+    height: 70%; } }
 
 .drawingTools {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
