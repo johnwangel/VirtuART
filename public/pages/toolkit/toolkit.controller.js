@@ -95,13 +95,17 @@ myApp.controller("ToolkitController", [
     };
 
     $scope.noToReg = function() {
+      console.log('GAUNTLET 1: NO TO REG')
       ToolkitService.postImage($rootScope.imageForDB).then(result => {
+        console.log('GAUNTLET 7: RETURNING TO CONTROLLER ', result)
         localStorage.setItem('currentID', '');
         $rootScope.imageForDB = '';
         $rootScope.imageDrawn = false;
+        $location.path('/');
+        $scope.loginModalShow = false;
       });
-      $window.location.href = '/';
-      $scope.loginModalShow = false;
+      // $window.location.href = '/';
+      // $scope.loginModalShow = false;
     }
 
     $scope.yesToReg = function() {

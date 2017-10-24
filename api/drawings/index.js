@@ -21,6 +21,7 @@ const s3 = new AWS.S3();
 router.post('/', saveDrawing);
 
 function saveDrawing (req, res) {
+  console.log('GAUNTLET 3: SAVE DRAWING', req.data)
   let image = req.body.image;
   let thisID = req.body.thisID;
   let thisUser = req.body.thisUser;
@@ -39,6 +40,7 @@ function saveDrawing (req, res) {
   s3.upload(params, function(err, output){
     if (err) res.send(err);
     let url = params.Key.split('/')[1];
+    console.log('GAUNTLET 4: SAVED TO AWS - URL: ', url)
     let time = Date.now();
     artData().findOne({ "scenes.tiles.id": thisID })
     .then( response => {
@@ -61,6 +63,7 @@ function saveDrawing (req, res) {
       response.scenes[updateData.sceneIndex].tiles[updateData.tileIndex] = myTile;
       artData().updateOne({"_id": sceneID}, response )
       .then(response => {
+        console.log('GAUNTLET 5: RETURNED FROM DB: ', response)
         res.send(response);
       })
     })

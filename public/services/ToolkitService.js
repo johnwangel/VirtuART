@@ -23,6 +23,7 @@ angular.module('myApp')
     }
 
     function postImage(base64) {
+      console.log('GAUNTLET 2: POST IMAGE', base64);
       let thisID = localStorage.getItem("currentID");
       let thisUser = UsersService.userInfo.username;
       const config = {
@@ -38,6 +39,7 @@ angular.module('myApp')
         })
       };
       return $http(config).then(response => {
+        console.log('GAUNTLET 6: RETURNING FROM DB: ', response)
         return response;
       });
     }
