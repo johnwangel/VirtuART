@@ -26,7 +26,7 @@ myApp.controller('MainHomeController', [
 
     $timeout(function(){
       $scope.introPopUpOpen = false;
-    }, 8000);
+    }, 10000);
 
     function waitForElementToDisplay(selector, time) {
         if(document.querySelector(selector)!=null) {
